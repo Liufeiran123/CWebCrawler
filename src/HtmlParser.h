@@ -18,21 +18,16 @@ public:
 	HtmlParser();
 	virtual ~HtmlParser();
 public:
-	  void parseText ();
-	  // enter a comment
-	  void parseComment ();
-	  // enter a tag
-	  void parseTag ();
-	  // enter a tag content
-	  void parseContent (int action);
 
-	  void SetBuffer(char *b);
+	//提取文本
+	  void parseText (){}
+	//提取URL，添加到URLQueue中
+	  void parseURL ();
+protected:
+
+	  void SetBuffer()
+
 private:
-	  // parsing position
-	  char *posParse;
-	  // current position in the buffer
-	  uint pos;
-	  // data buffer
 	  string data_buffer;
 public:
 		int open(void*)

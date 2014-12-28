@@ -56,7 +56,7 @@ private:
 	char* data;
 };
 
-class Fetcher : public chajian {
+class Fetcher : public MessageComponent {
 public:
 	Fetcher();
 	virtual ~Fetcher();
