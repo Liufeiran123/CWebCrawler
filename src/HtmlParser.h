@@ -13,7 +13,7 @@
 
 using namespace std;
 
-class HtmlParser : public ACE_Task<ACE_NULL_SYNCH>, MessageComponent {
+class HtmlParser :  public ACE_Task<ACE_NULL_SYNCH>, MessageComponent {
 public:
 	HtmlParser();
 	virtual ~HtmlParser();
