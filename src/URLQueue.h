@@ -19,11 +19,11 @@ public:
 	virtual ~URL_Queue();
 private:
 	queue<string> m_q;
-	ACE_Thread_Mutex mutex_;
+	ACE_Recursive_Thread_Mutex mutex_;
 public:
 	void insert_queue(string s);
 	string pop_queue();
-	int isEmpty();
+	bool isEmpty();
 };
 
 

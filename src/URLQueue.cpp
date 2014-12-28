@@ -24,17 +24,21 @@ void URL_Queue::insert_queue(string s)
 }
 string URL_Queue::pop_queue()
 {
+	string a = "URl_QUEUE is Empty";
 	mutex_.acquire();
-	string a = m_q.front();
-	m_q.pop();
+	if(isEmpty() == false)
+	{
+		a = m_q.front();
+		m_q.pop();
+	}
 	mutex_.release();
 	return a;
 }
 
-int URL_Queue::isEmpty()
+bool URL_Queue::isEmpty()
 {
 	mutex_.acquire();
-	int a = m_q.empty();
+	bool a = m_q.empty();
 	mutex_.release();
 	return a;
 }
