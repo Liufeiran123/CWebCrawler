@@ -23,3 +23,12 @@ void Crawler_Thread::StartGetURL()
 	cond.signal();
 	mutex.release();
 }
+
+
+void Crawler_Thread::call(string/*插件方法名*/ a,void * b,void* c,void *d,void*e,void *f,void* g/*函数返回值*/)
+{
+	if(a == "StartGetURL")
+	{
+		StartGetURL();
+	}
+}

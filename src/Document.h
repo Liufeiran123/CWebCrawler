@@ -20,6 +20,7 @@ private:
 public:
 	void append(unsigned char* a,int asize);
 	int getDoc(unsigned char*a);
+	int getSize(){return size;}
 };
 
 #endif /* DOCUMENT_H_ */

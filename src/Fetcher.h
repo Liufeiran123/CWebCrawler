@@ -40,20 +40,29 @@ public:
 		return 0;
 	}
 */
+	void handle_rawdata();
+
 	int handle_input(ACE_HANDLE)
 	{
-	//After using the peer() method of ACE_Svc_Handler to obtain a
-	//reference to the underlying stream of the service handler class
-	//we call recv_n() on it to read the data which has been received.
-	//This data is stored in the data array and then printed out
-		ACE_OS::printf("lfrdreamman");
-	//keep yourself registered with the reactor
+		int size1 = peer().recv(tempdata,1024);
+		if(size1 <= 0)
+		{
+			peer().close();
+			handle_rawdata();
+			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL);
+			return -1;
+		}
+		tempdata[size1] = '\0';
+		memcpy(data+size,tempdata,size1);
+		size += size1;
 		return 0;
 	}
 
 	int handle_close()
 private:
-	char* data;
+	char tempdata[1024];
+	char data[1024*1024];
+	int size;
 };
 
 class Fetcher : public MessageComponent {
@@ -69,6 +78,7 @@ private:
 
 public:
 	void MakeRequest(string ip,string host,string path);
+	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void* h/*函数返回值*/);
 };
 
 #endif /* FETCHER_H_ */
