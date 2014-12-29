@@ -64,3 +64,21 @@ int HTTP_URL::gethostaddr()
     m_netaddr = hp->h_addr;
     return 0;
 }
+
+string & HTTP_URL::getip()
+{
+	return m_netaddr;
+}
+
+string & HTTP_URL::gethost()
+{
+	return host;
+}
+string & HTTP_URL::getFile()
+{
+	return m_file;
+}
+
+
+
+

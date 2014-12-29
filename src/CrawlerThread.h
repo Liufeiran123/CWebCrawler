@@ -8,7 +8,9 @@
 #ifndef CRAWLERTHREAD_H_
 #define CRAWLERTHREAD_H_
 
-#include <ace/Task_T.h>
+#include "ace/Thread_Mutex.h"
+#include "ace/Condition_T.h"
+#include "ace/Task_T.h"
 #include "MessageComponent.h"
 #include "URLQueue.h"
 
@@ -44,7 +46,12 @@ public:
 			{
 				string url = URL_Queue_Singleton::instance()->pop_queue();
 				HTTP_URL hu(url);
-
+				hu.URLParser();
+				int ret = hu.gethostaddr();
+				if(ret == -1)
+				{
+					continue;
+				}
 				mutex.acqure();
 				while(value == 0)
 				{
@@ -54,7 +61,7 @@ public:
 				mutex.release();
 
 				//发送请求
-
+				MessageBus::getInstance()->call(2,"MakeRequest",(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,NULL);
 			}
 		}
 	}

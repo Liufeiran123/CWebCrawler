@@ -17,6 +17,10 @@ int main()
 	ACE_NEW_RETURN(reactor, ACE_Reactor(reactor_impl, 1), -1);
 	ACE_Reactor::instance(reactor);
 
+
+	CrawlerEntity ce;
+
+
 	TP_Task tp(1);
 	tp.start();
 	int a;

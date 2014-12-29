@@ -8,7 +8,10 @@
 #ifndef CRAWLERENTITY_H_
 #define CRAWLERENTITY_H_
 
-#include "chajian.h"
+#include "CrawlerThread.h"
+#include "DocQueue.h"
+#include "Fetcher.h"
+#include "HtmlParser.h"
 
 class CrawlerEntity{
 public:

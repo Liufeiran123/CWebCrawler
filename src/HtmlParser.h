@@ -62,6 +62,7 @@ public:
 					MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,addr);
 					pp = (Document*)addr;
 					int s = pp->getDoc(text);
+					Mem_Pool<Document*>::getInstance()->freeObject(pp);
 					text[s]='\0';
 					data_buffer = text;
 					try
@@ -78,12 +79,12 @@ public:
 							if(it->isTag() && (it->tagName() == string("a") || it->tagName() == string("style")))
 							{
 								//   printf("skip\n");
-								   it.skip_children();
-								   continue;
-							}
-							if ((!it->isTag()) && (!it->isComment()))
-							{
-								cout<<it->text();
+								   if(it->isTag() && (it->tagName() == string("script") || it->tagName() == string("style")))
+								   {
+									//   printf("skip\n");
+									   it->parseAttribute();
+									   URL_Queue_Singleton::instance()->insert_queue(it->attributes("href"));
+								   }
 							}	 // cout<<it->text();
 						}
 					} catch (exception &e) {

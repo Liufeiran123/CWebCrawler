@@ -32,6 +32,11 @@ private:
 public:
 	void URLParser();
 	int gethostaddr();
+
+	string & getip();
+
+	string & gethost();
+	string & getFile();
 };
 
 #endif /* HTTPURL_H_ */

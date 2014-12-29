@@ -68,11 +68,11 @@ Fetcher::~Fetcher() {
 	// TODO Auto-generated destructor stub
 }
 
-virtual void Fetcher::call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void* h/*函数返回值*/)
+virtual void Fetcher::call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,unsigned long& h/*函数返回值*/)
 {
 	if(a == "MakeRequest")
 	{
-		MakeRequest(*v,*d,*e);
+		MakeRequest((char*)v,(char*)d,(char*)e);
 	}
 }
 
