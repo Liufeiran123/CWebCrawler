@@ -8,7 +8,7 @@
 class TP_Task :  public ACE_Task
 {
 public:
-	TP_Task(ACE_Reactor * r, int t_num);
+	TP_Task(int t_num);
 	virtual ~TP_Task(void);
 public:
 	virtual int svc();

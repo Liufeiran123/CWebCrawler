@@ -42,3 +42,19 @@ bool DocQueue::isEmpty()
 	mutex_.release();
 	return a;
 }
+
+void DocQueue::call(string/*插件方法名*/ a,void *b,void *c,void *d,void* e,void *f,unsigned long &retvaladdr/*函数返回值*/)
+{
+	if(a == string("insert_queue"))
+	{
+		insert_queue((Document*)b);
+	}
+	else if(a == string("pop_queue"))
+	{
+		retvaladdr = (unsigned long)pop_queue();
+	}
+	else if(a == string("isEmpty"))
+	{
+		retvaladdr = (unsigned long)&isEmpty();
+	}
+}

@@ -9,6 +9,18 @@
 
 CrawlerEntity::CrawlerEntity() {
 	// TODO Auto-generated constructor stub
+	Crawler_Thread *ct = new Crawler_Thread;
+	Fetcher *fe = new Fetcher;
+	DocQueue *dq = new DocQueue;
+	HtmlParser* hp = new HtmlParser;
+
+
+	MessageBus::getInstance()->add(1,dynamic_cast<MessageComponent*>(ct));
+	MessageBus::getInstance()->add(2,dynamic_cast<MessageComponent*>(fe));
+	MessageBus::getInstance()->add(3,dynamic_cast<MessageComponent*>(dq));
+	MessageBus::getInstance()->add(4,dynamic_cast<MessageComponent*>(hp));
+
+
 
 }
 

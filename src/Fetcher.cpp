@@ -61,6 +61,7 @@ void My_Svc_Handler::handle_rawdata()
 Fetcher::Fetcher() {
 	// TODO Auto-generated constructor stub
 	handler= new My_Svc_Handler();
+	MessageBus::getInstance()->add(5,dynamic_cast<MessageComponent*>(handler));
 }
 
 Fetcher::~Fetcher() {

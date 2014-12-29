@@ -2,8 +2,7 @@
 #include "LoggerMacro.h"
 
 
-TP_Task::TP_Task(ACE_Reactor * r, int t_num)
-		: Kernel_Task(r)
+TP_Task::TP_Task(int t_num)
 {
 	thread_number = t_num;
 }

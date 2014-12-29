@@ -14,6 +14,12 @@ class CrawlerEntity{
 public:
 	CrawlerEntity();
 	virtual ~CrawlerEntity();
+private:
+	Crawler_Thread *ct;
+	Fetcher *fe;
+	DocQueue *dq;
+	HtmlParser* hp;
+
 };
 
 #endif /* CRAWLERENTITY_H_ */

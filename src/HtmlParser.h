@@ -29,6 +29,10 @@ protected:
 
 private:
 	  string data_buffer;
+
+	  HTML::ParserDom parser;
+	  tree<HTML::Node> tr;
+
 public:
 		int open(void*)
 		{
@@ -44,9 +48,57 @@ public:
 		}
 		int svc(void)
 		{
+			Document *pp;
+			char text[1024*1024];
 
-			return 0;
-		}
+			while(1)
+			{
+				unsigned long addr;
+				MessageBus::getInstance()->call(3,"isEmpty",NULL,NULL,NULL,NULL,NULL,addr);
+				bool retval = *(bool*)addr;
+				if(!retval)
+				{
+					memset(text,0,1024*1024);
+					MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,addr);
+					pp = (Document*)addr;
+					int s = pp->getDoc(text);
+					text[s]='\0';
+					data_buffer = text;
+					try
+					{
+						parser.parse(data_buffer);
+						tr = parser.getTree();
+							//cout << tr << endl;
+						tree<HTML::Node>::iterator it = tr.begin();
+						tree<HTML::Node>::iterator end = tr.end();
+
+						for(; it != end; ++it)
+						{
+								//  printf("the tagname is %s\n",it->tagName().c_str());
+							if(it->isTag() && (it->tagName() == string("a") || it->tagName() == string("style")))
+							{
+								//   printf("skip\n");
+								   it.skip_children();
+								   continue;
+							}
+							if ((!it->isTag()) && (!it->isComment()))
+							{
+								cout<<it->text();
+							}	 // cout<<it->text();
+						}
+					} catch (exception &e) {
+						cerr << "Exception " << e.what() << " caught" << endl;
+						//exit(1);
+					} catch (...) {
+						cerr << "Unknow exception caught " << endl;
+					}
+				}
+				else
+				{
+					sleep(3);
+				}
+				return 0;
+			}
 };
 
 #endif /* HTMLPARSER_H_ */

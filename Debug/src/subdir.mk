@@ -4,16 +4,52 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/HostManager.cpp \
-../src/crawler.cpp 
+../src/CrawlerEntity.cpp \
+../src/CrawlerThread.cpp \
+../src/DocQueue.cpp \
+../src/Document.cpp \
+../src/Fetcher.cpp \
+../src/HTTPURL.cpp \
+../src/HtmlParser.cpp \
+../src/MemPool.cpp \
+../src/MessageBus.cpp \
+../src/MessageComponent.cpp \
+../src/RingBuffer.cpp \
+../src/TP_Task.cpp \
+../src/URLQueue.cpp \
+../src/mainfile.cpp 
 
 OBJS += \
-./src/HostManager.o \
-./src/crawler.o 
+./src/CrawlerEntity.o \
+./src/CrawlerThread.o \
+./src/DocQueue.o \
+./src/Document.o \
+./src/Fetcher.o \
+./src/HTTPURL.o \
+./src/HtmlParser.o \
+./src/MemPool.o \
+./src/MessageBus.o \
+./src/MessageComponent.o \
+./src/RingBuffer.o \
+./src/TP_Task.o \
+./src/URLQueue.o \
+./src/mainfile.o 
 
 CPP_DEPS += \
-./src/HostManager.d \
-./src/crawler.d 
+./src/CrawlerEntity.d \
+./src/CrawlerThread.d \
+./src/DocQueue.d \
+./src/Document.d \
+./src/Fetcher.d \
+./src/HTTPURL.d \
+./src/HtmlParser.d \
+./src/MemPool.d \
+./src/MessageBus.d \
+./src/MessageComponent.d \
+./src/RingBuffer.d \
+./src/TP_Task.d \
+./src/URLQueue.d \
+./src/mainfile.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
