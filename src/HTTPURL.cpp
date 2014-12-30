@@ -7,6 +7,7 @@
 
 #include "HTTPURL.h"
 #include "netdb.h"
+#include "python2.7/Python.h"
 
 HTTP_URL::HTTP_URL(string url) {
 	// TODO Auto-generated constructor stub

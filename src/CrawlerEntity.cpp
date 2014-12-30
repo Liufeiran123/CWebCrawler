@@ -6,6 +6,7 @@
  */
 
 #include "CrawlerEntity.h"
+#include "MessageBus.h"
 
 CrawlerEntity::CrawlerEntity() {
 	// TODO Auto-generated constructor stub
@@ -19,8 +20,6 @@ CrawlerEntity::CrawlerEntity() {
 	MessageBus::getInstance()->add(2,dynamic_cast<MessageComponent*>(fe));
 	MessageBus::getInstance()->add(3,dynamic_cast<MessageComponent*>(dq));
 	MessageBus::getInstance()->add(4,dynamic_cast<MessageComponent*>(hp));
-
-
 
 }
 

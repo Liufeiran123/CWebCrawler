@@ -22,7 +22,6 @@ private:
 	Fetcher *fe;
 	DocQueue *dq;
 	HtmlParser* hp;
-
 };
 
 #endif /* CRAWLERENTITY_H_ */

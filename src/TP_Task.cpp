@@ -1,6 +1,4 @@
-#include ".\tp_task.h"
-#include "LoggerMacro.h"
-
+#include "TP_Task.h"
 
 TP_Task::TP_Task(int t_num)
 {
@@ -9,13 +7,14 @@ TP_Task::TP_Task(int t_num)
 
 TP_Task::~TP_Task(void)
 {
+
 }
 
 int TP_Task::svc()
 {
 // 	ACE_DEBUG((LM_DEBUG,
 // 		ACE_TEXT("(%t) Runing the event loop\n")));         //by fzq
-	LOGGER->AddLogger(LT_DEBUG_TIP,ACE_TEXT("Runing the event loop\n")) ;
+	//LOGGER->AddLogger(LT_DEBUG_TIP,ACE_TEXT("Runing the event loop\n")) ;
 
 	sem_.release(1);
 
@@ -30,7 +29,7 @@ int TP_Task::svc()
 // 					ACE_TEXT("(%t) %p\n"),
 // 					ACE_TEXT("Error handling event")),
 // 					0);                                      //by fzq
-				LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("Error handling event")) ;
+		//		LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("Error handling event")) ;
 				return 0 ;
 // 				ACE_DEBUG((LM_DEBUG,
 // 					ACE_TEXT("(%t) Done handling events.\n")));  //by fzq
@@ -50,7 +49,7 @@ int TP_Task::start()
 // 							ACE_TEXT ("%p.\n"),
 // 							ACE_TEXT ("unable to activate thread pool")),
 // 							-1);                            //by fzq
-		LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("unable to activate thread pool")) ;
+	//	LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("unable to activate thread pool")) ;
 		return -1 ;		
 	}
 

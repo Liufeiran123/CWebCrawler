@@ -9,9 +9,10 @@
 #define MEMPOOL_H_
 
 #include <ace/Malloc_T.h>
+#include "MessageComponent.h"
 
 template<class T>
-class Mem_Pool: public ACE_Cached_Allocator<T,ACE_Thread_Mutex> ,MessageComponent{
+class Mem_Pool: public ACE_Cached_Allocator<T,ACE_Thread_Mutex> ,public MessageComponent{
 protected:
 	Mem_Pool(int size);
 	virtual ~Mem_Pool();

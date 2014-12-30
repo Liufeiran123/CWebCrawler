@@ -8,24 +8,24 @@
 #ifndef HTMLPARSER_H_
 #define HTMLPARSER_H_
 
-#include <ace/Task_T.h>
+#include "ace/Task_T.h"
 #include <string>
+#include "ParserDom.h"
+#include "utils.h"
+#include "Document.h"
+#include "MemPool.h"
+#include <exception>
+#include <iostream>
+#include "MessageBus.h"
+#include "URLQueue.h"
 
 using namespace std;
+using namespace htmlcxx;
 
-class HtmlParser :  public ACE_Task<ACE_NULL_SYNCH>, MessageComponent {
+class HtmlParser :  public ACE_Task<ACE_NULL_SYNCH>, public MessageComponent {
 public:
 	HtmlParser();
 	virtual ~HtmlParser();
-public:
-
-	//提取文本
-	  void parseText (){}
-	//提取URL，添加到URLQueue中
-	  void parseURL ();
-protected:
-
-	  void SetBuffer()
 
 private:
 	  string data_buffer;
@@ -34,6 +34,7 @@ private:
 	  tree<HTML::Node> tr;
 
 public:
+		virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,unsigned long &/*函数返回值*/);
 		int open(void*)
 		{
 			ACE_DEBUG((LM_DEBUG,"(%t) Active Object opened \n"));
@@ -61,8 +62,8 @@ public:
 					memset(text,0,1024*1024);
 					MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,addr);
 					pp = (Document*)addr;
-					int s = pp->getDoc(text);
-					Mem_Pool<Document*>::getInstance()->freeObject(pp);
+					int s = pp->getDoc((unsigned char*)text);
+					Mem_Pool<Document>::getInstance()->freeObject(pp);
 					text[s]='\0';
 					data_buffer = text;
 					try
@@ -76,14 +77,13 @@ public:
 						for(; it != end; ++it)
 						{
 								//  printf("the tagname is %s\n",it->tagName().c_str());
-							if(it->isTag() && (it->tagName() == string("a") || it->tagName() == string("style")))
+							if(it->isTag() && (it->tagName() == string("a") || it->tagName() == string("A")))
 							{
-								//   printf("skip\n");
-								   if(it->isTag() && (it->tagName() == string("script") || it->tagName() == string("style")))
+								   it->parseAttributes();
+								   pair<bool,string> ab = it->attribute("href");
+								   if(ab.first == true)
 								   {
-									//   printf("skip\n");
-									   it->parseAttribute();
-									   URL_Queue_Singleton::instance()->insert_queue(it->attributes("href"));
+									   URL_Queue_Singleton::instance()->insert_queue(ab.second);
 								   }
 							}	 // cout<<it->text();
 						}
@@ -98,8 +98,9 @@ public:
 				{
 					sleep(3);
 				}
-				return 0;
 			}
+				return 0;
+		}
 };
 
 #endif /* HTMLPARSER_H_ */

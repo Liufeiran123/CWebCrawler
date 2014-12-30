@@ -16,6 +16,8 @@
 
 #include <string>
 
+#include "MessageBus.h"
+
 using namespace std;
 
 class My_Svc_Handler;
@@ -27,7 +29,7 @@ typedef ACE_Connector<My_Svc_Handler,ACE_SOCK_CONNECTOR> MyConnector;
 //time include the handle_input() method which will be called back
 //automatically by the reactor when new data arrives on the newly
 //established connection
-class My_Svc_Handler: public ACE_Svc_Handler <ACE_SOCK_STREAM,ACE_NULL_SYNCH>, MessageComponent
+class My_Svc_Handler: public ACE_Svc_Handler <ACE_SOCK_STREAM,ACE_NULL_SYNCH>, public MessageComponent
 {
 public:
 	My_Svc_Handler()
@@ -49,7 +51,8 @@ public:
 		{
 			peer().close();
 			handle_rawdata();
-			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL);
+			unsigned long tmp;
+			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,tmp);
 			return -1;
 		}
 		tempdata[size1] = '\0';
@@ -58,11 +61,14 @@ public:
 		return 0;
 	}
 
-	int handle_close()
 private:
 	char tempdata[1024];
 	char data[1024*1024];
 	int size;
+public:
+	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,unsigned long&/*函数返回值*/)
+	{}
+
 };
 
 class Fetcher : public MessageComponent {
@@ -78,7 +84,7 @@ private:
 
 public:
 	void MakeRequest(string ip,string host,string path);
-	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void* h/*函数返回值*/);
+	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,unsigned long&/*函数返回值*/);
 };
 
 #endif /* FETCHER_H_ */

@@ -6,7 +6,10 @@
  *      Author: lfr
  */
 #include <stdio.h>
+#include "ace/Reactor.h"
 #include "ace/Dev_Poll_Reactor.h"
+#include "CrawlerEntity.h"
+#include "TP_Task.h"
 
 
 int main()
@@ -24,6 +27,6 @@ int main()
 	TP_Task tp(1);
 	tp.start();
 	int a;
-	scanf(&a,"%d");
-	return 0
+	scanf("%d",&a);
+	return 0;
 }

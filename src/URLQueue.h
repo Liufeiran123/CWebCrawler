@@ -10,6 +10,8 @@
 
 #include <queue>
 #include <string>
+#include "ace/Recursive_Thread_Mutex.h"
+#include "ace/Singleton.h"
 
 using namespace std;
 
@@ -29,19 +31,4 @@ public:
 
 typedef ACE_Unmanaged_Singleton<URL_Queue,ACE_Null_Mutex> URL_Queue_Singleton;
 
-/*#include "iostream"
-#include "queue"
-using namespace std;
-int main()
-{
-queue<int> q;
-q.push(3);
-q.push(12);
-while(!q.empty()){
-cout<<q.front()<<endl;
-q.pop();
-}
-return 1;
-}
-*/
 #endif /* URLQUEUE_H_ */

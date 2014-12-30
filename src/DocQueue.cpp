@@ -55,6 +55,7 @@ void DocQueue::call(string/*插件方法名*/ a,void *b,void *c,void *d,void* e,
 	}
 	else if(a == string("isEmpty"))
 	{
-		retvaladdr = (unsigned long)&isEmpty();
+		bool bb = isEmpty();
+		retvaladdr = (unsigned long)&bb;
 	}
 }

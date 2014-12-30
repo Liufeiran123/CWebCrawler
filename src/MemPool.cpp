@@ -7,7 +7,7 @@
 
 #include "MemPool.h"
 
-template<T>
+template<typename T>
 Mem_Pool<T> *Mem_Pool<T>::mp = NULL;
 
 template<class T>

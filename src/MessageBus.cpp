@@ -6,6 +6,7 @@
  */
 
 #include "MessageBus.h"
+#include "MessageComponent.h"
 
 MessageBus *MessageBus::mb = 0;
 
@@ -24,19 +25,21 @@ MessageBus* MessageBus::getInstance()
 	{
 		return mb;
 	}
-	mb = new MessageBUs();
+	mb = new MessageBus();
 	return mb;
 }
 
-void MessageBus::add(int id,zhajian* a)
+void MessageBus::add(int id,MessageComponent* a)
 {
 	m_test[id] = a;
 }
-void MessageBus::call(int id,string name,void* d)
+void MessageBus::call(int id,string name,void* d,void* t,void *f,void* g,void *e,unsigned long& c)
 {
-	map<int,zhajian*>::iterator iter = m_test.find(id);
+	map<int,MessageComponent*>::iterator iter = m_test.find(id);
 	if(iter != m_test.end())
 	{
-		iter->second->call(name,d);
+		unsigned long tmp;
+		iter->second->call(name,d,t,f,g,e,tmp);
+		c = tmp;
 	}
 }

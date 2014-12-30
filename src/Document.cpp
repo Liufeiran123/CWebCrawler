@@ -6,6 +6,7 @@
  */
 
 #include "Document.h"
+#include <string.h>
 
 Document::Document():size(0) {
 	// TODO Auto-generated constructor stub

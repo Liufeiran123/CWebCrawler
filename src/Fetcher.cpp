@@ -7,6 +7,9 @@
 
 #include <stdio.h>
 #include "Fetcher.h"
+#include "Document.h"
+#include "MemPool.h"
+#include <string.h>
 
 void My_Svc_Handler::handle_rawdata()
 {
@@ -16,7 +19,7 @@ void My_Svc_Handler::handle_rawdata()
 		char *p = strstr(data,"<!DOCTYPE"); //html text data
 
 		char tempdata1[2*1024];  //应答头
-		memset(tempdata1,0,2*1024)
+		memset(tempdata1,0,2*1024);
 		memcpy(tempdata1,data,p-data);
 
 		char *p1 = strstr(tempdata1,"Content-Length");
@@ -24,7 +27,7 @@ void My_Svc_Handler::handle_rawdata()
 		if(p1 != NULL)
 		{
 			//写入MEM——POOL
-			pp->append((unsigned char*)p,size - p -data);
+			pp->append((unsigned char*)p,size - (p -data));
 		}
 		else if(p2 != NULL)
 		{
@@ -52,7 +55,8 @@ void My_Svc_Handler::handle_rawdata()
 	}
 	if(pp->getSize()!=0)
 	{
-		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL);
+		unsigned long tmp;
+		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,tmp);
 		return ;
 	}
 	Mem_Pool<Document>::getInstance()->freeObject(pp);
@@ -68,7 +72,7 @@ Fetcher::~Fetcher() {
 	// TODO Auto-generated destructor stub
 }
 
-virtual void Fetcher::call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,unsigned long& h/*函数返回值*/)
+void Fetcher::call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,unsigned long& h/*函数返回值*/)
 {
 	if(a == "MakeRequest")
 	{
@@ -87,9 +91,9 @@ void Fetcher::MakeRequest(string ip,string host,string path)
 				"Connection: keep-alive\r\n"
 				"\r\n";
 
-	sprintf(request,data,path,host);
+	sprintf(request,data,path.c_str(),host.c_str());
 
-	ACE_INET_Addr addr(80,ip,AF_INET);
+	ACE_INET_Addr addr(80,ip.c_str(),AF_INET);
 
 	//Create the connector
 	MyConnector connector;
@@ -104,6 +108,7 @@ void Fetcher::MakeRequest(string ip,string host,string path)
 	int ret = handler->peer().send(request,strlen(request));
 	if(ret != strlen(request))
 	{
-		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL);
+		unsigned long tmp;
+		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,tmp);
 	}
 }
