@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lACE
+LIBS := -lACE -lhtmlcxx -lpython2.7
 
