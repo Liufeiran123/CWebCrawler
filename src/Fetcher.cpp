@@ -13,7 +13,7 @@
 
 void My_Svc_Handler::handle_rawdata()
 {
-	Document *pp = Mem_Pool<Document>::getInstance()->getObject();
+	Document *pp = Mem_Pool::getInstance()->getObject();
 	if(strncmp(data,"HTTP/1.1 200 OK",15) == 0)
 	{
 		char *p = strstr(data,"<!DOCTYPE"); //html text data
@@ -59,7 +59,7 @@ void My_Svc_Handler::handle_rawdata()
 		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,tmp);
 		return ;
 	}
-	Mem_Pool<Document>::getInstance()->freeObject(pp);
+	Mem_Pool::getInstance()->freeObject(pp);
 }
 
 Fetcher::Fetcher() {

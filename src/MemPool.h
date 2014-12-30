@@ -10,19 +10,19 @@
 
 #include <ace/Malloc_T.h>
 #include "MessageComponent.h"
+#include "Document.h"
 
-template<class T>
-class Mem_Pool: public ACE_Cached_Allocator<T,ACE_Thread_Mutex> ,public MessageComponent{
+class Mem_Pool: public ACE_Cached_Allocator<Document,ACE_Thread_Mutex> {
 protected:
 	Mem_Pool(int size);
 	virtual ~Mem_Pool();
 
 private:
-	static Mem_Pool<T> *mp;
+	static Mem_Pool *mp;
 public:
-	T *getObject();
-	void freeObject(T* a);
-	static Mem_Pool<T> *getInstance();
+	Document *getObject();
+	void freeObject(Document* a);
+	static Mem_Pool *getInstance();
 };
 
 #endif /* MEMPOOL_H_ */

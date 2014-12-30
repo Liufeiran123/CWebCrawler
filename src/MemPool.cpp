@@ -7,38 +7,37 @@
 
 #include "MemPool.h"
 
-template<typename T>
-Mem_Pool<T> *Mem_Pool<T>::mp = NULL;
+Mem_Pool*Mem_Pool::mp = NULL;
 
-template<class T>
-Mem_Pool<T>::Mem_Pool(int size):ACE_Cached_Allocator<T,ACE_Thread_Mutex>(size)
+
+Mem_Pool::Mem_Pool(int size):ACE_Cached_Allocator<Document,ACE_Thread_Mutex>(size)
 {
 	// TODO Auto-generated constructor stub
 
 }
-template<class T>
-Mem_Pool<T>::~Mem_Pool() {
+
+Mem_Pool::~Mem_Pool() {
 	// TODO Auto-generated destructor stub
 }
 
-template<class T>
-T *Mem_Pool<T>::getObject()
+
+Document *Mem_Pool::getObject()
 {
-	return (T*)this->malloc(sizeof(T));
+	return (Document*)this->malloc(sizeof(Document));
 }
-template<class T>
-void Mem_Pool<T>::freeObject(T* a)
+
+void Mem_Pool::freeObject(Document* a)
 {
 	this->free(a);
 }
 
-template<class T>
-Mem_Pool<T>* Mem_Pool<T>::getInstance()
+
+Mem_Pool* Mem_Pool::getInstance()
 {
 	if(mp != NULL)
 	{
 		return mp;
 	}
-	mp = new Mem_Pool<T>(256);
+	mp = new Mem_Pool(256);
 	return mp;
 }

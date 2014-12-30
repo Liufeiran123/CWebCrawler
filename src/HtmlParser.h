@@ -63,7 +63,7 @@ public:
 					MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,addr);
 					pp = (Document*)addr;
 					int s = pp->getDoc((unsigned char*)text);
-					Mem_Pool<Document>::getInstance()->freeObject(pp);
+					Mem_Pool::getInstance()->freeObject(pp);
 					text[s]='\0';
 					data_buffer = text;
 					try
