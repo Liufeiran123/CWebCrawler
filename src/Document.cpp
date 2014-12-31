@@ -30,3 +30,33 @@ int Document::getDoc(unsigned char*a)
 	memcpy(a,buffer,size);
 	return size;
 }
+
+void Document::SetTitle(string t)
+{
+
+
+}
+string Document::GetTitle()
+{
+	if(size != 0)
+	{
+		char *p = strstr((char*)buffer,"<title>");
+		if(p != NULL)
+		{
+			char *t = p;
+			while(*(++t) != '<');
+			char tmp[128];
+			memset(tmp,0,128);
+			memcpy(tmp,p+7,(t-p)-7);
+			return string(tmp);
+		}
+		else
+		{
+			return string("unkowntitle");
+		}
+	}
+	else
+	{
+		return string();
+	}
+}

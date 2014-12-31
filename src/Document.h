@@ -8,6 +8,9 @@
 #ifndef DOCUMENT_H_
 #define DOCUMENT_H_
 
+#include <string>
+
+using namespace std;
 const int max_doc = 1024*1024;
 
 class Document {
@@ -21,6 +24,8 @@ public:
 	void append(unsigned char* a,int asize);
 	int getDoc(unsigned char*a);
 	int getSize(){return size;}
+	void SetTitle(string t);
+	string GetTitle();
 };
 
 #endif /* DOCUMENT_H_ */

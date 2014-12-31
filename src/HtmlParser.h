@@ -16,6 +16,7 @@
 #include "MemPool.h"
 #include <exception>
 #include <iostream>
+#include <fstream>
 #include "MessageBus.h"
 #include "URLQueue.h"
 
@@ -28,7 +29,7 @@ public:
 	virtual ~HtmlParser();
 
 private:
-	  string data_buffer;
+	  string data_buffer;  //html文件内容
 
 	  HTML::ParserDom parser;
 	  tree<HTML::Node> tr;
@@ -68,6 +69,14 @@ public:
 					Mem_Pool::getInstance()->freeObject(pp);
 					text[s]='\0';
 					data_buffer = text;
+					//写入文件
+					string ff= pp->GetTitle();
+					ff.append(".html");
+					string dir = "/home/lfr/workspace3/crawler/Debug/htmldata/";
+					dir+= ff;
+					ofstream fs(dir.c_str());
+					fs<<data_buffer;
+
 					try
 					{
 						parser.parse(data_buffer);
