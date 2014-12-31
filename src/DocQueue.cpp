@@ -43,7 +43,7 @@ bool DocQueue::isEmpty()
 	return a;
 }
 
-void DocQueue::call(string/*插件方法名*/ a,void *b,void *c,void *d,void* e,void *f,unsigned long &retvaladdr/*函数返回值*/)
+void DocQueue::call(string/*插件方法名*/ a,void *b,void *c,void *d,void* e,void *f,void *x,void **xx/*函数返回值*/)
 {
 	if(a == string("insert_queue"))
 	{
@@ -51,11 +51,11 @@ void DocQueue::call(string/*插件方法名*/ a,void *b,void *c,void *d,void* e,
 	}
 	else if(a == string("pop_queue"))
 	{
-		retvaladdr = (unsigned long)pop_queue();
+		*xx  = pop_queue();
 	}
 	else if(a == string("isEmpty"))
 	{
-		bool bb = isEmpty();
-		retvaladdr = (unsigned long)&bb;
+		bool tmp = isEmpty();
+		memcpy(x,&tmp,sizeof(bool));
 	}
 }

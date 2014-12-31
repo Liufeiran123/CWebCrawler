@@ -30,7 +30,7 @@ void Crawler_Thread::StartGetURL()
 }
 
 
-void Crawler_Thread::call(string a,void * b,void* c,void *d,void*e,void *f,unsigned long&)
+void Crawler_Thread::call(string a,void * b,void* c,void *d,void*e,void *f,void *g,void **y)
 {
 	if(a == "StartGetURL")
 	{
@@ -95,8 +95,8 @@ int Crawler_Thread::svc(void)
 				pthread_mutex_unlock(&count_lock);
 
 				//发送请求
-				unsigned long tmp;
-				MessageBus::getInstance()->call(2,"MakeRequest",(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,tmp);
+
+				MessageBus::getInstance()->call(2,"MakeRequest",(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,NULL,NULL);
 			}
 		}
 		return 0;

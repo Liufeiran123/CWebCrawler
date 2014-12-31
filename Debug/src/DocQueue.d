@@ -11,9 +11,8 @@ src/DocQueue.d: ../src/DocQueue.cpp ../src/DocQueue.h \
  /home/lfr/ACE_wrappers/ace/Versioned_Namespace.h \
  /home/lfr/ACE_wrappers/ace/ace_wchar.h \
  /home/lfr/ACE_wrappers/ace/ace_wchar.inl \
- /home/lfr/ACE_wrappers/ace/Trace.h \
- /home/lfr/ACE_wrappers/ace/ACE_export.h \
  /home/lfr/ACE_wrappers/ace/OS_main.h \
+ /home/lfr/ACE_wrappers/ace/ACE_export.h \
  /home/lfr/ACE_wrappers/ace/Auto_Event.h \
  /home/lfr/ACE_wrappers/ace/Event.h \
  /home/lfr/ACE_wrappers/ace/Event_Base.h \
@@ -191,11 +190,9 @@ src/DocQueue.d: ../src/DocQueue.cpp ../src/DocQueue.h \
 
 /home/lfr/ACE_wrappers/ace/ace_wchar.inl:
 
-/home/lfr/ACE_wrappers/ace/Trace.h:
+/home/lfr/ACE_wrappers/ace/OS_main.h:
 
 /home/lfr/ACE_wrappers/ace/ACE_export.h:
-
-/home/lfr/ACE_wrappers/ace/OS_main.h:
 
 /home/lfr/ACE_wrappers/ace/Auto_Event.h:
 

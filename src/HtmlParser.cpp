@@ -17,7 +17,7 @@ HtmlParser::~HtmlParser() {
 }
 
 
-void HtmlParser::call(string/*插件方法名*/,void *,void*,void *,void*,void *,unsigned long &/*函数返回值*/)
+void HtmlParser::call(string/*插件方法名*/,void *,void*,void *,void*,void *,void *,void **/*函数返回值*/)
 {
 
 }
@@ -51,14 +51,12 @@ int HtmlParser::svc(void)
 
 	while(1)
 	{
-		unsigned long addr;
-		MessageBus::getInstance()->call(3,"isEmpty",NULL,NULL,NULL,NULL,NULL,addr);
-		bool retval = *(bool*)addr;
+		bool retval;
+		MessageBus::getInstance()->call(3,"isEmpty",NULL,NULL,NULL,NULL,NULL,&retval,NULL);
 		if(!retval)
 		{
 			memset(text,0,1024*1024);
-			MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,addr);
-			pp = (Document*)addr;
+			MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,NULL,(void**)&pp);
 			int s = pp->getDoc((unsigned char*)text);
 			Mem_Pool::getInstance()->freeObject(pp);
 			text[s]='\0';

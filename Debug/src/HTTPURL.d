@@ -38,7 +38,7 @@ src/HTTPURL.d: ../src/HTTPURL.cpp ../src/HTTPURL.h \
  /home/lfr/ACE_wrappers/ace/OS_NS_string.inl \
  /home/lfr/ACE_wrappers/ace/OS_NS_wchar.h \
  /home/lfr/ACE_wrappers/ace/config-all.h \
- /home/lfr/ACE_wrappers/ace/Trace.h /home/lfr/ACE_wrappers/ace/OS_main.h \
+ /home/lfr/ACE_wrappers/ace/OS_main.h \
  /home/lfr/ACE_wrappers/ace/os_include/os_wchar.h \
  /home/lfr/ACE_wrappers/ace/os_include/os_time.h \
  /home/lfr/ACE_wrappers/ace/os_include/os_string.h \
@@ -175,8 +175,6 @@ src/HTTPURL.d: ../src/HTTPURL.cpp ../src/HTTPURL.h \
 /home/lfr/ACE_wrappers/ace/OS_NS_wchar.h:
 
 /home/lfr/ACE_wrappers/ace/config-all.h:
-
-/home/lfr/ACE_wrappers/ace/Trace.h:
 
 /home/lfr/ACE_wrappers/ace/OS_main.h:
 

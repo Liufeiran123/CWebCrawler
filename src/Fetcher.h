@@ -51,8 +51,7 @@ public:
 		{
 			peer().close();
 			handle_rawdata();
-			unsigned long tmp;
-			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,tmp);
+			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 			return -1;
 		}
 		tempdata[size1] = '\0';
@@ -66,7 +65,7 @@ private:
 	char data[1024*1024];
 	int size;
 public:
-	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,unsigned long&/*函数返回值*/)
+	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void *c,void**p/*函数返回值*/)
 	{}
 
 };
@@ -84,7 +83,7 @@ private:
 
 public:
 	void MakeRequest(string ip,string host,string path);
-	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,unsigned long&/*函数返回值*/);
+	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void *h,void **i/*函数返回值*/);
 };
 
 #endif /* FETCHER_H_ */

@@ -33,13 +33,11 @@ void MessageBus::add(int id,MessageComponent* a)
 {
 	m_test[id] = a;
 }
-void MessageBus::call(int id,string name,void* d,void* t,void *f,void* g,void *e,unsigned long& c)
+void MessageBus::call(int id,string name,void* d,void* t,void *f,void* g,void *e,void *c,void** p)
 {
 	map<int,MessageComponent*>::iterator iter = m_test.find(id);
 	if(iter != m_test.end())
 	{
-		unsigned long tmp;
-		iter->second->call(name,d,t,f,g,e,tmp);
-		c = tmp;
+		iter->second->call(name,d,t,f,g,e,c,p);
 	}
 }

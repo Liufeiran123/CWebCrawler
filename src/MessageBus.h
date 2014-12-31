@@ -26,7 +26,7 @@ public:
 public:
 	map<int,MessageComponent*> m_test;
 	void add(int id,MessageComponent* a);
-    void call(int,string,void *,void*,void *,void*,void *,unsigned long&/*函数返回值*/);
+    void call(int,string,void *,void*,void *,void*,void *,void*,void**/*函数返回值*/);
 };
 
 #endif /* MESSAGEBUS_H_ */

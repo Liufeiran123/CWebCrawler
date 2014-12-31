@@ -24,7 +24,7 @@ public:
 
 public:
 	int svc(void);
-	virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,unsigned long &/*函数返回值*/);
+	virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,void *,void **/*函数返回值*/);
 	void StartGetURL();
 	int start();
 	int stop();

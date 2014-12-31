@@ -55,8 +55,7 @@ void My_Svc_Handler::handle_rawdata()
 	}
 	if(pp->getSize()!=0)
 	{
-		unsigned long tmp;
-		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,tmp);
+		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL,NULL);
 		return ;
 	}
 	Mem_Pool::getInstance()->freeObject(pp);
@@ -72,7 +71,7 @@ Fetcher::~Fetcher() {
 	// TODO Auto-generated destructor stub
 }
 
-void Fetcher::call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,unsigned long& h/*函数返回值*/)
+void Fetcher::call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void *h,void **o/*函数返回值*/)
 {
 	if(a == "MakeRequest")
 	{
@@ -108,7 +107,6 @@ void Fetcher::MakeRequest(string ip,string host,string path)
 	int ret = handler->peer().send(request,strlen(request));
 	if(ret != strlen(request))
 	{
-		unsigned long tmp;
-		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,tmp);
+		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 	}
 }
