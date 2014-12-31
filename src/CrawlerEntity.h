@@ -22,6 +22,9 @@ private:
 	Fetcher *fe;
 	DocQueue *dq;
 	HtmlParser* hp;
+public:
+	void StartEntity();
+
 };
 
 #endif /* CRAWLERENTITY_H_ */

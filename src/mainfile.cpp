@@ -10,6 +10,7 @@
 #include "ace/Dev_Poll_Reactor.h"
 #include "CrawlerEntity.h"
 #include "TP_Task.h"
+#include "URLQueue.h"
 
 
 int main()
@@ -21,11 +22,17 @@ int main()
 	ACE_Reactor::instance(reactor);
 
 
+	URL_Queue_Singleton::instance()->insert_queue("www.163.com");
+
+
 	CrawlerEntity ce;
 
 
 	TP_Task tp(1);
 	tp.start();
+
+	ce.StartEntity();
+
 	int a;
 	scanf("%d",&a);
 	return 0;

@@ -76,6 +76,8 @@ public:
 public:
 	virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,unsigned long &/*函数返回值*/);
 	void StartGetURL();
+	int start();
+	int stop();
 private:
 	int value;
 //	ACE_Thread_Mutex _mutex;

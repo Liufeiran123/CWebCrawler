@@ -21,3 +21,25 @@ void HtmlParser::call(string/*插件方法名*/,void *,void*,void *,void*,void *
 {
 
 }
+
+int HtmlParser::start()
+{
+	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
+	{
+// 		ACE_ERROR_RETURN ((LM_ERROR,
+// 							ACE_TEXT ("%p.\n"),
+// 							ACE_TEXT ("unable to activate thread pool")),
+// 							-1);                            //by fzq
+	//	LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("unable to activate thread pool")) ;
+		return -1 ;
+	}
+
+	return 0;
+}
+
+int HtmlParser::stop()
+{
+
+
+	return 0;
+}

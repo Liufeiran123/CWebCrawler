@@ -27,3 +27,10 @@ CrawlerEntity::~CrawlerEntity() {
 	// TODO Auto-generated destructor stub
 }
 
+
+void CrawlerEntity::StartEntity()
+{
+	ct->start();
+	hp->start();
+
+}

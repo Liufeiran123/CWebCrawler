@@ -37,3 +37,25 @@ void Crawler_Thread::call(string/*插件方法名*/ a,void * b,void* c,void *d,v
 		StartGetURL();
 	}
 }
+
+int Crawler_Thread::start()
+{
+	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
+	{
+// 		ACE_ERROR_RETURN ((LM_ERROR,
+// 							ACE_TEXT ("%p.\n"),
+// 							ACE_TEXT ("unable to activate thread pool")),
+// 							-1);                            //by fzq
+	//	LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("unable to activate thread pool")) ;
+		return -1 ;
+	}
+
+	return 0;
+}
+
+int Crawler_Thread::stop()
+{
+
+
+	return 0;
+}
