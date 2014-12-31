@@ -18,11 +18,11 @@ int TP_Task::svc()
 
 	sem_.release(1);
 
-	if(this->reactor() != 0)
+	if(ACE_Reactor::instance() != 0)
 	{
-		while(this->reactor()->reactor_event_loop_done() == 0)
+		while(ACE_Reactor::instance()->reactor_event_loop_done() == 0)
 		{
-			int result = this->reactor()->run_reactor_event_loop();
+			int result = ACE_Reactor::instance()->run_reactor_event_loop();
 			if (result == -1)
 			{
 // 				ACE_ERROR_RETURN((LM_ERROR, 

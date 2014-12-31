@@ -47,6 +47,7 @@ int Crawler_Thread::start()
 // 							ACE_TEXT ("unable to activate thread pool")),
 // 							-1);                            //by fzq
 	//	LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("unable to activate thread pool")) ;
+		printf("crawler_thread start fail\n");
 		return -1 ;
 	}
 
