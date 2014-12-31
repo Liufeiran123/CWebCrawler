@@ -13,7 +13,7 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
  /home/lfr/ACE_wrappers/ace/ace_wchar.inl \
  /home/lfr/ACE_wrappers/ace/OS_NS_Thread.h \
  /home/lfr/ACE_wrappers/ace/config-all.h \
- /home/lfr/ACE_wrappers/ace/OS_main.h \
+ /home/lfr/ACE_wrappers/ace/Trace.h /home/lfr/ACE_wrappers/ace/OS_main.h \
  /home/lfr/ACE_wrappers/ace/Global_Macros.h \
  /home/lfr/ACE_wrappers/ace/Assert.h \
  /home/lfr/ACE_wrappers/ace/OS_Errno.h \
@@ -398,6 +398,8 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
 /home/lfr/ACE_wrappers/ace/OS_NS_Thread.h:
 
 /home/lfr/ACE_wrappers/ace/config-all.h:
+
+/home/lfr/ACE_wrappers/ace/Trace.h:
 
 /home/lfr/ACE_wrappers/ace/OS_main.h:
 

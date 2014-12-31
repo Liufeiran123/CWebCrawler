@@ -30,7 +30,7 @@ void Crawler_Thread::StartGetURL()
 }
 
 
-void Crawler_Thread::call(string/*插件方法名*/ a,void * b,void* c,void *d,void*e,void *f,unsigned long&/*函数返回值*/)
+void Crawler_Thread::call(string a,void * b,void* c,void *d,void*e,void *f,unsigned long&)
 {
 	if(a == "StartGetURL")
 	{
@@ -40,6 +40,7 @@ void Crawler_Thread::call(string/*插件方法名*/ a,void * b,void* c,void *d,v
 
 int Crawler_Thread::start()
 {
+	printf("ldksks\n");
 	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
 	{
 // 		ACE_ERROR_RETURN ((LM_ERROR,
@@ -51,6 +52,8 @@ int Crawler_Thread::start()
 		return -1 ;
 	}
 
+	printf("ldksks45\n");
+//	printf("lfrdreamman");
 	return 0;
 }
 
@@ -59,4 +62,42 @@ int Crawler_Thread::stop()
 
 
 	return 0;
+}
+
+int Crawler_Thread::svc(void)
+{
+		while(1)
+		{
+		//从URL队列中提取URL
+			if(URL_Queue_Singleton::instance()->isEmpty() !=0 )
+			{
+				ACE_OS::sleep(2);
+			}
+			else
+			{
+				string url = URL_Queue_Singleton::instance()->pop_queue();
+				HTTP_URL hu(url);
+				hu.URLParser();
+				int ret = hu.gethostaddr();
+				if(ret == -1)
+				{
+					continue;
+				}
+				//_mutex.acquire();
+				pthread_mutex_lock(&count_lock);
+				while(value == 0)
+				{
+					//cond.wait();
+					pthread_cond_wait(&count_nonzero, &count_lock);
+				}
+				value =1 ;
+				//_mutex.release();
+				pthread_mutex_unlock(&count_lock);
+
+				//发送请求
+				unsigned long tmp;
+				MessageBus::getInstance()->call(2,"MakeRequest",(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,tmp);
+			}
+		}
+		return 0;
 }

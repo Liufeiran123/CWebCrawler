@@ -15,7 +15,7 @@ src/HtmlParser.d: ../src/HtmlParser.cpp ../src/HtmlParser.h \
  /home/lfr/ACE_wrappers/ace/ACE_export.h \
  /home/lfr/ACE_wrappers/ace/Default_Constants.h \
  /home/lfr/ACE_wrappers/ace/config-all.h \
- /home/lfr/ACE_wrappers/ace/OS_main.h \
+ /home/lfr/ACE_wrappers/ace/Trace.h /home/lfr/ACE_wrappers/ace/OS_main.h \
  /home/lfr/ACE_wrappers/ace/os_include/os_limits.h \
  /home/lfr/ACE_wrappers/ace/os_include/os_unistd.h \
  /home/lfr/ACE_wrappers/ace/os_include/sys/os_types.h \
@@ -314,6 +314,8 @@ src/HtmlParser.d: ../src/HtmlParser.cpp ../src/HtmlParser.h \
 /home/lfr/ACE_wrappers/ace/Default_Constants.h:
 
 /home/lfr/ACE_wrappers/ace/config-all.h:
+
+/home/lfr/ACE_wrappers/ace/Trace.h:
 
 /home/lfr/ACE_wrappers/ace/OS_main.h:
 

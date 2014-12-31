@@ -16,7 +16,7 @@ src/MemPool.d: ../src/MemPool.cpp ../src/MemPool.h \
  /home/lfr/ACE_wrappers/ace/Log_Priority.h \
  /home/lfr/ACE_wrappers/ace/Log_Msg.h \
  /home/lfr/ACE_wrappers/ace/config-all.h \
- /home/lfr/ACE_wrappers/ace/OS_main.h \
+ /home/lfr/ACE_wrappers/ace/Trace.h /home/lfr/ACE_wrappers/ace/OS_main.h \
  /home/lfr/ACE_wrappers/ace/Global_Macros.h \
  /home/lfr/ACE_wrappers/ace/Assert.h \
  /home/lfr/ACE_wrappers/ace/OS_Errno.h \
@@ -181,6 +181,8 @@ src/MemPool.d: ../src/MemPool.cpp ../src/MemPool.h \
 /home/lfr/ACE_wrappers/ace/Log_Msg.h:
 
 /home/lfr/ACE_wrappers/ace/config-all.h:
+
+/home/lfr/ACE_wrappers/ace/Trace.h:
 
 /home/lfr/ACE_wrappers/ace/OS_main.h:
 

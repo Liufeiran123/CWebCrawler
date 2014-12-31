@@ -12,8 +12,9 @@ src/TP_Task.d: ../src/TP_Task.cpp ../src/TP_Task.h \
  /home/lfr/ACE_wrappers/ace/Versioned_Namespace.h \
  /home/lfr/ACE_wrappers/ace/ace_wchar.h \
  /home/lfr/ACE_wrappers/ace/ace_wchar.inl \
- /home/lfr/ACE_wrappers/ace/OS_main.h \
+ /home/lfr/ACE_wrappers/ace/Trace.h \
  /home/lfr/ACE_wrappers/ace/ACE_export.h \
+ /home/lfr/ACE_wrappers/ace/OS_main.h \
  /home/lfr/ACE_wrappers/ace/Reactor_Timer_Interface.h \
  /home/lfr/ACE_wrappers/ace/Time_Value.h \
  /home/lfr/ACE_wrappers/ace/os_include/os_time.h \
@@ -308,9 +309,11 @@ src/TP_Task.d: ../src/TP_Task.cpp ../src/TP_Task.h \
 
 /home/lfr/ACE_wrappers/ace/ace_wchar.inl:
 
-/home/lfr/ACE_wrappers/ace/OS_main.h:
+/home/lfr/ACE_wrappers/ace/Trace.h:
 
 /home/lfr/ACE_wrappers/ace/ACE_export.h:
+
+/home/lfr/ACE_wrappers/ace/OS_main.h:
 
 /home/lfr/ACE_wrappers/ace/Reactor_Timer_Interface.h:
 

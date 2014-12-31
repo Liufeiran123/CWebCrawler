@@ -23,57 +23,7 @@ public:
 	virtual ~Crawler_Thread();
 
 public:
-//Implement the Service Initialization and Termination methods
-	int open(void*)
-	{
-		ACE_DEBUG((LM_DEBUG,"(%t) Active Object opened \n"));
-		//Activate the object with a thread in it.
-		activate();
-		return 0;
-	}
-	int close(u_long)
-	{
-		ACE_DEBUG((LM_DEBUG, "(%t) Active Object being closed down \n"));
-		return 0;
-	}
-	int svc(void)
-	{
-		while(1)
-		{
-		//从URL队列中提取URL
-			if(URL_Queue_Singleton::instance()->isEmpty() !=0 )
-			{
-				ACE_OS::sleep(2);
-			}
-			else
-			{
-				string url = URL_Queue_Singleton::instance()->pop_queue();
-				HTTP_URL hu(url);
-				hu.URLParser();
-				int ret = hu.gethostaddr();
-				if(ret == -1)
-				{
-					continue;
-				}
-				//_mutex.acquire();
-				pthread_mutex_lock(&count_lock);
-				while(value == 0)
-				{
-					//cond.wait();
-					pthread_cond_wait(&count_nonzero, &count_lock);
-				}
-				value =1 ;
-				//_mutex.release();
-				pthread_mutex_unlock(&count_lock);
-
-				//发送请求
-				unsigned long tmp;
-				MessageBus::getInstance()->call(2,"MakeRequest",(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,tmp);
-			}
-		}
-		return 0;
-	}
-public:
+	int svc(void);
 	virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,unsigned long &/*函数返回值*/);
 	void StartGetURL();
 	int start();

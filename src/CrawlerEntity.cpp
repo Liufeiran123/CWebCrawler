@@ -10,10 +10,10 @@
 
 CrawlerEntity::CrawlerEntity() {
 	// TODO Auto-generated constructor stub
-	Crawler_Thread *ct = new Crawler_Thread;
-	Fetcher *fe = new Fetcher;
-	DocQueue *dq = new DocQueue;
-	HtmlParser* hp = new HtmlParser;
+	ct = new Crawler_Thread;
+	fe = new Fetcher;
+	dq = new DocQueue;
+	hp = new HtmlParser;
 
 
 	MessageBus::getInstance()->add(1,dynamic_cast<MessageComponent*>(ct));
@@ -30,7 +30,9 @@ CrawlerEntity::~CrawlerEntity() {
 
 void CrawlerEntity::StartEntity()
 {
+	printf("kkk\n");
 	ct->start();
+	printf("kkk1\n");
 	hp->start();
 
 }

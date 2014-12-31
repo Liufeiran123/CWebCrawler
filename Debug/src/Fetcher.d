@@ -11,8 +11,9 @@ src/Fetcher.d: ../src/Fetcher.cpp ../src/Fetcher.h \
  /home/lfr/ACE_wrappers/ace/Versioned_Namespace.h \
  /home/lfr/ACE_wrappers/ace/ace_wchar.h \
  /home/lfr/ACE_wrappers/ace/ace_wchar.inl \
- /home/lfr/ACE_wrappers/ace/OS_main.h \
+ /home/lfr/ACE_wrappers/ace/Trace.h \
  /home/lfr/ACE_wrappers/ace/ACE_export.h \
+ /home/lfr/ACE_wrappers/ace/OS_main.h \
  /home/lfr/ACE_wrappers/ace/Global_Macros.h \
  /home/lfr/ACE_wrappers/ace/Assert.h \
  /home/lfr/ACE_wrappers/ace/OS_Errno.h \
@@ -361,9 +362,11 @@ src/Fetcher.d: ../src/Fetcher.cpp ../src/Fetcher.h \
 
 /home/lfr/ACE_wrappers/ace/ace_wchar.inl:
 
-/home/lfr/ACE_wrappers/ace/OS_main.h:
+/home/lfr/ACE_wrappers/ace/Trace.h:
 
 /home/lfr/ACE_wrappers/ace/ACE_export.h:
+
+/home/lfr/ACE_wrappers/ace/OS_main.h:
 
 /home/lfr/ACE_wrappers/ace/Global_Macros.h:
 

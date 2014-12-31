@@ -16,8 +16,6 @@ int TP_Task::svc()
 // 		ACE_TEXT("(%t) Runing the event loop\n")));         //by fzq
 	//LOGGER->AddLogger(LT_DEBUG_TIP,ACE_TEXT("Runing the event loop\n")) ;
 
-	sem_.release(1);
-
 	if(ACE_Reactor::instance() != 0)
 	{
 		while(ACE_Reactor::instance()->reactor_event_loop_done() == 0)
@@ -52,10 +50,6 @@ int TP_Task::start()
 	//	LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("unable to activate thread pool")) ;
 		return -1 ;		
 	}
-
-
-	for (; thread_number > 0 ; thread_number--)
-		this->sem_.acquire();
 	
 	return 0;
 }

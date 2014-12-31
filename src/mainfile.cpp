@@ -11,6 +11,7 @@
 #include "CrawlerEntity.h"
 #include "TP_Task.h"
 #include "URLQueue.h"
+#include "CrawlerThread.h"
 
 
 int main()
@@ -24,15 +25,31 @@ int main()
 
 	URL_Queue_Singleton::instance()->insert_queue("www.163.com");
 
-
-	CrawlerEntity ce;
-
-
+	printf("lll1\n");
 	TP_Task tp(1);
 	tp.start();
 
+	printf("lll2\n");
+
+	//Crawler_Thread *ce1 = new Crawler_Thread();
+	//ce1->start();
+	CrawlerEntity ce;
 	ce.StartEntity();
 
+/*	Crawler_Thread *ct = new Crawler_Thread;
+	Fetcher *fe = new Fetcher;
+	DocQueue *dq = new DocQueue;
+	HtmlParser* hp = new HtmlParser;
+
+
+	MessageBus::getInstance()->add(1,dynamic_cast<MessageComponent*>(ct));
+	MessageBus::getInstance()->add(2,dynamic_cast<MessageComponent*>(fe));
+	MessageBus::getInstance()->add(3,dynamic_cast<MessageComponent*>(dq));
+	MessageBus::getInstance()->add(4,dynamic_cast<MessageComponent*>(hp));
+
+	ct->start();
+	hp->start();*/
+	printf("lll3\n");
 	int a;
 	scanf("%d",&a);
 	return 0;

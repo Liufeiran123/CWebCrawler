@@ -15,9 +15,6 @@ public:
 
 	int start();
 	int stop();
-
-public:
-	ACE_Thread_Semaphore sem_;
 private:
 	int thread_number;
 };
