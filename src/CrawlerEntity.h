@@ -24,6 +24,7 @@ private:
 	HtmlParser* hp;
 public:
 	void StartEntity();
+	void InitURL(string filename);
 
 };
 

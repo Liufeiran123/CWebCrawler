@@ -36,3 +36,9 @@ void CrawlerEntity::StartEntity()
 	hp->start();
 
 }
+
+void CrawlerEntity::InitURL(string filename)
+{
+	ifstream
+
+}
