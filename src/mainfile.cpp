@@ -24,7 +24,6 @@ int main()
 	ACE_Reactor::instance(reactor);
 
 
-	URL_Queue_Singleton::instance()->insert_queue("http://www.163.com/");
 
 	printf("lll1\n");
 	TP_Task tp(1);
@@ -35,6 +34,7 @@ int main()
 	//Crawler_Thread *ce1 = new Crawler_Thread();
 	//ce1->start();
 	CrawlerEntity ce;
+	ce.InitURL("/home/lfr/workspace3/crawler/Debug/initurl");
 	ce.StartEntity();
 
 /*	Crawler_Thread *ct = new Crawler_Thread;

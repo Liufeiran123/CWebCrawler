@@ -7,6 +7,11 @@
 
 #include "CrawlerEntity.h"
 #include "MessageBus.h"
+#include <fstream>
+#include <string>
+#include <istream>
+
+using namespace std;
 
 CrawlerEntity::CrawlerEntity() {
 	// TODO Auto-generated constructor stub
@@ -39,6 +44,10 @@ void CrawlerEntity::StartEntity()
 
 void CrawlerEntity::InitURL(string filename)
 {
-	ifstream
-
+	ifstream ifs(filename.c_str());
+	string s;
+	while(getline(ifs,s))
+	{
+		URL_Queue_Singleton::instance()->insert_queue(s.c_str());
+	}
 }
