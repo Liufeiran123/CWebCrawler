@@ -40,9 +40,22 @@ int HtmlParser::start()
 
 int HtmlParser::stop()
 {
-
-
 	return 0;
+}
+
+string &HtmlParser::modifyurl(string &a)
+{
+	int b = string::npos;
+	if((b =a.find('#',0)) == string::npos)
+	{
+		return a;
+	}
+	else
+	{
+		a = a.substr(0,b);
+		return a;
+	}
+
 }
 int HtmlParser::svc(void)
 {
@@ -86,7 +99,8 @@ int HtmlParser::svc(void)
 						   pair<bool,string> ab = it->attribute("href");
 						   if(ab.first == true)
 						   {
-							   URL_Queue_Singleton::instance()->insert_queue(ab.second);
+							   string abc = modifyurl(ab.second);
+							   URL_Queue_Singleton::instance()->insert_queue(abc);
 						   }
 					}	 // cout<<it->text();
 				}

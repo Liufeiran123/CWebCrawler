@@ -24,6 +24,7 @@ void Document::append(unsigned char* a,int b)
 		return;
 	}
 	memcpy(buffer+size,a,b);
+	size += b;
 }
 int Document::getDoc(unsigned char*a)
 {

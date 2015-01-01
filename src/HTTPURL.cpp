@@ -39,7 +39,9 @@ void HTTP_URL::URLParser()
 	  if (resultObject)
 	    {
 		  	host = PyString_AsString(resultObject);
-		  	m_file = strstr(m_url.c_str(),host.c_str());
+		  	char *p = (char*)m_url.c_str();
+		  	p+=8;
+		  	m_file = strchr(p,'/');
 	        Py_DECREF(resultObject);
 	    }
 	  Py_Finalize();
@@ -61,8 +63,15 @@ int HTTP_URL::gethostaddr()
     /*  Check for errors.  */
     if (res || hp == NULL)
         return -1;
+    //char *p = hp->h_addr;
 
-    m_netaddr = hp->h_addr;
+    char tmp[48];
+
+    m_netaddr = inet_ntop(AF_INET, hp->h_addr, tmp, 48);
+   // 这个函数，是将类型为af的网络地址结构src，转换成主机序的字符串形式，存放在长度为cnt的字符串中。
+   // 这个函数，其实就是返回指向dst的一个指针。如果函数调用错误，返回值是NULL。
+
+
     return 0;
 }
 

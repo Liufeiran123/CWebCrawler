@@ -7,7 +7,7 @@
 
 #include "CrawlerThread.h"
 
-Crawler_Thread::Crawler_Thread():value(0) {
+Crawler_Thread::Crawler_Thread():value(1) {
 	// TODO Auto-generated constructor stub
 	 pthread_mutex_init(&count_lock, NULL);
 	 pthread_cond_init(&count_nonzero, NULL);
@@ -90,7 +90,7 @@ int Crawler_Thread::svc(void)
 					//cond.wait();
 					pthread_cond_wait(&count_nonzero, &count_lock);
 				}
-				value =1 ;
+				value =0 ;
 				//_mutex.release();
 				pthread_mutex_unlock(&count_lock);
 

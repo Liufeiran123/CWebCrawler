@@ -11,7 +11,23 @@
 #include "MemPool.h"
 #include <string.h>
 
-void My_Svc_Handler::handle_rawdata()
+int Net_Svc_Handler::handle_input(ACE_HANDLE)
+{
+		int size1 = peer().recv(tempdata,1023);
+		if(size1 <= 0)
+		{
+			peer().close();
+			handle_rawdata();
+			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+			return -1;
+		}
+		tempdata[size1] = '\0';
+		memcpy(data+size,tempdata,size1);
+		size += size1;
+		return 0;
+}
+
+void Net_Svc_Handler::handle_rawdata()
 {
 	Document *pp = Mem_Pool::getInstance()->getObject();
 	if(strncmp(data,"HTTP/1.1 200 OK",15) == 0)
@@ -33,23 +49,26 @@ void My_Svc_Handler::handle_rawdata()
 		{
 			//解析HTML
 			char *startp = p;
-			startp-=2;
-			while(*(--startp) != '\n'); //\r\n
-			++startp;
-			long s1 = -1;
+			startp-=4;
+			while(*(--startp) != '\r'); //\r\n
+
+			long s1 = 0;
 			char te[16];
 
-			char *tp = startp;  //指向数字开始
+			char *tp = startp;  //指向节开始
+			char *datap = tp;
 			do
 			{
-				tp += s1+1;
-				char *p6 = tp;
+				tp = datap+s1;
+				char *startnum = tp+2;
+				char *p6 = startnum;
 
 				while(*(++p6) != '\r');
 				memset(te,0,16);
-				memcpy(te,tp,p6-tp);
+				memcpy(te,startnum,p6-startnum);
 				s1 = strtol(te,NULL,16);
-				pp->append((unsigned char*)(p6+2),s1);
+				datap = p6+2;
+				pp->append((unsigned char*)datap,s1);
 			}while(s1 != 0);
 		}
 	}
@@ -63,7 +82,7 @@ void My_Svc_Handler::handle_rawdata()
 
 Fetcher::Fetcher() {
 	// TODO Auto-generated constructor stub
-	handler= new My_Svc_Handler();
+	handler= new Net_Svc_Handler();
 	MessageBus::getInstance()->add(5,dynamic_cast<MessageComponent*>(handler));
 }
 
@@ -94,8 +113,6 @@ void Fetcher::MakeRequest(string ip,string host,string path)
 
 	ACE_INET_Addr addr(80,ip.c_str(),AF_INET);
 
-	//Create the connector
-	MyConnector connector;
 	//Connects to remote machine
 	if(connector.connect(handler,addr) == -1)
 	{

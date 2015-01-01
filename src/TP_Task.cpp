@@ -28,6 +28,7 @@ int TP_Task::svc()
 // 					ACE_TEXT("Error handling event")),
 // 					0);                                      //by fzq
 		//		LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("Error handling event")) ;
+				printf("run event loop error\n");
 				return 0 ;
 // 				ACE_DEBUG((LM_DEBUG,
 // 					ACE_TEXT("(%t) Done handling events.\n")));  //by fzq
@@ -35,6 +36,7 @@ int TP_Task::svc()
 // 				break;
 			}
 		}
+		printf("event loop exit\n");
 	}
 	return 0;
 }

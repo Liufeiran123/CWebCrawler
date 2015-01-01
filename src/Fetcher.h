@@ -20,19 +20,19 @@
 
 using namespace std;
 
-class My_Svc_Handler;
+class Net_Svc_Handler;
 
-typedef ACE_Connector<My_Svc_Handler,ACE_SOCK_CONNECTOR> MyConnector;
+typedef ACE_Connector<Net_Svc_Handler,ACE_SOCK_CONNECTOR> NetConnector;
 
 
 //Create a service handler similar to as seen in example 1. Except this
 //time include the handle_input() method which will be called back
 //automatically by the reactor when new data arrives on the newly
 //established connection
-class My_Svc_Handler: public ACE_Svc_Handler <ACE_SOCK_STREAM,ACE_NULL_SYNCH>, public MessageComponent
+class Net_Svc_Handler: public ACE_Svc_Handler <ACE_SOCK_STREAM,ACE_NULL_SYNCH>, public MessageComponent
 {
 public:
-	My_Svc_Handler()
+	Net_Svc_Handler():size(0)
 	{
 
 	}
@@ -44,22 +44,7 @@ public:
 */
 	void handle_rawdata();
 
-	int handle_input(ACE_HANDLE)
-	{
-		int size1 = peer().recv(tempdata,1024);
-		if(size1 <= 0)
-		{
-			peer().close();
-			handle_rawdata();
-			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-			return -1;
-		}
-		tempdata[size1] = '\0';
-		memcpy(data+size,tempdata,size1);
-		size += size1;
-		return 0;
-	}
-
+	int handle_input(ACE_HANDLE);
 private:
 	char tempdata[1024];
 	char data[1024*1024];
@@ -77,8 +62,8 @@ public:
 public:
 
 private:
-	MyConnector connector;
-	My_Svc_Handler * handler;
+	NetConnector connector;
+	Net_Svc_Handler * handler;
 	string preip;
 
 public:
