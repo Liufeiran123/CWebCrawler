@@ -17,6 +17,7 @@ CPP_SRCS += \
 ../src/RingBuffer.cpp \
 ../src/TP_Task.cpp \
 ../src/URLQueue.cpp \
+../src/URLTest.cpp \
 ../src/mainfile.cpp 
 
 OBJS += \
@@ -33,6 +34,7 @@ OBJS += \
 ./src/RingBuffer.o \
 ./src/TP_Task.o \
 ./src/URLQueue.o \
+./src/URLTest.o \
 ./src/mainfile.o 
 
 CPP_DEPS += \
@@ -49,6 +51,7 @@ CPP_DEPS += \
 ./src/RingBuffer.d \
 ./src/TP_Task.d \
 ./src/URLQueue.d \
+./src/URLTest.d \
 ./src/mainfile.d 
 
 
@@ -56,7 +59,7 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/home/lfr/ACE_wrappers -I/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I/home/lfr/ACE_wrappers -I/home/lfr/boost_1_57_0/build/include -I/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

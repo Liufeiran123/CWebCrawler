@@ -25,6 +25,7 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.2135290523" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1513328057" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/lfr/ACE_wrappers"/>
+									<listOptionValue builtIn="false" value="/home/lfr/boost_1_57_0/build/include"/>
 									<listOptionValue builtIn="false" value="/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.769068577" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
