@@ -76,7 +76,7 @@ int HtmlParser::svc(void)
 			//写入文件
 			string ff= pp->GetTitle();
 			ff.append(".html");
-			string dir = "/home/lfr/workspace3/crawler/Debug/htmldata/";
+			string dir = "/home/lfr/crawlerData/";
 			dir+= ff;
 			ofstream fs(dir.c_str());
 			fs<<data_buffer;
