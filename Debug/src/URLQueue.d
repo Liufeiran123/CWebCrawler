@@ -1,4 +1,4 @@
-src/URLQueue.d: ../src/URLQueue.cpp ../src/URLQueue.h \
+src/URLQueue.d: ../src/URLQueue.cpp ../src/URLQueue.h ../src/urlstring.h \
  /home/lfr/ACE_wrappers/ace/Recursive_Thread_Mutex.h \
  /home/lfr/ACE_wrappers/ace/pre.h /home/lfr/ACE_wrappers/ace/ACE_export.h \
  /home/lfr/ACE_wrappers/ace/config-lite.h \
@@ -155,6 +155,8 @@ src/URLQueue.d: ../src/URLQueue.cpp ../src/URLQueue.h \
  /home/lfr/ACE_wrappers/ace/os_include/os_typeinfo.h
 
 ../src/URLQueue.h:
+
+../src/urlstring.h:
 
 /home/lfr/ACE_wrappers/ace/Recursive_Thread_Mutex.h:
 

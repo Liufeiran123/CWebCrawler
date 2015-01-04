@@ -16,23 +16,24 @@ URL_Queue::~URL_Queue() {
 	// TODO Auto-generated destructor stub
 }
 
-void URL_Queue::insert_queue(string s)
+void URL_Queue::insert_queue(string s,int priority)
 {
+	urlstring us(s,priority);
 	mutex_.acquire();
-	m_q.push(s);
+	m_q.push(us);
 	mutex_.release();
 }
 string URL_Queue::pop_queue()
 {
-	string a = "URl_QUEUE is Empty";
+	urlstring a("",0);
 	mutex_.acquire();
 	if(isEmpty() == false)
 	{
-		a = m_q.front();
+		a = m_q.top();
 		m_q.pop();
 	}
 	mutex_.release();
-	return a;
+	return a.GetURL();
 }
 
 bool URL_Queue::isEmpty()

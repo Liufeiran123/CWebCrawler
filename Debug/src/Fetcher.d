@@ -329,7 +329,8 @@ src/Fetcher.d: ../src/Fetcher.cpp ../src/Fetcher.h \
  /home/lfr/ACE_wrappers/ace/Malloc_Allocator.h \
  /home/lfr/ACE_wrappers/ace/Malloc_Allocator.inl \
  /home/lfr/ACE_wrappers/ace/Malloc_T.inl \
- /home/lfr/ACE_wrappers/ace/Malloc_T.cpp
+ /home/lfr/ACE_wrappers/ace/Malloc_T.cpp ../src/URLQueue.h \
+ ../src/urlstring.h
 
 ../src/Fetcher.h:
 
@@ -1020,3 +1021,7 @@ src/Fetcher.d: ../src/Fetcher.cpp ../src/Fetcher.h \
 /home/lfr/ACE_wrappers/ace/Malloc_T.inl:
 
 /home/lfr/ACE_wrappers/ace/Malloc_T.cpp:
+
+../src/URLQueue.h:
+
+../src/urlstring.h:

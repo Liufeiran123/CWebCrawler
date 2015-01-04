@@ -18,7 +18,8 @@ CPP_SRCS += \
 ../src/TP_Task.cpp \
 ../src/URLQueue.cpp \
 ../src/URLTest.cpp \
-../src/mainfile.cpp 
+../src/mainfile.cpp \
+../src/urlstring.cpp 
 
 OBJS += \
 ./src/CrawlerEntity.o \
@@ -35,7 +36,8 @@ OBJS += \
 ./src/TP_Task.o \
 ./src/URLQueue.o \
 ./src/URLTest.o \
-./src/mainfile.o 
+./src/mainfile.o \
+./src/urlstring.o 
 
 CPP_DEPS += \
 ./src/CrawlerEntity.d \
@@ -52,7 +54,8 @@ CPP_DEPS += \
 ./src/TP_Task.d \
 ./src/URLQueue.d \
 ./src/URLTest.d \
-./src/mainfile.d 
+./src/mainfile.d \
+./src/urlstring.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

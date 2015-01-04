@@ -10,6 +10,8 @@
 
 #include <queue>
 #include <string>
+#include <vector>
+#include "urlstring.h"
 #include "ace/Recursive_Thread_Mutex.h"
 #include "ace/Singleton.h"
 
@@ -20,10 +22,10 @@ public:
 	URL_Queue();
 	virtual ~URL_Queue();
 private:
-	queue<string> m_q;
+	priority_queue<urlstring, vector<urlstring>, cmp> m_q;
 	ACE_Recursive_Thread_Mutex mutex_;
 public:
-	void insert_queue(string s);
+	void insert_queue(string s,int priority);
 	string pop_queue();
 	bool isEmpty();
 };

@@ -69,6 +69,6 @@ void URLTest::addToBloomSet(string str)               //添加元素到布隆过
     for(i=0;i<funnum;i++)
     {
         int hash=getHashValue(str,i);
-        db->set(hash,1);
+        db->set(hash,true);
     }
 }

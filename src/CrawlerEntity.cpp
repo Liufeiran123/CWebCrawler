@@ -50,6 +50,6 @@ void CrawlerEntity::InitURL(string filename)
 	string s;
 	while(getline(ifs,s))
 	{
-		URL_Queue_Singleton::instance()->insert_queue(s.c_str());
+		URL_Queue_Singleton::instance()->insert_queue(s.c_str(),1);
 	}
 }

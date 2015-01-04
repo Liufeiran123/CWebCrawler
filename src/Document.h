@@ -19,8 +19,8 @@ public:
 	virtual ~Document();
 private:
 	unsigned char buffer[max_doc];
+	char url[1024];
 	int size;
-	string url;
 public:
 	void append(unsigned char* a,int asize);
 	int getDoc(unsigned char*a);
@@ -28,7 +28,7 @@ public:
 	void SetTitle(string t);
 	string GetTitle();
 	void SetURl(string b);
-	string &GetURL();
+	string GetURL();
 };
 
 #endif /* DOCUMENT_H_ */

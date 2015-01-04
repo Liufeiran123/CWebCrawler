@@ -285,7 +285,7 @@ src/CrawlerThread.d: ../src/CrawlerThread.cpp ../src/CrawlerThread.h \
  /home/lfr/ACE_wrappers/ace/Module.cpp \
  /home/lfr/ACE_wrappers/ace/Stream_Modules.h \
  /home/lfr/ACE_wrappers/ace/Stream_Modules.cpp ../src/MessageComponent.h \
- ../src/URLQueue.h ../src/HTTPURL.h \
+ ../src/URLQueue.h ../src/urlstring.h ../src/HTTPURL.h \
  /home/lfr/ACE_wrappers/ace/INET_Addr.h \
  /home/lfr/ACE_wrappers/ace/Sock_Connect.h \
  /home/lfr/ACE_wrappers/ace/Addr.h /home/lfr/ACE_wrappers/ace/Addr.inl \
@@ -884,6 +884,8 @@ src/CrawlerThread.d: ../src/CrawlerThread.cpp ../src/CrawlerThread.h \
 ../src/MessageComponent.h:
 
 ../src/URLQueue.h:
+
+../src/urlstring.h:
 
 ../src/HTTPURL.h:
 

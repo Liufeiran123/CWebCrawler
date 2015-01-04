@@ -10,6 +10,7 @@
 #include "Document.h"
 #include "MemPool.h"
 #include <string.h>
+#include "URLQueue.h"
 
 int Net_Svc_Handler::handle_input(ACE_HANDLE)
 {
@@ -30,7 +31,7 @@ int Net_Svc_Handler::handle_input(ACE_HANDLE)
 void Net_Svc_Handler::handle_rawdata()
 {
 	Document *pp = Mem_Pool::getInstance()->getObject();
-	if(strncmp(data,"HTTP/1.1 200 OK",15) == 0)
+	if(strncmp(data,"HTTP/1.1 200",12) == 0)
 	{
 		char *p = strstr(data,"<!DOCTYPE"); //html text data
 
@@ -70,6 +71,26 @@ void Net_Svc_Handler::handle_rawdata()
 				datap = p6+2;
 				pp->append((unsigned char*)datap,s1);
 			}while(s1 != 0);
+		}
+	}
+	else if(strncmp(data,"HTTP/1.1 301",12) == 0)
+	{
+		char *p = strstr(data,"<!DOCTYPE"); //html text data
+
+		char tempdata1[2*1024];  //应答头
+		memset(tempdata1,0,2*1024);
+		memcpy(tempdata1,data,p-data);
+
+		char *p1 = strstr(tempdata1,"Location");
+		if(p1!= NULL)
+		{
+			p1+=10;
+			char *p2 = p1;
+			while(*(++p2) != '\r');
+			char tmpurl[1024];
+			memcpy(tmpurl,p1,p2-p1);
+			tmpurl[p2-p1] = '\0';
+			URL_Queue_Singleton::instance()->insert_queue(tmpurl,2); //2优先级
 		}
 	}
 	if(pp->getSize()!=0)

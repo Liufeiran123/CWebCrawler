@@ -102,9 +102,9 @@ int HtmlParser::svc(void)
 							   string abc = modifyurl(ab.second);
 							   bool tmp;
 							   MessageBus::getInstance()->call(5,"isInBloomSet",(void*)abc.c_str(),NULL,NULL,NULL,NULL,(void*)&tmp,NULL);
-							   if(tmp == true)
+							   if(tmp == false)
 							   {
-								   URL_Queue_Singleton::instance()->insert_queue(abc);
+								   URL_Queue_Singleton::instance()->insert_queue(abc,1);  //1优先级
 							   }
 						   }
 					}	 // cout<<it->text();

@@ -275,7 +275,7 @@ src/HtmlParser.d: ../src/HtmlParser.cpp ../src/HtmlParser.h \
  /home/lfr/ACE_wrappers/ace/Malloc_Allocator.inl \
  /home/lfr/ACE_wrappers/ace/Malloc_T.inl \
  /home/lfr/ACE_wrappers/ace/Malloc_T.cpp ../src/MessageComponent.h \
- ../src/MessageBus.h ../src/URLQueue.h
+ ../src/MessageBus.h ../src/URLQueue.h ../src/urlstring.h
 
 ../src/HtmlParser.h:
 
@@ -852,3 +852,5 @@ src/HtmlParser.d: ../src/HtmlParser.cpp ../src/HtmlParser.h \
 ../src/MessageBus.h:
 
 ../src/URLQueue.h:
+
+../src/urlstring.h:
