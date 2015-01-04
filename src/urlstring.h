@@ -30,7 +30,7 @@ public:
 };
 
 struct cmp{
-    bool operator() ( urlstring a, urlstring b ){
+    bool operator() ( urlstring a, urlstring b ) const {
     	if( a.priority < b.priority )
         {
         	return true;
