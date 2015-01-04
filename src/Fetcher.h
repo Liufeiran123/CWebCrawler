@@ -29,7 +29,7 @@ typedef ACE_Connector<Net_Svc_Handler,ACE_SOCK_CONNECTOR> NetConnector;
 //time include the handle_input() method which will be called back
 //automatically by the reactor when new data arrives on the newly
 //established connection
-class Net_Svc_Handler: public ACE_Svc_Handler <ACE_SOCK_STREAM,ACE_NULL_SYNCH>, public MessageComponent
+class Net_Svc_Handler: public ACE_Svc_Handler <ACE_SOCK_STREAM,ACE_NULL_SYNCH>
 {
 public:
 	Net_Svc_Handler():size(0)
@@ -50,9 +50,6 @@ private:
 	char data[1024*1024];
 	int size;
 	string currenturl;
-public:
-	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void *c,void**p/*函数返回值*/)
-	{}
 public:
 	void SetUrl(string a)
 	{

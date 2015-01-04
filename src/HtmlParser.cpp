@@ -119,7 +119,7 @@ int HtmlParser::svc(void)
 		}
 		else
 		{
-			sleep(3);
+			sleep(1);
 		}
 	}
 		return 0;

@@ -68,9 +68,6 @@ int HTTP_URL::gethostaddr()
     char tmp[48];
 
     m_netaddr = inet_ntop(AF_INET, hp->h_addr, tmp, 48);
-   // 这个函数，是将类型为af的网络地址结构src，转换成主机序的字符串形式，存放在长度为cnt的字符串中。
-   // 这个函数，其实就是返回指向dst的一个指针。如果函数调用错误，返回值是NULL。
-
 
     return 0;
 }

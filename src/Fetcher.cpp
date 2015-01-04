@@ -17,7 +17,7 @@ int Net_Svc_Handler::handle_input(ACE_HANDLE)
 		int size1 = peer().recv(tempdata,1023);
 		if(size1 <= 0)
 		{
-			peer().close();
+			//peer().close();
 			handle_rawdata();
 			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 			return -1;
@@ -30,9 +30,9 @@ int Net_Svc_Handler::handle_input(ACE_HANDLE)
 
 void Net_Svc_Handler::handle_rawdata()
 {
-	Document *pp = Mem_Pool::getInstance()->getObject();
 	if(strncmp(data,"HTTP/1.1 200",12) == 0)
 	{
+		Document *pp = Mem_Pool::getInstance()->getObject();
 		char *p = strstr(data,"<!DOCTYPE"); //html text data
 
 		char tempdata1[2*1024];  //应答头
@@ -72,16 +72,12 @@ void Net_Svc_Handler::handle_rawdata()
 				pp->append((unsigned char*)datap,s1);
 			}while(s1 != 0);
 		}
+		pp->SetURl(currenturl);
+		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL,NULL);
 	}
 	else if(strncmp(data,"HTTP/1.1 301",12) == 0)
 	{
-		char *p = strstr(data,"<!DOCTYPE"); //html text data
-
-		char tempdata1[2*1024];  //应答头
-		memset(tempdata1,0,2*1024);
-		memcpy(tempdata1,data,p-data);
-
-		char *p1 = strstr(tempdata1,"Location");
+		char *p1 = strstr(data,"Location"); //html text data
 		if(p1!= NULL)
 		{
 			p1+=10;
@@ -93,19 +89,10 @@ void Net_Svc_Handler::handle_rawdata()
 			URL_Queue_Singleton::instance()->insert_queue(tmpurl,2); //2优先级
 		}
 	}
-	if(pp->getSize()!=0)
-	{
-		pp->SetURl(currenturl);
-		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL,NULL);
-		return ;
-	}
-	Mem_Pool::getInstance()->freeObject(pp);
 }
 
 Fetcher::Fetcher() {
 	// TODO Auto-generated constructor stub
-	handler= new Net_Svc_Handler();
-	MessageBus::getInstance()->add(5,dynamic_cast<MessageComponent*>(handler));
 }
 
 Fetcher::~Fetcher() {
@@ -135,7 +122,9 @@ void Fetcher::MakeRequest(string url,string ip,string host,string path)
 
 	ACE_INET_Addr addr(80,ip.c_str(),AF_INET);
 
-	handler->SetUrl(url);
+	handler= new Net_Svc_Handler();
+
+
 	//Connects to remote machine
 	if(connector.connect(handler,addr) == -1)
 	{
@@ -143,6 +132,8 @@ void Fetcher::MakeRequest(string url,string ip,string host,string path)
 		//exit(1);
 
 	}
+
+	handler->SetUrl(url);
 
 	int ret = handler->peer().send(request,strlen(request));
 	if(ret != strlen(request))
