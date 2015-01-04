@@ -12,6 +12,7 @@
 #include "DocQueue.h"
 #include "Fetcher.h"
 #include "HtmlParser.h"
+#include "URLTest.h"
 
 class CrawlerEntity{
 public:
@@ -22,6 +23,7 @@ private:
 	Fetcher *fe;
 	DocQueue *dq;
 	HtmlParser* hp;
+	URLTest *ut;
 public:
 	void StartEntity();
 	void InitURL(string filename);

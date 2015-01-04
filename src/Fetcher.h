@@ -49,9 +49,15 @@ private:
 	char tempdata[1024];
 	char data[1024*1024];
 	int size;
+	string currenturl;
 public:
 	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void *c,void**p/*函数返回值*/)
 	{}
+public:
+	void SetUrl(string a)
+	{
+		currenturl =a;
+	}
 
 };
 
@@ -67,7 +73,7 @@ private:
 	string preip;
 
 public:
-	void MakeRequest(string ip,string host,string path);
+	void MakeRequest(string url,string ip,string host,string path);
 	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void *h,void **i/*函数返回值*/);
 };
 

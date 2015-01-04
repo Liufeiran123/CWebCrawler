@@ -20,12 +20,15 @@ public:
 private:
 	unsigned char buffer[max_doc];
 	int size;
+	string url;
 public:
 	void append(unsigned char* a,int asize);
 	int getDoc(unsigned char*a);
 	int getSize(){return size;}
 	void SetTitle(string t);
 	string GetTitle();
+	void SetURl(string b);
+	string &GetURL();
 };
 
 #endif /* DOCUMENT_H_ */

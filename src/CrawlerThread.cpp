@@ -96,7 +96,7 @@ int Crawler_Thread::svc(void)
 
 				//发送请求
 
-				MessageBus::getInstance()->call(2,"MakeRequest",(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,NULL,NULL);
+				MessageBus::getInstance()->call(2,"MakeRequest",(void*)url.c_str(),(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,NULL);
 			}
 		}
 		return 0;

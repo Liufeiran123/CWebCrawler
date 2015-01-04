@@ -71,7 +71,6 @@ int HtmlParser::svc(void)
 			memset(text,0,1024*1024);
 			MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,NULL,(void**)&pp);
 			int s = pp->getDoc((unsigned char*)text);
-			Mem_Pool::getInstance()->freeObject(pp);
 			text[s]='\0';
 			data_buffer = text;
 			//写入文件
@@ -81,6 +80,7 @@ int HtmlParser::svc(void)
 			dir+= ff;
 			ofstream fs(dir.c_str());
 			fs<<data_buffer;
+			MessageBus::getInstance()->call(5,"addToBloomSet",(void*)pp->GetURL().c_str(),NULL,NULL,NULL,NULL,NULL,NULL);
 
 			try
 			{
@@ -100,7 +100,12 @@ int HtmlParser::svc(void)
 						   if(ab.first == true)
 						   {
 							   string abc = modifyurl(ab.second);
-							   URL_Queue_Singleton::instance()->insert_queue(abc);
+							   bool tmp;
+							   MessageBus::getInstance()->call(5,"isInBloomSet",(void*)abc.c_str(),NULL,NULL,NULL,NULL,(void*)&tmp,NULL);
+							   if(tmp == true)
+							   {
+								   URL_Queue_Singleton::instance()->insert_queue(abc);
+							   }
 						   }
 					}	 // cout<<it->text();
 				}
@@ -110,6 +115,7 @@ int HtmlParser::svc(void)
 			} catch (...) {
 				cerr << "Unknow exception caught " << endl;
 			}
+			Mem_Pool::getInstance()->freeObject(pp);
 		}
 		else
 		{

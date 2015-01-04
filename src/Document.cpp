@@ -61,3 +61,14 @@ string Document::GetTitle()
 		return string();
 	}
 }
+
+
+void Document::SetURl(string b)
+{
+	url = b;
+}
+
+string &Document::GetURL()
+{
+	return url;
+}

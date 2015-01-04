@@ -19,12 +19,14 @@ CrawlerEntity::CrawlerEntity() {
 	fe = new Fetcher;
 	dq = new DocQueue;
 	hp = new HtmlParser;
+	ut = new URLTest(0.1,1000000000);
 
 
 	MessageBus::getInstance()->add(1,dynamic_cast<MessageComponent*>(ct));
 	MessageBus::getInstance()->add(2,dynamic_cast<MessageComponent*>(fe));
 	MessageBus::getInstance()->add(3,dynamic_cast<MessageComponent*>(dq));
 	MessageBus::getInstance()->add(4,dynamic_cast<MessageComponent*>(hp));
+	MessageBus::getInstance()->add(5,dynamic_cast<MessageComponent*>(ut));
 
 }
 

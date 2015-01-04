@@ -74,6 +74,7 @@ void Net_Svc_Handler::handle_rawdata()
 	}
 	if(pp->getSize()!=0)
 	{
+		pp->SetURl(currenturl);
 		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL,NULL);
 		return ;
 	}
@@ -94,11 +95,11 @@ void Fetcher::call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f
 {
 	if(a == "MakeRequest")
 	{
-		MakeRequest((char*)v,(char*)d,(char*)e);
+		MakeRequest((char*)v,(char*)d,(char*)e,(char*)f);
 	}
 }
 
-void Fetcher::MakeRequest(string ip,string host,string path)
+void Fetcher::MakeRequest(string url,string ip,string host,string path)
 {
 	char request[1024];
 	memset(request,0,1024);
@@ -113,6 +114,7 @@ void Fetcher::MakeRequest(string ip,string host,string path)
 
 	ACE_INET_Addr addr(80,ip.c_str(),AF_INET);
 
+	handler->SetUrl(url);
 	//Connects to remote machine
 	if(connector.connect(handler,addr) == -1)
 	{

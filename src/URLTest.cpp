@@ -7,6 +7,7 @@
 
 #include "URLTest.h"
 #include <math.h>
+#include <string.h>
 
 URLTest::URLTest(float p/*误判率*/,unsigned long num) {
 	// TODO Auto-generated constructor stub
@@ -25,11 +26,12 @@ void URLTest::call(string/*插件方法名*/ a,void * b,void* c,void *d,void* e,
 {
 	if(a == "addToBloomSet")
 	{
-
+		addToBloomSet((char*)b);
 	}
 	else if(a == "isInBloomSet")
 	{
-
+		bool tmp =  isInBloomSet((char*)b);
+		memcpy(g,&tmp,sizeof(bool));
 	}
 
 }
@@ -54,7 +56,7 @@ bool URLTest::isInBloomSet(string str)                //判断是否在布隆过
     for(i=0;i<funnum;i++)
     {
         int hash=getHashValue(str,i);
-        if(db->test(hash))
+        if(db->test(hash)== false)
             return false;
     }
     return true;
