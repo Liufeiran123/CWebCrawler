@@ -31,7 +31,7 @@ private:
 	//动态数组
 public:
 	virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,void *,void **/*函数返回值*/);
-	int getHashValue(string str,int n);
+	unsigned long getHashValue(string str,int n);
 	bool isInBloomSet(string str);
 	void addToBloomSet(string str);
 };

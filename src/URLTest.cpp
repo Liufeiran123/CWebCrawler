@@ -37,7 +37,7 @@ void URLTest::call(string/*插件方法名*/ a,void * b,void* c,void *d,void* e,
 
 }
 
-int URLTest::getHashValue(string str,int n)           //计算Hash值
+/*int URLTest::getHashValue(string str,int n)           //计算Hash值
 {
     int result=0;
     int i;
@@ -48,6 +48,17 @@ int URLTest::getHashValue(string str,int n)           //计算Hash值
             result%=weishu;
     }
     return result;
+}*/
+
+
+unsigned long  URLTest::getHashValue(string str,int n)     //BKDRHash
+{
+    register unsigned long uCode=0;
+    for(int i=0;i<str.size();i++)
+    {
+        uCode = uCode *seeds[n]  + (unsigned char)str[i];
+    }
+    return uCode % weishu;
 }
 
 
@@ -56,7 +67,7 @@ bool URLTest::isInBloomSet(string str)                //判断是否在布隆过
     int i;
     for(i=0;i<funnum;i++)
     {
-        int hash=getHashValue(str,i);
+    	unsigned long hash=getHashValue(str,i);
         if(db->test(hash)== false)
             return false;
     }
@@ -68,7 +79,7 @@ void URLTest::addToBloomSet(string str)               //添加元素到布隆过
     int i;
     for(i=0;i<funnum;i++)
     {
-        int hash=getHashValue(str,i);
+    	unsigned long hash=getHashValue(str,i);
         db->set(hash,true);
     }
 }

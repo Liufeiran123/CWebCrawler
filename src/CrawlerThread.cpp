@@ -26,7 +26,7 @@ void Crawler_Thread::StartGetURL()
 	//cond.signal();
 	pthread_cond_signal(&count_nonzero);
 	//_mutex.release();
-	pthread_mutex_lock(&count_lock);
+	pthread_mutex_unlock(&count_lock);
 }
 
 
