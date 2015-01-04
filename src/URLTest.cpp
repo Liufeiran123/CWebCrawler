@@ -20,6 +20,7 @@ URLTest::URLTest(float p/*误判率*/,unsigned long num) {
 
 URLTest::~URLTest() {
 	// TODO Auto-generated destructor stub
+	delete db;
 }
 
 void URLTest::call(string/*插件方法名*/ a,void * b,void* c,void *d,void* e,void *f,void *g,void **h/*函数返回值*/)
