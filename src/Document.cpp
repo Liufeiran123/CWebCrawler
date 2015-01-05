@@ -8,7 +8,7 @@
 #include "Document.h"
 #include <string.h>
 
-Document::Document():size(0){
+Document::Document():size(0),url(NULL){
 	// TODO Auto-generated constructor stub
 
 }
@@ -30,12 +30,6 @@ int Document::getDoc(unsigned char*a)
 {
 	memcpy(a,buffer,size);
 	return size;
-}
-
-void Document::SetTitle(string t)
-{
-
-
 }
 string Document::GetTitle()
 {
@@ -63,13 +57,21 @@ string Document::GetTitle()
 }
 
 
-void Document::SetURl(string b)
+void Document::SetURl(HTTP_URL *b)
 {
-	memcpy(url,b.c_str(),b.size());
-	url[b.size()] = '\0';
+	url = b;
 }
 
-string Document::GetURL()
+string Document::getBase()
 {
 	return url;
+}
+
+
+void Document::fini()
+{
+	size = 0;
+	delete url;
+	url = NULL;
+
 }

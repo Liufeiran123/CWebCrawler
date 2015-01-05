@@ -76,9 +76,9 @@ int Crawler_Thread::svc(void)
 			else
 			{
 				string url = URL_Queue_Singleton::instance()->pop_queue();
-				HTTP_URL hu(url);
-				hu.URLParser();
-				int ret = hu.gethostaddr();
+				HTTP_URL *hu = new HTTP_URL(url);
+				hu->URLParser();
+				int ret = hu->gethostaddr();
 				if(ret == -1)
 				{
 					continue;
@@ -96,7 +96,7 @@ int Crawler_Thread::svc(void)
 
 				//发送请求
 
-				MessageBus::getInstance()->call(2,"MakeRequest",(void*)url.c_str(),(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,NULL);
+				MessageBus::getInstance()->call(2,"MakeRequest",(void*)hu,(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,NULL);
 			}
 		}
 		return 0;

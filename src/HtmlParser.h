@@ -33,6 +33,7 @@ private:
 
 	  HTML::ParserDom parser;
 	  tree<HTML::Node> tr;
+	  string baseTag;
 
 public:
 		int start();

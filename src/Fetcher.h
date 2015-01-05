@@ -17,6 +17,7 @@
 #include <string>
 
 #include "MessageBus.h"
+#include "HTTPURL.h"
 
 using namespace std;
 
@@ -49,9 +50,9 @@ private:
 	char tempdata[1024];
 	char data[1024*1024];
 	int size;
-	string currenturl;
+	HTTP_URL* currenturl;
 public:
-	void SetUrl(string a)
+	void SetUrl(HTTP_URL a)
 	{
 		currenturl =a;
 	}

@@ -46,16 +46,15 @@ int HtmlParser::stop()
 string &HtmlParser::modifyurl(string &a)
 {
 	int b = string::npos;
-	if((b =a.find('#',0)) == string::npos)
-	{
-		return a;
-	}
-	else
+	if((b =a.find('#',0)) != string::npos)
 	{
 		a = a.substr(0,b);
-		return a;
 	}
-
+	if(a[0]=='/')
+	{
+		a = baseTag+a;
+	}
+	return a;
 }
 int HtmlParser::svc(void)
 {
@@ -68,6 +67,7 @@ int HtmlParser::svc(void)
 		MessageBus::getInstance()->call(3,"isEmpty",NULL,NULL,NULL,NULL,NULL,&retval,NULL);
 		if(!retval)
 		{
+			baseTag = "";
 			memset(text,0,1024*1024);
 			MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,NULL,(void**)&pp);
 			int s = pp->getDoc((unsigned char*)text);
@@ -87,11 +87,47 @@ int HtmlParser::svc(void)
 				parser.parse(data_buffer);
 				tr = parser.getTree();
 					//cout << tr << endl;
+				tree<HTML::Node>::iterator it1 = tr.begin();
+				tree<HTML::Node>::iterator end1 = tr.end();
+
+				for(; it1 != end1; ++it1)
+				{
+					if(it->isTag() && (it->tagName() == string("base")))
+					{
+						it->parseAttributes();
+						pair<bool,string> ab = it->attribute("href");
+						if(ab.first == true)
+						{
+							baseTag = ab.second;
+							string accc = ab.second;
+						}
+					}
+				}
+				if(baseTag.empty() == true)
+				{
+					string url = pp->GetURL();
+
+
+
+				}
+
 				tree<HTML::Node>::iterator it = tr.begin();
 				tree<HTML::Node>::iterator end = tr.end();
 
+
 				for(; it != end; ++it)
 				{
+					if(it->isTag() && (it->tagName() == string("base")))
+					{
+						it->parseAttributes();
+						pair<bool,string> ab = it->attribute("href");
+						if(ab.first == true)
+						{
+							baseTag = ab.second;
+							string accc = ab.second;
+							baseTag = baseTag.erase(baseTag.size()-2,1);
+						}
+					}
 						//  printf("the tagname is %s\n",it->tagName().c_str());
 					if(it->isTag() && (it->tagName() == string("a") || it->tagName() == string("A")))
 					{
@@ -100,6 +136,10 @@ int HtmlParser::svc(void)
 						   if(ab.first == true)
 						   {
 							   string abc = modifyurl(ab.second);
+							   if(abc[0] == '/')
+							   {
+								   int i = 0;
+							   }
 							   bool tmp;
 							   MessageBus::getInstance()->call(5,"isInBloomSet",(void*)abc.c_str(),NULL,NULL,NULL,NULL,(void*)&tmp,NULL);
 							   if(tmp == false)
@@ -115,6 +155,7 @@ int HtmlParser::svc(void)
 			} catch (...) {
 				cerr << "Unknow exception caught " << endl;
 			}
+			pp->Reset();
 			Mem_Pool::getInstance()->freeObject(pp);
 		}
 		else

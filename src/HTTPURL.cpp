@@ -86,6 +86,17 @@ string & HTTP_URL::getFile()
 	return m_file;
 }
 
-
+string HTTP_URL::getBase()
+{
+	  int i = strlen(m_url.c_str());
+	 // assert (file[0] == '/');
+	  while (m_url[i] != '/') {
+		i--;
+	  }
+	  char newFile[1024];
+	  memcpy(newFile, m_url.c_str(), i+1);
+	  newFile[i+1] = 0;
+	  return string(newFile);
+}
 
 

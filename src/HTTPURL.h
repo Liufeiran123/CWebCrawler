@@ -25,10 +25,10 @@ private:
 	string host;
 	//file
 	string m_file;
-	//URL
+	//原始URL
 	string m_url;
 
-	char urlstr1[1024];
+
 public:
 	void URLParser();
 	int gethostaddr();
@@ -37,6 +37,9 @@ public:
 
 	string & gethost();
 	string & getFile();
+	string getBase();
+
+	char urlstr1[1024];
 };
 
 #endif /* HTTPURL_H_ */
