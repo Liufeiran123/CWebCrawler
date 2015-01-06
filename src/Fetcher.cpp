@@ -18,8 +18,12 @@ int Net_Svc_Handler::handle_input(ACE_HANDLE)
 		if(size1 <= 0)
 		{
 			//peer().close();
+			printf("Start rawdata\n");
 			handle_rawdata();
+
 			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+
+			printf("end rawdata\n");
 			return -1;
 		}
 		tempdata[size1] = '\0';
@@ -32,9 +36,18 @@ void Net_Svc_Handler::handle_rawdata()
 {
 	if(strncmp(data,"HTTP/1.1 200",12) == 0)
 	{
-		Document *pp = Mem_Pool::getInstance()->getObject();
 		char *p = strstr(data,"<!DOCTYPE"); //html text data
+		if(!p)
+		{
+			p = strstr(data,"<!doctype");
+		}
 
+		if(!p)
+		{
+			return;
+		}
+
+		Document *pp = Mem_Pool::getInstance()->getObject();
 		char tempdata1[2*1024];  //应答头
 		memset(tempdata1,0,2*1024);
 		memcpy(tempdata1,data,p-data);
@@ -86,6 +99,7 @@ void Net_Svc_Handler::handle_rawdata()
 			char tmpurl[1024];
 			memcpy(tmpurl,p1,p2-p1);
 			tmpurl[p2-p1] = '\0';
+
 			URL_Queue_Singleton::instance()->insert_queue(tmpurl,2); //2优先级
 		}
 	}

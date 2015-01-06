@@ -28,7 +28,6 @@ private:
 	//原始URL
 	string m_url;
 
-
 public:
 	void URLParser();
 	int gethostaddr();

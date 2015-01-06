@@ -9,7 +9,6 @@
 #define DOCUMENT_H_
 
 #include <string>
-#include "HTTPURL.h"
 
 using namespace std;
 const int max_doc = 1024*1024;
@@ -20,17 +19,17 @@ public:
 	virtual ~Document();
 private:
 	unsigned char buffer[max_doc];
-	//char url[1024];
-	HTTP_URL *url;
+	char url[1024];
 	int size;
 public:
 	void append(unsigned char* a,int asize);
 	int getDoc(unsigned char*a);
-	int getSize(){return size;}
+	int getSize();
 	string GetTitle();
-	void SetURl(HTTP_URL *b);
+	void SetURl(string b);
+	string GetURL();
+	void Reset();
 	string getBase();
-	void fini();
 };
 
 #endif /* DOCUMENT_H_ */

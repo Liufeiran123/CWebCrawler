@@ -46,6 +46,7 @@ int HtmlParser::stop()
 string &HtmlParser::modifyurl(string &a)
 {
 	int b = string::npos;
+
 	if((b =a.find('#',0)) != string::npos)
 	{
 		a = a.substr(0,b);
@@ -54,6 +55,22 @@ string &HtmlParser::modifyurl(string &a)
 	{
 		a = baseTag+a;
 	}
+
+	if(a.find("http://") != string::npos || a.find("https://") != string::npos)
+	{
+		if(a.find('/',8) == string::npos)
+		{
+			a+="/";
+		}
+	}
+	else
+	{
+		if(a.find('/',0) == string::npos)
+		{
+			a+="/";
+		}
+	}
+
 	return a;
 }
 int HtmlParser::svc(void)
@@ -92,10 +109,10 @@ int HtmlParser::svc(void)
 
 				for(; it1 != end1; ++it1)
 				{
-					if(it->isTag() && (it->tagName() == string("base")))
+					if(it1->isTag() && (it1->tagName() == string("base")))
 					{
-						it->parseAttributes();
-						pair<bool,string> ab = it->attribute("href");
+						it1->parseAttributes();
+						pair<bool,string> ab = it1->attribute("href");
 						if(ab.first == true)
 						{
 							baseTag = ab.second;
@@ -105,10 +122,7 @@ int HtmlParser::svc(void)
 				}
 				if(baseTag.empty() == true)
 				{
-					string url = pp->GetURL();
-
-
-
+					baseTag = pp->getBase();
 				}
 
 				tree<HTML::Node>::iterator it = tr.begin();
@@ -117,17 +131,6 @@ int HtmlParser::svc(void)
 
 				for(; it != end; ++it)
 				{
-					if(it->isTag() && (it->tagName() == string("base")))
-					{
-						it->parseAttributes();
-						pair<bool,string> ab = it->attribute("href");
-						if(ab.first == true)
-						{
-							baseTag = ab.second;
-							string accc = ab.second;
-							baseTag = baseTag.erase(baseTag.size()-2,1);
-						}
-					}
 						//  printf("the tagname is %s\n",it->tagName().c_str());
 					if(it->isTag() && (it->tagName() == string("a") || it->tagName() == string("A")))
 					{
@@ -135,11 +138,11 @@ int HtmlParser::svc(void)
 						   pair<bool,string> ab = it->attribute("href");
 						   if(ab.first == true)
 						   {
-							   string abc = modifyurl(ab.second);
-							   if(abc[0] == '/')
+							   if(ab.second[0] != '/' && ab.second.find("http",0,4) == string::npos)
 							   {
-								   int i = 0;
+								   continue;
 							   }
+							   string abc = modifyurl(ab.second);
 							   bool tmp;
 							   MessageBus::getInstance()->call(5,"isInBloomSet",(void*)abc.c_str(),NULL,NULL,NULL,NULL,(void*)&tmp,NULL);
 							   if(tmp == false)
