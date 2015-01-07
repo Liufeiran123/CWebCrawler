@@ -20,6 +20,7 @@ public:
 private:
 	unsigned char buffer[max_doc];
 	char url[1024];
+	char linkurl[1024];  //redirect
 	int size;
 public:
 	void append(unsigned char* a,int asize);
@@ -28,6 +29,10 @@ public:
 	string GetTitle();
 	void SetURl(string b);
 	string GetURL();
+
+	void SetLinkURl(string b);
+	string GetLinkURL();
+
 	void Reset();
 	string getBase();
 };

@@ -41,6 +41,10 @@ public:
 		virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,void *,void **/*函数返回值*/);
 		int svc(void);
 		string &modifyurl(string &a);
+		void writeFile(Document*);
+		void ParseText();
+		void insertQueue(string bac);
+		void getBaseTag(Document* p);
 };
 
 #endif /* HTMLPARSER_H_ */

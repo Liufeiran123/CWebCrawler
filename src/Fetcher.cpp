@@ -14,7 +14,9 @@
 
 int Net_Svc_Handler::handle_input(ACE_HANDLE)
 {
+		printf("starting recv....\n");
 		int size1 = peer().recv(tempdata,1023);
+		printf("end recv....\n");
 		if(size1 <= 0)
 		{
 			//peer().close();
@@ -99,8 +101,12 @@ void Net_Svc_Handler::handle_rawdata()
 			char tmpurl[1024];
 			memcpy(tmpurl,p1,p2-p1);
 			tmpurl[p2-p1] = '\0';
+			Document *pp = Mem_Pool::getInstance()->getObject();
+			pp->SetLinkURl(tmpurl);
+			pp->SetURl(currenturl);
+			MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL,NULL);
 
-			URL_Queue_Singleton::instance()->insert_queue(tmpurl,2); //2优先级
+			//URL_Queue_Singleton::instance()->insert_queue(tmpurl,2); //2优先级
 		}
 	}
 }
@@ -129,8 +135,14 @@ void Fetcher::MakeRequest(string url,string ip,string host,string path)
 				"User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0\r\n"
 				"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n"
 				"Accept-Language: en-US,en;q=0.5\r\n"
-				"Connection: keep-alive\r\n"
+				"Connection: close\r\n"
 				"\r\n";
+
+//	const char data[] = "GET %s HTTP/1.1\r\nHOST: %s\r\n"
+//				"User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0\r\n"
+//				"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n"
+//				"Accept-Language: en-US,en;q=0.5\r\n"
+//				"\r\n";
 
 	sprintf(request,data,path.c_str(),host.c_str());
 

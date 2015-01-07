@@ -73,6 +73,97 @@ string &HtmlParser::modifyurl(string &a)
 
 	return a;
 }
+void HtmlParser::writeFile(Document* p)
+{
+	string title = p->GetTitle();
+	title.append(".html");
+	string dir = "/home/lfr/crawlerData/";
+	dir+= title;
+	ofstream fs(dir.c_str());
+	fs<<data_buffer;
+}
+void HtmlParser::getBaseTag(Document* p)
+{
+	try
+	{
+		parser.parse(data_buffer);
+		tr = parser.getTree();
+			//cout << tr << endl;
+		tree<HTML::Node>::iterator it1 = tr.begin();
+		tree<HTML::Node>::iterator end1 = tr.end();
+
+		for(; it1 != end1; ++it1)
+		{
+			if(it1->isTag() && (it1->tagName() == string("base")))
+			{
+				it1->parseAttributes();
+				pair<bool,string> ab = it1->attribute("href");
+				if(ab.first == true)
+				{
+					baseTag = ab.second;
+					string accc = ab.second;
+				}
+			}
+		}
+		if(baseTag.empty() == true)
+		{
+			baseTag = p->getBase();
+		}
+
+	} catch (exception &e) {
+		cerr << "Exception " << e.what() << " caught" << endl;
+		//exit(1);
+	} catch (...) {
+		cerr << "Unknow exception caught " << endl;
+	}
+
+}
+void HtmlParser::ParseText()
+{
+	try
+	{
+		parser.parse(data_buffer);
+		tr = parser.getTree();
+			//cout << tr << endl;
+
+		tree<HTML::Node>::iterator it = tr.begin();
+		tree<HTML::Node>::iterator end = tr.end();
+
+
+		for(; it != end; ++it)
+		{
+				//  printf("the tagname is %s\n",it->tagName().c_str());
+			if(it->isTag() && (it->tagName() == string("a") || it->tagName() == string("A")))
+			{
+				   it->parseAttributes();
+				   pair<bool,string> ab = it->attribute("href");
+				   if(ab.first == true)
+				   {
+					   if(ab.second[0] != '/' && ab.second.find("http",0,4) == string::npos)
+					   {
+						   continue;
+					   }
+					   insertQueue(ab.second);
+				   }
+			}	 // cout<<it->text();
+		}
+	} catch (exception &e) {
+		cerr << "Exception " << e.what() << " caught" << endl;
+		//exit(1);
+	} catch (...) {
+		cerr << "Unknow exception caught " << endl;
+	}
+}
+void HtmlParser::insertQueue(string bac)
+{
+	   string abc = modifyurl(bac);
+	   bool tmp;
+	   MessageBus::getInstance()->call(5,"isInBloomSet",(void*)abc.c_str(),NULL,NULL,NULL,NULL,(void*)&tmp,NULL);
+	   if(tmp == false)
+	   {
+		   URL_Queue_Singleton::instance()->insert_queue(abc,1);  //1优先级
+	   }
+}
 int HtmlParser::svc(void)
 {
 	Document *pp;
@@ -85,78 +176,26 @@ int HtmlParser::svc(void)
 		if(!retval)
 		{
 			baseTag = "";
+			data_buffer = "";
 			memset(text,0,1024*1024);
 			MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,NULL,(void**)&pp);
 			int s = pp->getDoc((unsigned char*)text);
-			text[s]='\0';
-			data_buffer = text;
-			//写入文件
-			string ff= pp->GetTitle();
-			ff.append(".html");
-			string dir = "/home/lfr/crawlerData/";
-			dir+= ff;
-			ofstream fs(dir.c_str());
-			fs<<data_buffer;
-			MessageBus::getInstance()->call(5,"addToBloomSet",(void*)pp->GetURL().c_str(),NULL,NULL,NULL,NULL,NULL,NULL);
-
-			try
+			if(s != 0)
 			{
-				parser.parse(data_buffer);
-				tr = parser.getTree();
-					//cout << tr << endl;
-				tree<HTML::Node>::iterator it1 = tr.begin();
-				tree<HTML::Node>::iterator end1 = tr.end();
-
-				for(; it1 != end1; ++it1)
-				{
-					if(it1->isTag() && (it1->tagName() == string("base")))
-					{
-						it1->parseAttributes();
-						pair<bool,string> ab = it1->attribute("href");
-						if(ab.first == true)
-						{
-							baseTag = ab.second;
-							string accc = ab.second;
-						}
-					}
-				}
-				if(baseTag.empty() == true)
-				{
-					baseTag = pp->getBase();
-				}
-
-				tree<HTML::Node>::iterator it = tr.begin();
-				tree<HTML::Node>::iterator end = tr.end();
-
-
-				for(; it != end; ++it)
-				{
-						//  printf("the tagname is %s\n",it->tagName().c_str());
-					if(it->isTag() && (it->tagName() == string("a") || it->tagName() == string("A")))
-					{
-						   it->parseAttributes();
-						   pair<bool,string> ab = it->attribute("href");
-						   if(ab.first == true)
-						   {
-							   if(ab.second[0] != '/' && ab.second.find("http",0,4) == string::npos)
-							   {
-								   continue;
-							   }
-							   string abc = modifyurl(ab.second);
-							   bool tmp;
-							   MessageBus::getInstance()->call(5,"isInBloomSet",(void*)abc.c_str(),NULL,NULL,NULL,NULL,(void*)&tmp,NULL);
-							   if(tmp == false)
-							   {
-								   URL_Queue_Singleton::instance()->insert_queue(abc,1);  //1优先级
-							   }
-						   }
-					}	 // cout<<it->text();
-				}
-			} catch (exception &e) {
-				cerr << "Exception " << e.what() << " caught" << endl;
-				//exit(1);
-			} catch (...) {
-				cerr << "Unknow exception caught " << endl;
+				text[s]='\0';
+				data_buffer = text;
+				//写入文件
+				writeFile(pp);
+				MessageBus::getInstance()->call(5,"addToBloomSet",(void*)pp->GetURL().c_str(),NULL,NULL,NULL,NULL,NULL,NULL);
+			}
+			getBaseTag(pp);
+			if(pp->GetLinkURL().empty() == true)
+			{
+				ParseText();
+			}
+			else
+			{
+				insertQueue(pp->GetLinkURL());
 			}
 			pp->Reset();
 			Mem_Pool::getInstance()->freeObject(pp);

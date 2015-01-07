@@ -72,11 +72,21 @@ string Document::GetURL()
 	return url;
 }
 
+void Document::SetLinkURl(string b)
+{
+	memcpy(linkurl,b.c_str(),b.size());
+	linkurl[b.size()] = '\0';
+}
+string Document::GetLinkURL()
+{
+	return linkurl;
+}
 
 void Document::Reset()
 {
 	size = 0;
 	url[0]= '\0';
+	linkurl[0]='\0';
 }
 
 string Document::getBase()
