@@ -4,7 +4,7 @@
  *  Created on: 2014年12月28日
  *      Author: lfr
  */
-
+#include <stdio.h>
 #include "Document.h"
 #include <string.h>
 
@@ -44,9 +44,10 @@ string Document::GetTitle()
 		{
 			char *t = p;
 			while(*(++t) != '<');
-			char tmp[128];
-			memset(tmp,0,128);
+			char tmp[256];
+			memset(tmp,0,256);
 			memcpy(tmp,p+7,(t-p)-7);
+			printf("the title size is %d\n",(t-p)-7);
 			return string(tmp);
 		}
 		else
@@ -56,7 +57,7 @@ string Document::GetTitle()
 	}
 	else
 	{
-		return string();
+		return string("");
 	}
 }
 

@@ -7,8 +7,9 @@
 
 #include "HtmlParser.h"
 #include "commondefine.h"
+#include "ImageURLFIlter.h"
 
-HtmlParser::HtmlParser() {
+HtmlParser::HtmlParser():uf(new ImageURLFIlter()) {
 	// TODO Auto-generated constructor stub
 
 }
@@ -141,6 +142,10 @@ void HtmlParser::ParseText()
 				   if(ab.first == true)
 				   {
 					   if(ab.second[0] != '/' && ab.second.find("http",0,4) == string::npos)
+					   {
+						   continue;
+					   }
+					   if(uf->doFilter(ab.second) == false)
 					   {
 						   continue;
 					   }

@@ -149,7 +149,7 @@ void Fetcher::MakeRequest(string url,string ip,string host,string path)
 	if(connector.connect(handler,addr) == -1)
 	{
 		ACE_DEBUG((LM_ERROR,"Connect Error\n"));
-		delete handler;
+//		delete handler;
 		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 		return;
 		//exit(1);

@@ -362,7 +362,8 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
  /home/lfr/ACE_wrappers/ace/Malloc_Allocator.h \
  /home/lfr/ACE_wrappers/ace/Malloc_Allocator.inl \
  /home/lfr/ACE_wrappers/ace/Malloc_T.inl \
- /home/lfr/ACE_wrappers/ace/Malloc_T.cpp ../src/URLTest.h \
+ /home/lfr/ACE_wrappers/ace/Malloc_T.cpp ../src/URLFilter.h \
+ ../src/URLTest.h \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset/dynamic_bitset.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset/config.hpp \
@@ -1260,6 +1261,8 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
 /home/lfr/ACE_wrappers/ace/Malloc_T.inl:
 
 /home/lfr/ACE_wrappers/ace/Malloc_T.cpp:
+
+../src/URLFilter.h:
 
 ../src/URLTest.h:
 

@@ -8,17 +8,18 @@
 #ifndef HTMLPARSER_H_
 #define HTMLPARSER_H_
 
-#include "ace/Task_T.h"
 #include <string>
+#include <exception>
+#include <iostream>
+#include <fstream>
+#include "ace/Task_T.h"
 #include "ParserDom.h"
 #include "utils.h"
 #include "Document.h"
 #include "MemPool.h"
-#include <exception>
-#include <iostream>
-#include <fstream>
 #include "MessageBus.h"
 #include "URLQueue.h"
+#include "URLFilter.h"
 
 using namespace std;
 using namespace htmlcxx;
@@ -34,6 +35,7 @@ private:
 	  HTML::ParserDom parser;
 	  tree<HTML::Node> tr;
 	  string baseTag;
+	  URLFilter *uf;
 
 public:
 		int start();
