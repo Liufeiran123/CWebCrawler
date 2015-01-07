@@ -9,9 +9,10 @@
 #define DOCUMENT_H_
 
 #include <string>
+#include "commondefine.h"
 
 using namespace std;
-const int max_doc = 1024*1024;
+
 
 class Document {
 public:

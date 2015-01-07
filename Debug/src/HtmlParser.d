@@ -268,7 +268,8 @@ src/HtmlParser.d: ../src/HtmlParser.cpp ../src/HtmlParser.h \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/ParserSax.tcc \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/tree.h \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/utils.h \
- ../src/Document.h ../src/MemPool.h /home/lfr/ACE_wrappers/ace/Malloc_T.h \
+ ../src/Document.h ../src/commondefine.h ../src/MemPool.h \
+ /home/lfr/ACE_wrappers/ace/Malloc_T.h \
  /home/lfr/ACE_wrappers/ace/Malloc.h \
  /home/lfr/ACE_wrappers/ace/Malloc.inl \
  /home/lfr/ACE_wrappers/ace/Malloc_Allocator.h \
@@ -830,6 +831,8 @@ src/HtmlParser.d: ../src/HtmlParser.cpp ../src/HtmlParser.h \
 /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/utils.h:
 
 ../src/Document.h:
+
+../src/commondefine.h:
 
 ../src/MemPool.h:
 

@@ -140,7 +140,7 @@ src/MemPool.d: ../src/MemPool.cpp ../src/MemPool.h \
  /home/lfr/ACE_wrappers/ace/OS_NS_sys_socket.inl \
  /home/lfr/ACE_wrappers/ace/OS_NS_sys_uio.h \
  /home/lfr/ACE_wrappers/ace/OS_NS_sys_uio.inl ../src/MessageComponent.h \
- ../src/Document.h
+ ../src/Document.h ../src/commondefine.h
 
 ../src/MemPool.h:
 
@@ -437,3 +437,5 @@ src/MemPool.d: ../src/MemPool.cpp ../src/MemPool.h \
 ../src/MessageComponent.h:
 
 ../src/Document.h:
+
+../src/commondefine.h:

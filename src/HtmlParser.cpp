@@ -6,6 +6,7 @@
  */
 
 #include "HtmlParser.h"
+#include "commondefine.h"
 
 HtmlParser::HtmlParser() {
 	// TODO Auto-generated constructor stub
@@ -167,7 +168,7 @@ void HtmlParser::insertQueue(string bac)
 int HtmlParser::svc(void)
 {
 	Document *pp;
-	char text[1024*1024];
+	char text[max_doc];
 
 	while(1)
 	{

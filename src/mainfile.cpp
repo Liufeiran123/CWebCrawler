@@ -23,14 +23,9 @@ int main()
 	ACE_NEW_RETURN(reactor, ACE_Reactor(reactor_impl, 1), -1);
 	ACE_Reactor::instance(reactor);
 
-
-
-
-	printf("lll1\n");
 	TP_Task tp(1);
 	tp.start();
 
-	printf("lll2\n");
 
 	//Crawler_Thread *ce1 = new Crawler_Thread();
 	//ce1->start();
@@ -51,7 +46,6 @@ int main()
 
 	ct->start();
 	hp->start();*/
-	printf("lll3\n");
 	int a;
 	scanf("%d",&a);
 	return 0;

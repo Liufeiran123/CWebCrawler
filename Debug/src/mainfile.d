@@ -360,7 +360,8 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
  /home/lfr/ACE_wrappers/ace/Svc_Handler.cpp \
  /home/lfr/ACE_wrappers/ace/Dynamic.h \
  /home/lfr/ACE_wrappers/ace/Dynamic.inl \
- /home/lfr/ACE_wrappers/ace/Connector.cpp ../src/HtmlParser.h \
+ /home/lfr/ACE_wrappers/ace/Connector.cpp ../src/commondefine.h \
+ ../src/HtmlParser.h \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/ParserDom.h \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/ParserSax.h \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/Node.h \
@@ -1264,6 +1265,8 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
 /home/lfr/ACE_wrappers/ace/Dynamic.inl:
 
 /home/lfr/ACE_wrappers/ace/Connector.cpp:
+
+../src/commondefine.h:
 
 ../src/HtmlParser.h:
 

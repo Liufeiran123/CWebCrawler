@@ -14,23 +14,20 @@
 
 int Net_Svc_Handler::handle_input(ACE_HANDLE)
 {
-		printf("starting recv....\n");
-		int size1 = peer().recv(tempdata,1023);
-		printf("end recv....\n");
+		int size1 = peer().recv(tempdata,tmpdata-1);
 		if(size1 <= 0)
 		{
 			//peer().close();
-			printf("Start rawdata\n");
 			handle_rawdata();
-
 			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-
-			printf("end rawdata\n");
+			printf("end....\n");
 			return -1;
 		}
 		tempdata[size1] = '\0';
+
 		memcpy(data+size,tempdata,size1);
 		size += size1;
+		printf("the size is %d\n",size);
 		return 0;
 }
 
@@ -147,20 +144,18 @@ void Fetcher::MakeRequest(string url,string ip,string host,string path)
 	sprintf(request,data,path.c_str(),host.c_str());
 
 	ACE_INET_Addr addr(80,ip.c_str(),AF_INET);
-
 	handler= new Net_Svc_Handler();
-
-
 	//Connects to remote machine
 	if(connector.connect(handler,addr) == -1)
 	{
 		ACE_DEBUG((LM_ERROR,"Connect Error\n"));
+		delete handler;
+		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+		return;
 		//exit(1);
 
 	}
-
 	handler->SetUrl(url);
-
 	int ret = handler->peer().send(request,strlen(request));
 	if(ret != strlen(request))
 	{

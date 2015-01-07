@@ -13,6 +13,7 @@
 #include "ace/Connector.h"
 
 #include "MessageComponent.h"
+#include "commondefine.h"
 
 #include <string>
 
@@ -46,8 +47,8 @@ public:
 
 	int handle_input(ACE_HANDLE);
 private:
-	char tempdata[1024];
-	char data[1024*1024];
+	char tempdata[tmpdata];
+	char data[max_doc];
 	int size;
 	string currenturl;
 

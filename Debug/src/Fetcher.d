@@ -322,8 +322,8 @@ src/Fetcher.d: ../src/Fetcher.cpp ../src/Fetcher.h \
  /home/lfr/ACE_wrappers/ace/Dynamic.h \
  /home/lfr/ACE_wrappers/ace/Dynamic.inl \
  /home/lfr/ACE_wrappers/ace/Connector.cpp ../src/MessageComponent.h \
- ../src/MessageBus.h ../src/Document.h ../src/MemPool.h \
- /home/lfr/ACE_wrappers/ace/Malloc_T.h \
+ ../src/commondefine.h ../src/MessageBus.h ../src/Document.h \
+ ../src/MemPool.h /home/lfr/ACE_wrappers/ace/Malloc_T.h \
  /home/lfr/ACE_wrappers/ace/Malloc.h \
  /home/lfr/ACE_wrappers/ace/Malloc.inl \
  /home/lfr/ACE_wrappers/ace/Malloc_Allocator.h \
@@ -1001,6 +1001,8 @@ src/Fetcher.d: ../src/Fetcher.cpp ../src/Fetcher.h \
 /home/lfr/ACE_wrappers/ace/Connector.cpp:
 
 ../src/MessageComponent.h:
+
+../src/commondefine.h:
 
 ../src/MessageBus.h:
 
