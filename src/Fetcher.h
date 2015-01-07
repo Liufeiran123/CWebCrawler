@@ -26,31 +26,24 @@ class Net_Svc_Handler;
 typedef ACE_Connector<Net_Svc_Handler,ACE_SOCK_CONNECTOR> NetConnector;
 
 
-//Create a service handler similar to as seen in example 1. Except this
-//time include the handle_input() method which will be called back
-//automatically by the reactor when new data arrives on the newly
-//established connection
 class Net_Svc_Handler: public ACE_Svc_Handler <ACE_SOCK_STREAM,ACE_NULL_SYNCH>
 {
 public:
-	Net_Svc_Handler():size(0)
-	{
+	Net_Svc_Handler();
+	~Net_Svc_Handler();
+public:
 
-	}
-/*	int open(void *)
-	{
-		ACE_DEBUG((LM_INFO,"open called\n"));
-		return 0;
-	}
-*/
 	void handle_rawdata();
 
 	int handle_input(ACE_HANDLE);
+
+	bool isNeed();
 private:
 	char tempdata[tmpdata];
 	char data[max_doc];
 	int size;
 	string currenturl;
+	bool issize;
 
 public:
 	void SetUrl(string a)

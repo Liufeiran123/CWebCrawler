@@ -12,23 +12,59 @@
 #include <string.h>
 #include "URLQueue.h"
 
+Net_Svc_Handler::Net_Svc_Handler():size(0),issize(true)
+{
+
+}
+Net_Svc_Handler::~Net_Svc_Handler()
+{
+
+}
+
+bool Net_Svc_Handler::isNeed()
+{
+	char *p = strstr(data,"Content-Type");
+	if(!p)
+	{
+		p = strstr(data,"Content-type");
+	}
+	if(!p)
+	{
+		return true;
+	}
+	p+=14;
+	if(strncmp(p,"text/html",9) != 0)
+	{
+		printf("the p is %s\n",p);
+		return false;
+	}
+	return true;
+}
+
 int Net_Svc_Handler::handle_input(ACE_HANDLE)
 {
-		int size1 = peer().recv(tempdata,tmpdata-1);
-		if(size1 <= 0)
+	int size1 = peer().recv(tempdata,tmpdata-1);
+	if(size1 <= 0)
+	{
+		//peer().close();
+		handle_rawdata();
+		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+		printf("end....\n");
+		return -1;
+	}
+	tempdata[size1] = '\0';
+	memcpy(data+size,tempdata,size1);
+	size += size1;
+	if(size >= 1024 && issize==true)
+	{
+		issize = false;
+		if(isNeed() == false)
 		{
-			//peer().close();
-			handle_rawdata();
 			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-			printf("end....\n");
 			return -1;
 		}
-		tempdata[size1] = '\0';
-
-		memcpy(data+size,tempdata,size1);
-		size += size1;
-		printf("the size is %d\n",size);
-		return 0;
+	}
+	return 0;
 }
 
 void Net_Svc_Handler::handle_rawdata()
@@ -50,10 +86,11 @@ void Net_Svc_Handler::handle_rawdata()
 		char tempdata1[2*1024];  //应答头
 		memset(tempdata1,0,2*1024);
 		memcpy(tempdata1,data,p-data);
+		printf("the p-data is %d\n",p-data);
 
-		char *p1 = strstr(tempdata1,"Content-Length");
+	//	char *p1 = strstr(tempdata1,"Content-Length");
 		char *p2 = strstr(tempdata1,"Transfer-Encoding: chunked");
-		if(p1 != NULL)
+		if(p2 == NULL)
 		{
 			//写入MEM——POOL
 			pp->append((unsigned char*)p,size - (p -data));
@@ -62,7 +99,10 @@ void Net_Svc_Handler::handle_rawdata()
 		{
 			//解析HTML
 			char *startp = p;
-			startp-=4;
+			while(*startp <  48 || (*startp > 57 && *startp <97) || *startp >102 )
+			{
+				--startp;
+			}
 			while(*(--startp) != '\r'); //\r\n
 
 			long s1 = 0;
@@ -79,6 +119,7 @@ void Net_Svc_Handler::handle_rawdata()
 				while(*(++p6) != '\r');
 				memset(te,0,16);
 				memcpy(te,startnum,p6-startnum);
+				printf("the p6-startnum is %d\n",p6-startnum);
 				s1 = strtol(te,NULL,16);
 				datap = p6+2;
 				pp->append((unsigned char*)datap,s1);
@@ -97,6 +138,7 @@ void Net_Svc_Handler::handle_rawdata()
 			while(*(++p2) != '\r');
 			char tmpurl[1024];
 			memcpy(tmpurl,p1,p2-p1);
+			printf("the p2-p1 is %d\n",p2-p1);
 			tmpurl[p2-p1] = '\0';
 			Document *pp = Mem_Pool::getInstance()->getObject();
 			pp->SetLinkURl(tmpurl);

@@ -47,7 +47,6 @@ string Document::GetTitle()
 			char tmp[256];
 			memset(tmp,0,256);
 			memcpy(tmp,p+7,(t-p)-7);
-			printf("the title size is %d\n",(t-p)-7);
 			return string(tmp);
 		}
 		else
