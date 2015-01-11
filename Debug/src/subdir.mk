@@ -68,7 +68,7 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/home/lfr/ACE_wrappers -I/home/lfr/boost_1_57_0/build/include -I/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I/home/lfr/ACE_wrappers -I/home/lfr/oneurl/output/include -I/home/lfr/boost_1_57_0/build/include -I/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

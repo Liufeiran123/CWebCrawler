@@ -44,8 +44,8 @@ string Document::GetTitle()
 		{
 			char *t = p;
 			while(*(++t) != '<');
-			char tmp[256];
-			memset(tmp,0,256);
+			char tmp[1024];
+			memset(tmp,0,1024);
 			memcpy(tmp,p+7,(t-p)-7);
 			return string(tmp);
 		}

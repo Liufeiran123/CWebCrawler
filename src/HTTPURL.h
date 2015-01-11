@@ -30,6 +30,7 @@ private:
 
 public:
 	void URLParser();
+	void URLParser(int );
 	int gethostaddr();
 
 	string & getip();

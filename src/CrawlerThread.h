@@ -19,7 +19,7 @@
 
 class Crawler_Thread: public ACE_Task<ACE_NULL_SYNCH>,public MessageComponent {
 public:
-	Crawler_Thread();
+	Crawler_Thread(int id);
 	virtual ~Crawler_Thread();
 
 public:
@@ -30,6 +30,7 @@ public:
 	int stop();
 private:
 	int value;
+	int identify;
 //	ACE_Thread_Mutex _mutex;
 //	ACE_Condition<ACE_Thread_Mutex> cond(_mutex);
 

@@ -8,6 +8,7 @@
 #ifndef FETCHER_H_
 #define FETCHER_H_
 
+#include "ace/Synch.h"
 #include "ace/Log_Msg.h"
 #include "ace/SOCK_Connector.h"
 #include "ace/Connector.h"
@@ -44,11 +45,16 @@ private:
 	int size;
 	string currenturl;
 	bool issize;
+	int crawlerid;
 
 public:
 	void SetUrl(string a)
 	{
 		currenturl =a;
+	}
+	void SetId(int a)
+	{
+		crawlerid = a;
 	}
 
 };
@@ -61,11 +67,9 @@ public:
 
 private:
 	NetConnector connector;
-	Net_Svc_Handler * handler;
-	string preip;
-
+//	ACE_Thread_Mutex _mutex;
 public:
-	void MakeRequest(string url,string ip,string host,string path);
+	void MakeRequest(string url,string ip,string host,string path,int id);
 	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void *h,void **i/*函数返回值*/);
 };
 

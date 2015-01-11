@@ -35,7 +35,7 @@ bool Net_Svc_Handler::isNeed()
 	p+=14;
 	if(strncmp(p,"text/html",9) != 0)
 	{
-		printf("the p is %s\n",p);
+//		printf("the p is %s\n",p);
 		return false;
 	}
 	return true;
@@ -43,13 +43,14 @@ bool Net_Svc_Handler::isNeed()
 
 int Net_Svc_Handler::handle_input(ACE_HANDLE)
 {
+	printf("recv data ,id is %d\n",crawlerid);
 	int size1 = peer().recv(tempdata,tmpdata-1);
 	if(size1 <= 0)
 	{
 		//peer().close();
 		handle_rawdata();
-		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-		printf("end....\n");
+		MessageBus::getInstance()->call(crawlerid,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+		printf("end.... ,id is %d\n",crawlerid);
 		return -1;
 	}
 	tempdata[size1] = '\0';
@@ -60,7 +61,7 @@ int Net_Svc_Handler::handle_input(ACE_HANDLE)
 		issize = false;
 		if(isNeed() == false)
 		{
-			MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+			MessageBus::getInstance()->call(crawlerid,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 			return -1;
 		}
 	}
@@ -86,7 +87,7 @@ void Net_Svc_Handler::handle_rawdata()
 		char tempdata1[2*1024];  //应答头
 		memset(tempdata1,0,2*1024);
 		memcpy(tempdata1,data,p-data);
-		printf("the p-data is %d\n",p-data);
+//		printf("the p-data is %d\n",p-data);
 
 	//	char *p1 = strstr(tempdata1,"Content-Length");
 		char *p2 = strstr(tempdata1,"Transfer-Encoding: chunked");
@@ -119,7 +120,7 @@ void Net_Svc_Handler::handle_rawdata()
 				while(*(++p6) != '\r');
 				memset(te,0,16);
 				memcpy(te,startnum,p6-startnum);
-				printf("the p6-startnum is %d\n",p6-startnum);
+//				printf("the p6-startnum is %d\n",p6-startnum);
 				s1 = strtol(te,NULL,16);
 				datap = p6+2;
 				pp->append((unsigned char*)datap,s1);
@@ -138,7 +139,7 @@ void Net_Svc_Handler::handle_rawdata()
 			while(*(++p2) != '\r');
 			char tmpurl[1024];
 			memcpy(tmpurl,p1,p2-p1);
-			printf("the p2-p1 is %d\n",p2-p1);
+//			printf("the p2-p1 is %d\n",p2-p1);
 			tmpurl[p2-p1] = '\0';
 			Document *pp = Mem_Pool::getInstance()->getObject();
 			pp->SetLinkURl(tmpurl);
@@ -162,11 +163,11 @@ void Fetcher::call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f
 {
 	if(a == "MakeRequest")
 	{
-		MakeRequest((char*)v,(char*)d,(char*)e,(char*)f);
+		MakeRequest((char*)v,(char*)d,(char*)e,(char*)f,*(int*)g);
 	}
 }
 
-void Fetcher::MakeRequest(string url,string ip,string host,string path)
+void Fetcher::MakeRequest(string url,string ip,string host,string path,int id)
 {
 	char request[1024];
 	memset(request,0,1024);
@@ -186,21 +187,29 @@ void Fetcher::MakeRequest(string url,string ip,string host,string path)
 	sprintf(request,data,path.c_str(),host.c_str());
 
 	ACE_INET_Addr addr(80,ip.c_str(),AF_INET);
-	handler= new Net_Svc_Handler();
+	Net_Svc_Handler * handler= new Net_Svc_Handler();
 	//Connects to remote machine
+//	_mutex.acquire();
 	if(connector.connect(handler,addr) == -1)
 	{
+//		_mutex.release();
 		ACE_DEBUG((LM_ERROR,"Connect Error\n"));
 //		delete handler;
-		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+		MessageBus::getInstance()->call(id,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+
 		return;
 		//exit(1);
-
 	}
+//	_mutex.release();
 	handler->SetUrl(url);
+	handler->SetId(id);
+	ACE_INET_Addr tmp;
+	handler->peer().get_local_addr(tmp);
+
+	printf("fecht connect ,id is %d,url is %s,port is %d,handler is %lu\n",id,url.c_str(),tmp.get_port_number(),(unsigned long)handler);
 	int ret = handler->peer().send(request,strlen(request));
 	if(ret != strlen(request))
 	{
-		MessageBus::getInstance()->call(1,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+		MessageBus::getInstance()->call(id,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 	}
 }

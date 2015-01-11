@@ -7,7 +7,7 @@
 
 #include "CrawlerThread.h"
 
-Crawler_Thread::Crawler_Thread():value(1) {
+Crawler_Thread::Crawler_Thread(int id):value(1),identify(id) {
 	// TODO Auto-generated constructor stub
 	 pthread_mutex_init(&count_lock, NULL);
 	 pthread_cond_init(&count_nonzero, NULL);
@@ -77,7 +77,7 @@ int Crawler_Thread::svc(void)
 			{
 				string url = URL_Queue_Singleton::instance()->pop_queue();
 				HTTP_URL hu(url);
-				hu.URLParser();
+				hu.URLParser(0);
 				int ret = hu.gethostaddr();
 				if(ret == -1)
 				{
@@ -88,9 +88,9 @@ int Crawler_Thread::svc(void)
 				while(value == 0)
 				{
 					//cond.wait();
-					printf("waiting pthread\n");
+					printf("waiting pthread id is %d\n",identify);
 					pthread_cond_wait(&count_nonzero, &count_lock);
-					printf("end waiting \n");
+					printf("end waiting id is %d\n",identify);
 				}
 				value =0 ;
 				//_mutex.release();
@@ -98,7 +98,7 @@ int Crawler_Thread::svc(void)
 
 				//发送请求
 
-				MessageBus::getInstance()->call(2,"MakeRequest",(void*)url.c_str(),(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),NULL,NULL,NULL);
+				MessageBus::getInstance()->call(2,"MakeRequest",(void*)url.c_str(),(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),(void*)&identify,NULL,NULL);
 			}
 		}
 		return 0;

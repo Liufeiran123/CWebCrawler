@@ -8,6 +8,7 @@
 #include "HTTPURL.h"
 #include "netdb.h"
 #include "python2.7/Python.h"
+#include "Url.h"
 
 HTTP_URL::HTTP_URL(string url) {
 	// TODO Auto-generated constructor stub
@@ -16,6 +17,14 @@ HTTP_URL::HTTP_URL(string url) {
 
 HTTP_URL::~HTTP_URL() {
 	// TODO Auto-generated destructor stub
+}
+
+void HTTP_URL::URLParser(int a)
+{
+	oneurl url;
+	url.ParseUrl(m_url);
+	host = url.GetHost();
+	m_file = url.GetPath();
 }
 
 void HTTP_URL::URLParser()

@@ -167,7 +167,12 @@ void HtmlParser::insertQueue(string bac)
 	   MessageBus::getInstance()->call(5,"isInBloomSet",(void*)abc.c_str(),NULL,NULL,NULL,NULL,(void*)&tmp,NULL);
 	   if(tmp == false)
 	   {
+	//	   printf("the insert queue is %s\n",abc.c_str());
 		   URL_Queue_Singleton::instance()->insert_queue(abc,1);  //1优先级
+	   }
+	   else
+	   {
+		   int i = 0;
 	   }
 }
 int HtmlParser::svc(void)
@@ -208,7 +213,7 @@ int HtmlParser::svc(void)
 		}
 		else
 		{
-			sleep(1);
+			usleep(200000);
 		}
 	}
 		return 0;

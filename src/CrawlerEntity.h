@@ -20,6 +20,7 @@ public:
 	virtual ~CrawlerEntity();
 private:
 	Crawler_Thread *ct;
+	Crawler_Thread *ct1;
 	Fetcher *fe;
 	DocQueue *dq;
 	HtmlParser* hp;

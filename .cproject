@@ -25,6 +25,7 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.2135290523" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1513328057" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/lfr/ACE_wrappers"/>
+									<listOptionValue builtIn="false" value="/home/lfr/oneurl/output/include"/>
 									<listOptionValue builtIn="false" value="/home/lfr/boost_1_57_0/build/include"/>
 									<listOptionValue builtIn="false" value="/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html"/>
 								</option>
@@ -33,6 +34,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.901479783" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.402001455" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1555000234" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.dialect.std.1197643232" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.831090909" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.1391397013" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
@@ -41,9 +43,16 @@
 									<listOptionValue builtIn="false" value="ACE"/>
 									<listOptionValue builtIn="false" value="htmlcxx"/>
 									<listOptionValue builtIn="false" value="python2.7"/>
+									<listOptionValue builtIn="false" value="oneurl"/>
+									<listOptionValue builtIn="false" value="icuuc"/>
+									<listOptionValue builtIn="false" value="icudata"/>
+									<listOptionValue builtIn="false" value=""/>
+									<listOptionValue builtIn="false" value="dl"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.207571950" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/home/lfr/ACE_wrappers/lib"/>
+									<listOptionValue builtIn="false" value="/home/lfr/oneurl/output/lib/"/>
+									<listOptionValue builtIn="false" value="/home/lfr/oneurl/lib4/icu4c/lib"/>
 									<listOptionValue builtIn="false" value="/home/lfr/workspace3/crawler/htmlParser/lib"/>
 									<listOptionValue builtIn="false" value="/usr/lib/python2.7"/>
 								</option>

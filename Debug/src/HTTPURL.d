@@ -88,7 +88,11 @@ src/HTTPURL.d: ../src/HTTPURL.cpp ../src/HTTPURL.h \
  /home/lfr/ACE_wrappers/ace/os_include/os_pwd.h \
  /home/lfr/ACE_wrappers/ace/OS_NS_pwd.inl \
  /home/lfr/ACE_wrappers/ace/OS_NS_sys_stat.h \
- /home/lfr/ACE_wrappers/ace/OS_NS_sys_stat.inl
+ /home/lfr/ACE_wrappers/ace/OS_NS_sys_stat.inl \
+ /home/lfr/oneurl/output/include/Url.h \
+ /home/lfr/oneurl/output/include/UrlParse.h \
+ /home/lfr/oneurl/output/include/string16.h \
+ /home/lfr/oneurl/output/include/basictypes.h
 
 ../src/HTTPURL.h:
 
@@ -277,3 +281,11 @@ src/HTTPURL.d: ../src/HTTPURL.cpp ../src/HTTPURL.h \
 /home/lfr/ACE_wrappers/ace/OS_NS_sys_stat.h:
 
 /home/lfr/ACE_wrappers/ace/OS_NS_sys_stat.inl:
+
+/home/lfr/oneurl/output/include/Url.h:
+
+/home/lfr/oneurl/output/include/UrlParse.h:
+
+/home/lfr/oneurl/output/include/string16.h:
+
+/home/lfr/oneurl/output/include/basictypes.h:

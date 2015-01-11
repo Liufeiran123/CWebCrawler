@@ -44,7 +44,7 @@ all: crawler
 crawler: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/home/lfr/ACE_wrappers/lib -L/home/lfr/workspace3/crawler/htmlParser/lib -L/usr/lib/python2.7 -o "crawler" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/home/lfr/ACE_wrappers/lib -L/home/lfr/oneurl/output/lib/ -L/home/lfr/oneurl/lib4/icu4c/lib -L/home/lfr/workspace3/crawler/htmlParser/lib -L/usr/lib/python2.7 -o "crawler" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
