@@ -494,7 +494,9 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
  /home/lfr/boost_1_57_0/build/include/boost/integer/integer_log2.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/utility/addressof.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp
+ /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp \
+ ../src/DBManager.h /home/lfr/berkeleydb/include/db_cxx.h \
+ /home/lfr/berkeleydb/include/db.h
 
 ../src/CrawlerEntity.h:
 
@@ -1527,3 +1529,9 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
 /home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp:
+
+../src/DBManager.h:
+
+/home/lfr/berkeleydb/include/db_cxx.h:
+
+/home/lfr/berkeleydb/include/db.h:

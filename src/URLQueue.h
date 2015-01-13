@@ -28,6 +28,7 @@ public:
 	void insert_queue(string s,int priority);
 	string pop_queue();
 	bool isEmpty();
+	bool isExist(string s);
 };
 
 

@@ -43,14 +43,14 @@ bool Net_Svc_Handler::isNeed()
 
 int Net_Svc_Handler::handle_input(ACE_HANDLE)
 {
-	printf("recv data ,id is %d\n",crawlerid);
+//	printf("recv data ,id is %d\n",crawlerid);
 	int size1 = peer().recv(tempdata,tmpdata-1);
 	if(size1 <= 0)
 	{
 		//peer().close();
 		handle_rawdata();
 		MessageBus::getInstance()->call(crawlerid,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-		printf("end.... ,id is %d\n",crawlerid);
+//		printf("end.... ,id is %d\n",crawlerid);
 		return -1;
 	}
 	tempdata[size1] = '\0';
@@ -203,10 +203,10 @@ void Fetcher::MakeRequest(string url,string ip,string host,string path,int id)
 //	_mutex.release();
 	handler->SetUrl(url);
 	handler->SetId(id);
-	ACE_INET_Addr tmp;
-	handler->peer().get_local_addr(tmp);
+//	ACE_INET_Addr tmp;
+//	handler->peer().get_local_addr(tmp);
 
-	printf("fecht connect ,id is %d,url is %s,port is %d,handler is %lu\n",id,url.c_str(),tmp.get_port_number(),(unsigned long)handler);
+//	printf("fecht connect ,id is %d,url is %s,port is %d,handler is %lu\n",id,url.c_str(),tmp.get_port_number(),(unsigned long)handler);
 	int ret = handler->peer().send(request,strlen(request));
 	if(ret != strlen(request))
 	{

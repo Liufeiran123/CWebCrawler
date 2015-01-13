@@ -19,7 +19,7 @@ public:
 	Document();
 	virtual ~Document();
 private:
-	unsigned char buffer[max_doc];
+	unsigned char buffer[max_doc];   //文档数据
 	char url[1024];
 	char linkurl[1024];  //redirect
 	int size;

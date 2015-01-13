@@ -25,6 +25,8 @@ void HTTP_URL::URLParser(int a)
 	url.ParseUrl(m_url);
 	host = url.GetHost();
 	m_file = url.GetPath();
+	printf("the url is %s\n",m_url.c_str());
+	printf("the m_file is %s\n\n",m_file.c_str());
 }
 
 void HTTP_URL::URLParser()

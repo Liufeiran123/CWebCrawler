@@ -34,6 +34,8 @@ public:
 	unsigned long getHashValue(string str,int n);
 	bool isInBloomSet(string str);
 	void addToBloomSet(string str);
+	bool isInBloomSet(string str,int a);
+	void addToBloomSet(string str,int a);
 };
 
 #endif /* URLTEST_H_ */

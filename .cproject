@@ -25,10 +25,12 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.2135290523" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1513328057" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/lfr/ACE_wrappers"/>
+									<listOptionValue builtIn="false" value="/home/lfr/berkeleydb/include"/>
 									<listOptionValue builtIn="false" value="/home/lfr/oneurl/output/include"/>
 									<listOptionValue builtIn="false" value="/home/lfr/boost_1_57_0/build/include"/>
 									<listOptionValue builtIn="false" value="/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.preprocessor.def.1589566192" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.769068577" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.901479783" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
@@ -41,16 +43,17 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.755658636" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 								<option id="gnu.cpp.link.option.libs.568195945" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" value="ACE"/>
+									<listOptionValue builtIn="false" value="db_cxx"/>
 									<listOptionValue builtIn="false" value="htmlcxx"/>
 									<listOptionValue builtIn="false" value="python2.7"/>
 									<listOptionValue builtIn="false" value="oneurl"/>
 									<listOptionValue builtIn="false" value="icuuc"/>
 									<listOptionValue builtIn="false" value="icudata"/>
-									<listOptionValue builtIn="false" value=""/>
 									<listOptionValue builtIn="false" value="dl"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.207571950" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/home/lfr/ACE_wrappers/lib"/>
+									<listOptionValue builtIn="false" value="/home/lfr/berkeleydb/lib"/>
 									<listOptionValue builtIn="false" value="/home/lfr/oneurl/output/lib/"/>
 									<listOptionValue builtIn="false" value="/home/lfr/oneurl/lib4/icu4c/lib"/>
 									<listOptionValue builtIn="false" value="/home/lfr/workspace3/crawler/htmlParser/lib"/>

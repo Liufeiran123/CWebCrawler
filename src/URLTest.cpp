@@ -5,9 +5,11 @@
  *      Author: lfr
  */
 
-#include "URLTest.h"
 #include <math.h>
 #include <string.h>
+#include "URLTest.h"
+#include "DBManager.h"
+
 
 URLTest::URLTest(float p/*误判率*/,unsigned long num) {
 	// TODO Auto-generated constructor stub
@@ -27,11 +29,11 @@ void URLTest::call(string/*插件方法名*/ a,void * b,void* c,void *d,void* e,
 {
 	if(a == "addToBloomSet")
 	{
-		addToBloomSet((char*)b);
+		addToBloomSet((char*)b,0);
 	}
 	else if(a == "isInBloomSet")
 	{
-		bool tmp =  isInBloomSet((char*)b);
+		bool tmp =  isInBloomSet((char*)b,0);
 		memcpy(g,&tmp,sizeof(bool));
 	}
 
@@ -82,4 +84,17 @@ void URLTest::addToBloomSet(string str)               //添加元素到布隆过
     	unsigned long hash=getHashValue(str,i);
         db->set(hash,true);
     }
+}
+
+
+bool URLTest::isInBloomSet(string str,int a)                //判断是否在布隆过滤器中
+{
+	struct timeval tv;
+	return DbManager_Singleton::instance()->readDB(0,str,&tv);
+}
+
+void URLTest::addToBloomSet(string str,int a)               //添加元素到布隆过滤器
+{
+	struct timeval tv;
+	DbManager_Singleton::instance()->writeDB(0,str,&tv);
 }

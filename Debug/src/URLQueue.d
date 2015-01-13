@@ -152,7 +152,49 @@ src/URLQueue.d: ../src/URLQueue.cpp ../src/URLQueue.h ../src/urlstring.h \
  /home/lfr/ACE_wrappers/ace/OS_NS_sys_uio.inl \
  /home/lfr/ACE_wrappers/ace/Framework_Component_T.h \
  /home/lfr/ACE_wrappers/ace/Framework_Component_T.cpp \
- /home/lfr/ACE_wrappers/ace/os_include/os_typeinfo.h
+ /home/lfr/ACE_wrappers/ace/os_include/os_typeinfo.h ../src/DBManager.h \
+ /home/lfr/ACE_wrappers/ace/Synch.h \
+ /home/lfr/ACE_wrappers/ace/Auto_Event.h \
+ /home/lfr/ACE_wrappers/ace/Event.h \
+ /home/lfr/ACE_wrappers/ace/Event_Base.h \
+ /home/lfr/ACE_wrappers/ace/Event_Base.inl \
+ /home/lfr/ACE_wrappers/ace/Time_Policy.h \
+ /home/lfr/ACE_wrappers/ace/Time_Value_T.h \
+ /home/lfr/ACE_wrappers/ace/Time_Value_T.inl \
+ /home/lfr/ACE_wrappers/ace/Time_Value_T.cpp \
+ /home/lfr/ACE_wrappers/ace/Time_Policy.inl \
+ /home/lfr/ACE_wrappers/ace/High_Res_Timer.h \
+ /home/lfr/ACE_wrappers/ace/OS_NS_time.h \
+ /home/lfr/ACE_wrappers/ace/OS_NS_time.inl \
+ /home/lfr/ACE_wrappers/ace/High_Res_Timer.inl \
+ /home/lfr/ACE_wrappers/ace/Event.inl \
+ /home/lfr/ACE_wrappers/ace/Event.cpp \
+ /home/lfr/ACE_wrappers/ace/Condition_Attributes.h \
+ /home/lfr/ACE_wrappers/ace/Condition_Attributes.inl \
+ /home/lfr/ACE_wrappers/ace/Auto_Event.inl \
+ /home/lfr/ACE_wrappers/ace/Auto_Event.cpp \
+ /home/lfr/ACE_wrappers/ace/Barrier.h \
+ /home/lfr/ACE_wrappers/ace/Condition_Thread_Mutex.h \
+ /home/lfr/ACE_wrappers/ace/Condition_T.h \
+ /home/lfr/ACE_wrappers/ace/Condition_T.inl \
+ /home/lfr/ACE_wrappers/ace/Condition_T.cpp \
+ /home/lfr/ACE_wrappers/ace/Condition_Thread_Mutex.inl \
+ /home/lfr/ACE_wrappers/ace/Barrier.inl \
+ /home/lfr/ACE_wrappers/ace/Condition_Recursive_Thread_Mutex.h \
+ /home/lfr/ACE_wrappers/ace/Manual_Event.h \
+ /home/lfr/ACE_wrappers/ace/Manual_Event.inl \
+ /home/lfr/ACE_wrappers/ace/Manual_Event.cpp \
+ /home/lfr/ACE_wrappers/ace/Mutex.h /home/lfr/ACE_wrappers/ace/Mutex.inl \
+ /home/lfr/ACE_wrappers/ace/Null_Barrier.h \
+ /home/lfr/ACE_wrappers/ace/Null_Condition.h \
+ /home/lfr/ACE_wrappers/ace/Null_Mutex.h \
+ /home/lfr/ACE_wrappers/ace/Null_Semaphore.h \
+ /home/lfr/ACE_wrappers/ace/Semaphore.h \
+ /home/lfr/ACE_wrappers/ace/Semaphore.inl \
+ /home/lfr/ACE_wrappers/ace/Thread_Semaphore.h \
+ /home/lfr/ACE_wrappers/ace/Thread_Semaphore.inl \
+ /home/lfr/ACE_wrappers/ace/TSS_Adapter.h \
+ /home/lfr/berkeleydb/include/db_cxx.h /home/lfr/berkeleydb/include/db.h
 
 ../src/URLQueue.h:
 
@@ -475,3 +517,93 @@ src/URLQueue.d: ../src/URLQueue.cpp ../src/URLQueue.h ../src/urlstring.h \
 /home/lfr/ACE_wrappers/ace/Framework_Component_T.cpp:
 
 /home/lfr/ACE_wrappers/ace/os_include/os_typeinfo.h:
+
+../src/DBManager.h:
+
+/home/lfr/ACE_wrappers/ace/Synch.h:
+
+/home/lfr/ACE_wrappers/ace/Auto_Event.h:
+
+/home/lfr/ACE_wrappers/ace/Event.h:
+
+/home/lfr/ACE_wrappers/ace/Event_Base.h:
+
+/home/lfr/ACE_wrappers/ace/Event_Base.inl:
+
+/home/lfr/ACE_wrappers/ace/Time_Policy.h:
+
+/home/lfr/ACE_wrappers/ace/Time_Value_T.h:
+
+/home/lfr/ACE_wrappers/ace/Time_Value_T.inl:
+
+/home/lfr/ACE_wrappers/ace/Time_Value_T.cpp:
+
+/home/lfr/ACE_wrappers/ace/Time_Policy.inl:
+
+/home/lfr/ACE_wrappers/ace/High_Res_Timer.h:
+
+/home/lfr/ACE_wrappers/ace/OS_NS_time.h:
+
+/home/lfr/ACE_wrappers/ace/OS_NS_time.inl:
+
+/home/lfr/ACE_wrappers/ace/High_Res_Timer.inl:
+
+/home/lfr/ACE_wrappers/ace/Event.inl:
+
+/home/lfr/ACE_wrappers/ace/Event.cpp:
+
+/home/lfr/ACE_wrappers/ace/Condition_Attributes.h:
+
+/home/lfr/ACE_wrappers/ace/Condition_Attributes.inl:
+
+/home/lfr/ACE_wrappers/ace/Auto_Event.inl:
+
+/home/lfr/ACE_wrappers/ace/Auto_Event.cpp:
+
+/home/lfr/ACE_wrappers/ace/Barrier.h:
+
+/home/lfr/ACE_wrappers/ace/Condition_Thread_Mutex.h:
+
+/home/lfr/ACE_wrappers/ace/Condition_T.h:
+
+/home/lfr/ACE_wrappers/ace/Condition_T.inl:
+
+/home/lfr/ACE_wrappers/ace/Condition_T.cpp:
+
+/home/lfr/ACE_wrappers/ace/Condition_Thread_Mutex.inl:
+
+/home/lfr/ACE_wrappers/ace/Barrier.inl:
+
+/home/lfr/ACE_wrappers/ace/Condition_Recursive_Thread_Mutex.h:
+
+/home/lfr/ACE_wrappers/ace/Manual_Event.h:
+
+/home/lfr/ACE_wrappers/ace/Manual_Event.inl:
+
+/home/lfr/ACE_wrappers/ace/Manual_Event.cpp:
+
+/home/lfr/ACE_wrappers/ace/Mutex.h:
+
+/home/lfr/ACE_wrappers/ace/Mutex.inl:
+
+/home/lfr/ACE_wrappers/ace/Null_Barrier.h:
+
+/home/lfr/ACE_wrappers/ace/Null_Condition.h:
+
+/home/lfr/ACE_wrappers/ace/Null_Mutex.h:
+
+/home/lfr/ACE_wrappers/ace/Null_Semaphore.h:
+
+/home/lfr/ACE_wrappers/ace/Semaphore.h:
+
+/home/lfr/ACE_wrappers/ace/Semaphore.inl:
+
+/home/lfr/ACE_wrappers/ace/Thread_Semaphore.h:
+
+/home/lfr/ACE_wrappers/ace/Thread_Semaphore.inl:
+
+/home/lfr/ACE_wrappers/ace/TSS_Adapter.h:
+
+/home/lfr/berkeleydb/include/db_cxx.h:
+
+/home/lfr/berkeleydb/include/db.h:

@@ -40,7 +40,7 @@ void Crawler_Thread::call(string a,void * b,void* c,void *d,void*e,void *f,void 
 
 int Crawler_Thread::start()
 {
-	printf("ldksks\n");
+//	printf("ldksks\n");
 	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
 	{
 // 		ACE_ERROR_RETURN ((LM_ERROR,
@@ -52,7 +52,7 @@ int Crawler_Thread::start()
 		return -1 ;
 	}
 
-	printf("ldksks45\n");
+//	printf("ldksks45\n");
 //	printf("lfrdreamman");
 	return 0;
 }
@@ -88,9 +88,9 @@ int Crawler_Thread::svc(void)
 				while(value == 0)
 				{
 					//cond.wait();
-					printf("waiting pthread id is %d\n",identify);
+				//	printf("waiting pthread id is %d\n",identify);
 					pthread_cond_wait(&count_nonzero, &count_lock);
-					printf("end waiting id is %d\n",identify);
+				//	printf("end waiting id is %d\n",identify);
 				}
 				value =0 ;
 				//_mutex.release();

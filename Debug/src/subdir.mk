@@ -6,6 +6,7 @@
 CPP_SRCS += \
 ../src/CrawlerEntity.cpp \
 ../src/CrawlerThread.cpp \
+../src/DBManager.cpp \
 ../src/DocQueue.cpp \
 ../src/Document.cpp \
 ../src/Fetcher.cpp \
@@ -26,6 +27,7 @@ CPP_SRCS += \
 OBJS += \
 ./src/CrawlerEntity.o \
 ./src/CrawlerThread.o \
+./src/DBManager.o \
 ./src/DocQueue.o \
 ./src/Document.o \
 ./src/Fetcher.o \
@@ -46,6 +48,7 @@ OBJS += \
 CPP_DEPS += \
 ./src/CrawlerEntity.d \
 ./src/CrawlerThread.d \
+./src/DBManager.d \
 ./src/DocQueue.d \
 ./src/Document.d \
 ./src/Fetcher.d \
@@ -68,7 +71,7 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/home/lfr/ACE_wrappers -I/home/lfr/oneurl/output/include -I/home/lfr/boost_1_57_0/build/include -I/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I/home/lfr/ACE_wrappers -I/home/lfr/berkeleydb/include -I/home/lfr/oneurl/output/include -I/home/lfr/boost_1_57_0/build/include -I/home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

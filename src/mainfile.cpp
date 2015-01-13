@@ -12,6 +12,7 @@
 #include "TP_Task.h"
 #include "URLQueue.h"
 #include "CrawlerThread.h"
+#include "DBManager.h"
 
 
 int main()
@@ -22,6 +23,8 @@ int main()
 	reactor_impl->restart(true);
 	ACE_NEW_RETURN(reactor, ACE_Reactor(reactor_impl, 1), -1);
 	ACE_Reactor::instance(reactor);
+
+
 
 	TP_Task tp(1);
 	tp.start();

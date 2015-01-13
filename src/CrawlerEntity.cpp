@@ -10,6 +10,7 @@
 #include <fstream>
 #include <string>
 #include <istream>
+#include "DBManager.h"
 
 using namespace std;
 
@@ -39,12 +40,9 @@ CrawlerEntity::~CrawlerEntity() {
 
 void CrawlerEntity::StartEntity()
 {
-	printf("kkk\n");
 	ct->start();
 	ct1->start();
-	printf("kkk1\n");
 	hp->start();
-
 }
 
 void CrawlerEntity::InitURL(string filename)
@@ -53,6 +51,6 @@ void CrawlerEntity::InitURL(string filename)
 	string s;
 	while(getline(ifs,s))
 	{
-		URL_Queue_Singleton::instance()->insert_queue(s.c_str(),1);
+		URL_Queue_Singleton::instance()->insert_queue(s,1);
 	}
 }

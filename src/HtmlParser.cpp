@@ -26,7 +26,6 @@ void HtmlParser::call(string/*插件方法名*/,void *,void*,void *,void*,void *
 
 int HtmlParser::start()
 {
-	printf("hs\n");
 	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
 	{
 // 		ACE_ERROR_RETURN ((LM_ERROR,
@@ -36,7 +35,6 @@ int HtmlParser::start()
 	//	LOGGER->AddLogger(LT_DEBUG_ERROR,ACE_TEXT("unable to activate thread pool")) ;
 		return -1 ;
 	}
-	printf("hs123\n");
 	return 0;
 }
 
@@ -165,10 +163,15 @@ void HtmlParser::insertQueue(string bac)
 	   string abc = modifyurl(bac);
 	   bool tmp;
 	   MessageBus::getInstance()->call(5,"isInBloomSet",(void*)abc.c_str(),NULL,NULL,NULL,NULL,(void*)&tmp,NULL);
+
 	   if(tmp == false)
 	   {
 	//	   printf("the insert queue is %s\n",abc.c_str());
-		   URL_Queue_Singleton::instance()->insert_queue(abc,1);  //1优先级
+		   bool tmp1 = URL_Queue_Singleton::instance()->isExist(abc);
+		   if(tmp1 == false)
+		   {
+			   URL_Queue_Singleton::instance()->insert_queue(abc,1);  //1优先级
+		   }
 	   }
 	   else
 	   {
