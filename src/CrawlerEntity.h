@@ -21,6 +21,8 @@ public:
 private:
 	Crawler_Thread *ct;
 	Crawler_Thread *ct1;
+	Crawler_Thread *ct2;
+	Crawler_Thread *ct3;
 	Fetcher *fe;
 	DocQueue *dq;
 	HtmlParser* hp;

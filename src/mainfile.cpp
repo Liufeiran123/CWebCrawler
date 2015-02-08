@@ -17,6 +17,8 @@
 
 int main()
 {
+	//删除数据库文件
+
 	ACE_Dev_Poll_Reactor * reactor_impl;
 	ACE_Reactor *reactor;
 	ACE_NEW_RETURN(reactor_impl, ACE_Dev_Poll_Reactor(), -1);
@@ -24,11 +26,8 @@ int main()
 	ACE_NEW_RETURN(reactor, ACE_Reactor(reactor_impl, 1), -1);
 	ACE_Reactor::instance(reactor);
 
-
-
 	TP_Task tp(1);
 	tp.start();
-
 
 	//Crawler_Thread *ce1 = new Crawler_Thread();
 	//ce1->start();
@@ -49,7 +48,8 @@ int main()
 
 	ct->start();
 	hp->start();*/
-	int a;
+/*	int a;
 	scanf("%d",&a);
-	return 0;
+	return 0;*/
+	sleep(120);
 }

@@ -5,13 +5,18 @@
  *      Author: lfr
  */
 
+#include <algorithm>
+#include <cctype>
+#include "CharsetConverter.h"
 #include "HtmlParser.h"
 #include "commondefine.h"
 #include "ImageURLFIlter.h"
 
-HtmlParser::HtmlParser():uf(new ImageURLFIlter()) {
-	// TODO Auto-generated constructor stub
+using namespace std;
 
+HtmlParser::HtmlParser():uf(new ImageURLFIlter()),hw("tcp://localhost:61616","FirstQueue"){
+	// TODO Auto-generated constructor stub
+	hw.InitWriter();
 }
 
 HtmlParser::~HtmlParser() {
@@ -47,13 +52,18 @@ string &HtmlParser::modifyurl(string &a)
 {
 	int b = string::npos;
 
+	if((b = a.find('?',0)) != string::npos)
+	{
+		a = a.substr(0,b);
+	}
+
 	if((b =a.find('#',0)) != string::npos)
 	{
 		a = a.substr(0,b);
 	}
 	if(a[0]=='/')
 	{
-		a = baseTag+a;
+		a = protocol + "://" + baseTag+a;
 	}
 
 	if(a.find("http://") != string::npos || a.find("https://") != string::npos)
@@ -70,17 +80,76 @@ string &HtmlParser::modifyurl(string &a)
 			a+="/";
 		}
 	}
-
 	return a;
+}
+//转换为UTF-8
+int HtmlParser::CharSetConv(string &charset,string &title,string &content,vector<string> &v)
+{
+	string encoding;
+	string targetencoding = "UTF-8";
+
+	if("gb2312" == charset)
+	{
+		charset = "GBK";
+	}
+	std::transform(charset.begin(),charset.end(),encoding.begin(), ::toupper);
+
+	if("UTF-8" != encoding)
+	{
+		string data1;
+		string title1;
+		   iconv_t t = CharsetConverter::Open(targetencoding,encoding);
+		   title1 = CharsetConverter::Convert(t,title);
+		   if(title1.empty())
+		   {
+			   return -1;
+		   }
+		   data1 = CharsetConverter::Convert(t,content);
+		   if(data1.empty())
+		   {
+			   return -1;
+		   }
+		   CharsetConverter::Close(t);
+		   v.push_back(title1);
+		   v.push_back(data1);
+	}
+	else
+	{
+		   v.push_back(title);
+		   v.push_back(content);
+	}
+	return 0;
 }
 void HtmlParser::writeFile(Document* p)
 {
-	string title = p->GetTitle();
-	title.append(".html");
+	vector<string> v;
+ 	string title = p->GetTitle();
+	string charset = p->GetCharEncoding();
+	if(charset.empty())
+	{
+		ACE_DEBUG ((LM_INFO, ACE_TEXT ("charset is empty\n")));
+		return;
+	}
 	string dir = "/home/lfr/crawlerData/";
-	dir+= title;
-	ofstream fs(dir.c_str());
-	fs<<data_buffer;
+	if(CharSetConv(charset,title,data_buffer,v) == 0)
+	{
+		v[0].append(".html");
+		dir+= v[0];
+		ofstream fs(dir.c_str());
+		fs<<v[1];
+	}
+}
+
+void HtmlParser::writeBase(Document *p)
+{
+	vector<string> v;
+	string title = p->GetTitle();
+	string url = p->GetURL();
+	string charset = p->GetCharEncoding();
+	if(CharSetConv(charset,title,data_buffer,v) == 0)
+	{
+			hw.Writehtml(url,v[0],v[1]);
+	}
 }
 void HtmlParser::getBaseTag(Document* p)
 {
@@ -109,7 +178,7 @@ void HtmlParser::getBaseTag(Document* p)
 		{
 			baseTag = p->getBase();
 		}
-
+		protocol = p->getProtocol();
 	} catch (exception &e) {
 		cerr << "Exception " << e.what() << " caught" << endl;
 		//exit(1);
@@ -200,6 +269,7 @@ int HtmlParser::svc(void)
 				data_buffer = text;
 				//写入文件
 				writeFile(pp);
+				//writeBase(pp);
 				MessageBus::getInstance()->call(5,"addToBloomSet",(void*)pp->GetURL().c_str(),NULL,NULL,NULL,NULL,NULL,NULL);
 			}
 			getBaseTag(pp);

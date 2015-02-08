@@ -5,8 +5,14 @@
  *      Author: lfr
  */
 #include <stdio.h>
+#include <iostream>
+#include <boost/xpressive/xpressive_dynamic.hpp>
 #include "Document.h"
 #include <string.h>
+#include "Url.h"
+
+using namespace boost::xpressive;
+using namespace std;
 
 Document::Document():size(0){
 	// TODO Auto-generated constructor stub
@@ -15,6 +21,48 @@ Document::Document():size(0){
 
 Document::~Document() {
 	// TODO Auto-generated destructor stub
+}
+
+string Document::GetCharEncoding()
+{
+/*	if(size != 0)
+	{
+		char *p = strstr((char*)buffer,"meta");
+		if(p == NULL)
+		{
+			return "gb2312";
+		}
+
+		p = strstr(p,"charset");
+
+		if(p != NULL)
+		{
+			while(*(++p) != '=');
+			while(*(++p) == ' ');
+			char *t = p;
+			while(*(++t) != '\"');
+			char tmp[32];
+			memset(tmp,0,32);
+			memcpy(tmp,p,t-p);
+			return string(tmp);
+		}
+		else
+		{
+			return "gb2312";    //
+		}
+	}*/
+	cregex reg = cregex::compile("(<meta)(.{0,60})(charset.{0,10}=\\s*\"*\\s*)(.{0,30})(\\s*\"\\s*/*>)");
+//	char *buffer = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />";
+	cmatch what;
+	if(regex_search((char*)buffer,what,reg) == true)
+	{
+		/*for(int i =0;i<6;++i)
+		{
+			cout<<what[i]<<"\n";
+		}*/
+		return what[4];
+	}
+	return string("");
 }
 
 void Document::append(unsigned char* a,int b)
@@ -91,7 +139,7 @@ void Document::Reset()
 
 string Document::getBase()
 {
-	string tmp(url);
+	/*string tmp(url);
 
 	int i = strlen(url);
 //	  assert (file[0] == '/');
@@ -99,5 +147,16 @@ string Document::getBase()
 		i--;
 	}
 
-	return tmp.substr(0,i);
+	return tmp.substr(0,i);*/
+	oneurl u;
+	u.ParseUrl(url);
+	return u.GetHost();
+	//m_file = url.GetPath();
 }
+string Document::getProtocol()
+{
+	oneurl u;
+	u.ParseUrl(url);
+	return u.GetScheme();
+}
+

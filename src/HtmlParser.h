@@ -9,6 +9,7 @@
 #define HTMLPARSER_H_
 
 #include <string>
+#include <vector>
 #include <exception>
 #include <iostream>
 #include <fstream>
@@ -20,9 +21,10 @@
 #include "MessageBus.h"
 #include "URLQueue.h"
 #include "URLFilter.h"
+#include "htmlwriter.h"
 
-using namespace std;
 using namespace htmlcxx;
+using namespace std;
 
 class HtmlParser :  public ACE_Task<ACE_NULL_SYNCH>, public MessageComponent {
 public:
@@ -35,7 +37,10 @@ private:
 	  HTML::ParserDom parser;
 	  tree<HTML::Node> tr;
 	  string baseTag;
+	  string protocol;
 	  URLFilter *uf;
+
+	  htmlwriter hw;
 
 public:
 		int start();
@@ -44,9 +49,12 @@ public:
 		int svc(void);
 		string &modifyurl(string &a);
 		void writeFile(Document*);
+		void writeBase(Document *);
 		void ParseText();
 		void insertQueue(string bac);
 		void getBaseTag(Document* p);
+private:
+		int CharSetConv(string &charset,string &title,string &content,vector<string> &v);  //转换到UTF-8
 };
 
 #endif /* HTMLPARSER_H_ */

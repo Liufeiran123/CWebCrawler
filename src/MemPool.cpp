@@ -38,6 +38,6 @@ Mem_Pool* Mem_Pool::getInstance()
 	{
 		return mp;
 	}
-	mp = new Mem_Pool(256);
+	mp = new Mem_Pool(1024);
 	return mp;
 }

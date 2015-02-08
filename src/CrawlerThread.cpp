@@ -40,7 +40,7 @@ void Crawler_Thread::call(string a,void * b,void* c,void *d,void*e,void *f,void 
 
 int Crawler_Thread::start()
 {
-//	printf("ldksks\n");
+	//printf("ldksks\n");
 	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
 	{
 // 		ACE_ERROR_RETURN ((LM_ERROR,
@@ -59,7 +59,6 @@ int Crawler_Thread::start()
 
 int Crawler_Thread::stop()
 {
-
 
 	return 0;
 }
@@ -88,17 +87,19 @@ int Crawler_Thread::svc(void)
 				while(value == 0)
 				{
 					//cond.wait();
-				//	printf("waiting pthread id is %d\n",identify);
+					printf("waiting pthread id is %d\n",identify);
 					pthread_cond_wait(&count_nonzero, &count_lock);
-				//	printf("end waiting id is %d\n",identify);
+					printf("end waiting id is %d\n",identify);
 				}
 				value =0 ;
 				//_mutex.release();
 				pthread_mutex_unlock(&count_lock);
 
+				ACE_DEBUG ((LM_INFO, ACE_TEXT ("leaving the unlock\n")));
 				//发送请求
 
 				MessageBus::getInstance()->call(2,"MakeRequest",(void*)url.c_str(),(void*)hu.getip().c_str(),(void*)hu.gethost().c_str(),(void*)hu.getFile().c_str(),(void*)&identify,NULL,NULL);
+				ACE_DEBUG ((LM_INFO, ACE_TEXT ("leaving MakeRequest\n")));
 			}
 		}
 		return 0;

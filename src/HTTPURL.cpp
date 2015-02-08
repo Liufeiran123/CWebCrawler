@@ -7,7 +7,7 @@
 
 #include "HTTPURL.h"
 #include "netdb.h"
-#include "python2.7/Python.h"
+//#include "python2.7/Python.h"
 #include "Url.h"
 
 HTTP_URL::HTTP_URL(string url) {
@@ -25,13 +25,13 @@ void HTTP_URL::URLParser(int a)
 	url.ParseUrl(m_url);
 	host = url.GetHost();
 	m_file = url.GetPath();
-	printf("the url is %s\n",m_url.c_str());
-	printf("the m_file is %s\n\n",m_file.c_str());
+//	printf("the url is %s\n",m_url.c_str());
+//	printf("the m_file is %s\n\n",m_file.c_str());
 }
 
 void HTTP_URL::URLParser()
 {
-	  memset(urlstr1,0,1024);
+	/*  memset(urlstr1,0,1024);
 	  sprintf(urlstr1,"urlstr=\'%s\'",m_url.c_str());
 
 	  Py_Initialize();
@@ -55,7 +55,7 @@ void HTTP_URL::URLParser()
 		  	m_file = strchr(p,'/');
 	        Py_DECREF(resultObject);
 	    }
-	  Py_Finalize();
+	  Py_Finalize();*/
 }
 
 

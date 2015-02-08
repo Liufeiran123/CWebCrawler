@@ -8,7 +8,6 @@
 #ifndef FETCHER_H_
 #define FETCHER_H_
 
-#include "ace/Synch.h"
 #include "ace/Log_Msg.h"
 #include "ace/SOCK_Connector.h"
 #include "ace/Connector.h"
@@ -33,12 +32,9 @@ public:
 	Net_Svc_Handler();
 	~Net_Svc_Handler();
 public:
+	virtual int handle_input(ACE_HANDLE);
+    virtual   int  handle_timeout( const  ACE_Time_Value &current_time, const   void  *act  /* = 0 */ );
 
-	void handle_rawdata();
-
-	int handle_input(ACE_HANDLE);
-
-	bool isNeed();
 private:
 	char tempdata[tmpdata];
 	char data[max_doc];
@@ -46,7 +42,10 @@ private:
 	string currenturl;
 	bool issize;
 	int crawlerid;
-
+	long timerid;
+private:
+	void handle_rawdata();
+	bool isNeed();
 public:
 	void SetUrl(string a)
 	{
@@ -56,7 +55,17 @@ public:
 	{
 		crawlerid = a;
 	}
-
+	int getID(){
+		return crawlerid;
+	}
+	void SetTimerid(long a)
+	{
+		timerid = a;
+	}
+	long GetTimerid()
+	{
+		return timerid;
+	}
 };
 
 class Fetcher : public MessageComponent {
@@ -67,7 +76,6 @@ public:
 
 private:
 	NetConnector connector;
-//	ACE_Thread_Mutex _mutex;
 public:
 	void MakeRequest(string url,string ip,string host,string path,int id);
 	virtual void call(string/*插件方法名*/ a,void * v,void *d,void *e ,void* f,void *g,void *h,void **i/*函数返回值*/);

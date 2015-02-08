@@ -28,6 +28,8 @@ public:
 	int getDoc(unsigned char*a);
 	int getSize();
 	string GetTitle();
+
+	string GetCharEncoding();
 	void SetURl(string b);
 	string GetURL();
 
@@ -36,6 +38,7 @@ public:
 
 	void Reset();
 	string getBase();
+	string getProtocol();
 };
 
 #endif /* DOCUMENT_H_ */
