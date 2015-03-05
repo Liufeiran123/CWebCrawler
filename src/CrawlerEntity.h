@@ -19,10 +19,12 @@ public:
 	CrawlerEntity();
 	virtual ~CrawlerEntity();
 private:
-	Crawler_Thread *ct;
+	Crawler_Thread *ct0;
 	Crawler_Thread *ct1;
 	Crawler_Thread *ct2;
 	Crawler_Thread *ct3;
+	Crawler_Thread *ct4;
+	Crawler_Thread *ct5;
 	Fetcher *fe;
 	DocQueue *dq;
 	HtmlParser* hp;
