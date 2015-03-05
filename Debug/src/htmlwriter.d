@@ -114,7 +114,12 @@ src/htmlwriter.d: ../src/htmlwriter.cpp ../src/htmlwriter.h \
  /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/activemq/exceptions/ActiveMQException.h \
  /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/activemq/exceptions/ExceptionDefines.h \
  /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/activemq/transport/FutureResponse.h \
- /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/decaf/io/InterruptedIOException.h
+ /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/decaf/io/InterruptedIOException.h \
+ /home/lfr/qfs/build/debug/include/kfs/KfsClient.h \
+ /home/lfr/qfs/build/debug/include/kfs/KfsAttr.h \
+ /home/lfr/qfs/build/debug/include/kfs/common/kfstypes.h \
+ /home/lfr/qfs/build/debug/include/kfs/common/kfsdecls.h \
+ /home/lfr/qfs/build/debug/include/kfs/common/kfstypes.h
 
 ../src/htmlwriter.h:
 
@@ -349,3 +354,13 @@ src/htmlwriter.d: ../src/htmlwriter.cpp ../src/htmlwriter.h \
 /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/activemq/transport/FutureResponse.h:
 
 /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/decaf/io/InterruptedIOException.h:
+
+/home/lfr/qfs/build/debug/include/kfs/KfsClient.h:
+
+/home/lfr/qfs/build/debug/include/kfs/KfsAttr.h:
+
+/home/lfr/qfs/build/debug/include/kfs/common/kfstypes.h:
+
+/home/lfr/qfs/build/debug/include/kfs/common/kfsdecls.h:
+
+/home/lfr/qfs/build/debug/include/kfs/common/kfstypes.h:

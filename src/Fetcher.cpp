@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h>
+#include <iostream>
 #include "Fetcher.h"
 #include "Document.h"
 #include "MemPool.h"
@@ -70,6 +71,7 @@ int Net_Svc_Handler::handle_input(ACE_HANDLE)
 		issize = false;
 		if(isNeed() == false)
 		{
+			TimeoutCtrl_Singleton::instance()->cancelTimer(timerid);
 			MessageBus::getInstance()->call(crawlerid,"StartGetURL",NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 			return -1;
 		}
@@ -81,20 +83,25 @@ void Net_Svc_Handler::handle_rawdata()
 {
 	if(strncmp(data,"HTTP/1.1 200",12) == 0 || strncmp(data,"HTTP/1.0 200",12) == 0)
 	{
-		char *p = strstr(data,"<!DOCTYPE"); //html text data
-		if(!p)
-		{
-			p = strstr(data,"<!doctype");
-		}
-
+	//	cout<<data<<"\n";
+		char *p = strcasestr(data,"<html");
 		if(!p)
 		{
 			return;
 		}
-
+		char *pcopy = strcasestr(data,"<!DOCTYPE"); //html text data
+		if(pcopy && pcopy < p)
+		{
+			p = pcopy;
+		}
 		Document *pp = Mem_Pool::getInstance()->getObject();
-		char tempdata1[8*1024];  //应答头
-		memset(tempdata1,0,8*1024);
+		char tempdata1[10*1024];  //应答头
+		memset(tempdata1,0,10*1024);
+		if((p-data) >  10*1024)
+		{
+			std::cout<<data<<"\n";
+			int i  = 0;
+		}
 		printf(" the header p-data is %d\n",(p-data));
 		memcpy(tempdata1,data,p-data);
 		printf("the p-data is %d\n",p-data);
@@ -143,6 +150,7 @@ void Net_Svc_Handler::handle_rawdata()
 	}
 	else if(strncmp(data,"HTTP/1.1 301",12) == 0 || strncmp(data,"HTTP/1.0 301",12) == 0)
 	{
+		printf("1 the p-HTTP/1.1 301 is \n");
 		char *p1 = strstr(data,"Location"); //html text data
 		if(p1!= NULL)
 		{
@@ -150,6 +158,7 @@ void Net_Svc_Handler::handle_rawdata()
 			char *p2 = p1;
 			while(*(++p2) != '\r');
 			char tmpurl[1024];
+			printf("1 the tmpurl-data is %d\n",p2-p1);
 			memcpy(tmpurl,p1,p2-p1);
 //			printf("the p2-p1 is %d\n",p2-p1);
 			tmpurl[p2-p1] = '\0';

@@ -40,7 +40,7 @@ private:
 	  string protocol;
 	  URLFilter *uf;
 
-	  htmlwriter hw;
+	  htmlwriter<QfsWriter> hw;
 
 public:
 		int start();
@@ -55,6 +55,7 @@ public:
 		void getBaseTag(Document* p);
 private:
 		int CharSetConv(string &charset,string &title,string &content,vector<string> &v);  //转换到UTF-8
+		//const char *DetectEncoding();
 };
 
 #endif /* HTMLPARSER_H_ */

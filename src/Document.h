@@ -10,6 +10,7 @@
 
 #include <string>
 #include "commondefine.h"
+#include "EncodingDetector.h"
 
 using namespace std;
 

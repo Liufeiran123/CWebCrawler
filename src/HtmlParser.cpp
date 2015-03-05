@@ -11,16 +11,18 @@
 #include "HtmlParser.h"
 #include "commondefine.h"
 #include "ImageURLFIlter.h"
+#include "EncodingDetector.h"
 
 using namespace std;
 
-HtmlParser::HtmlParser():uf(new ImageURLFIlter()),hw("tcp://localhost:61616","FirstQueue"){
+HtmlParser::HtmlParser():uf(new ImageURLFIlter()){
 	// TODO Auto-generated constructor stub
 	hw.InitWriter();
 }
 
 HtmlParser::~HtmlParser() {
 	// TODO Auto-generated destructor stub
+	hw.finiWriter();
 }
 
 
@@ -50,7 +52,7 @@ int HtmlParser::stop()
 
 string &HtmlParser::modifyurl(string &a)
 {
-	int b = string::npos;
+	string::size_type b = string::npos;
 
 	if((b = a.find('?',0)) != string::npos)
 	{
@@ -90,8 +92,11 @@ int HtmlParser::CharSetConv(string &charset,string &title,string &content,vector
 
 	if("gb2312" == charset)
 	{
-		charset = "GBK";
+		charset = "GB18030";
 	}
+
+	encoding.resize(charset.size());
+
 	std::transform(charset.begin(),charset.end(),encoding.begin(), ::toupper);
 
 	if("UTF-8" != encoding)
@@ -99,6 +104,11 @@ int HtmlParser::CharSetConv(string &charset,string &title,string &content,vector
 		string data1;
 		string title1;
 		   iconv_t t = CharsetConverter::Open(targetencoding,encoding);
+		   if((iconv_t) -1 == t)
+		   {
+				ACE_DEBUG ((LM_INFO, ACE_TEXT ("charset converter open error\n")));
+				return -1;
+		   }
 		   title1 = CharsetConverter::Convert(t,title);
 		   if(title1.empty())
 		   {
@@ -128,6 +138,7 @@ void HtmlParser::writeFile(Document* p)
 	if(charset.empty())
 	{
 		ACE_DEBUG ((LM_INFO, ACE_TEXT ("charset is empty\n")));
+		//自动测试字符编码
 		return;
 	}
 	string dir = "/home/lfr/crawlerData/";
@@ -137,6 +148,7 @@ void HtmlParser::writeFile(Document* p)
 		dir+= v[0];
 		ofstream fs(dir.c_str());
 		fs<<v[1];
+		/*hw.Writehtml(v[0],v[1]);*/
 	}
 }
 
@@ -148,7 +160,7 @@ void HtmlParser::writeBase(Document *p)
 	string charset = p->GetCharEncoding();
 	if(CharSetConv(charset,title,data_buffer,v) == 0)
 	{
-			hw.Writehtml(url,v[0],v[1]);
+//			hw.Writehtml(url,v[0],v[1]);
 	}
 }
 void HtmlParser::getBaseTag(Document* p)
@@ -241,10 +253,6 @@ void HtmlParser::insertQueue(string bac)
 		   {
 			   URL_Queue_Singleton::instance()->insert_queue(abc,1);  //1优先级
 		   }
-	   }
-	   else
-	   {
-		   int i = 0;
 	   }
 }
 int HtmlParser::svc(void)

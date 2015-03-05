@@ -1207,7 +1207,8 @@ src/Document.d: ../src/Document.cpp \
  /home/lfr/boost_1_57_0/build/include/boost/xpressive/regex_algorithms.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/xpressive/regex_iterator.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/xpressive/regex_token_iterator.hpp \
- ../src/Document.h ../src/commondefine.h \
+ ../src/Document.h ../src/commondefine.h ../src/EncodingDetector.h \
+ /home/lfr/uchardet/debug/root/include/uchardet/uchardet.h \
  /home/lfr/oneurl/output/include/Url.h \
  /home/lfr/oneurl/output/include/UrlParse.h \
  /home/lfr/oneurl/output/include/string16.h \
@@ -3632,6 +3633,10 @@ src/Document.d: ../src/Document.cpp \
 ../src/Document.h:
 
 ../src/commondefine.h:
+
+../src/EncodingDetector.h:
+
+/home/lfr/uchardet/debug/root/include/uchardet/uchardet.h:
 
 /home/lfr/oneurl/output/include/Url.h:
 

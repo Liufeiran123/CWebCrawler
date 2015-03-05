@@ -48,8 +48,8 @@ int main()
 
 	ct->start();
 	hp->start();*/
-/*	int a;
+	int a;
 	scanf("%d",&a);
-	return 0;*/
-	sleep(120);
+	return 0;
+//	sleep(120);
 }

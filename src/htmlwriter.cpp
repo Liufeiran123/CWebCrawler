@@ -5,24 +5,98 @@
  *      Author: lfr
  */
 
+#include <fcntl.h>
 #include "htmlwriter.h"
 
-htmlwriter::htmlwriter(string brokerurl,string queuename) {
+htmlWriterImpl::htmlWriterImpl()
+{
+
+}
+htmlWriterImpl::~htmlWriterImpl()
+{
+
+}
+
+int htmlWriterImpl::init()
+{
+	return 0;
+}
+
+void htmlWriterImpl::fini()
+{
+
+}
+
+QfsWriter::QfsWriter():mBufSize(8 << 20)
+{
+    mReadBuf = new char[mBufSize];
+}
+QfsWriter::~QfsWriter()
+{
+	delete mReadBuf;
+}
+
+int QfsWriter::init()
+{
+    mKfsClient = KfsClient::Connect("127.0.0.1",20000, 0);
+    if(!mKfsClient)
+    {
+    	return -1;
+    }
+    return 0;
+}
+
+void QfsWriter::Writehtml(string title,string content)
+{
+	  string filename = "/crawler/";
+	  filename +=title;
+	  const int kfsfd =  mKfsClient->Open(
+			  filename.c_str(),  O_CREAT | O_WRONLY ,
+	            3,
+	            0,
+	            0,
+	            0,
+	            1,
+	            0666,
+	            15,
+	            15
+	        );
+
+	    if (kfsfd < 0) {
+	        cout << "open"<<filename;
+	        return;
+	    }
+
+	  size_t ret = mKfsClient->Write(kfsfd, content.c_str(), content.size());
+
+	  mKfsClient->Sync(kfsfd);
+}
+
+void QfsWriter::fini()
+{
+	if(mKfsClient)
+	{
+		delete mKfsClient;
+	}
+}
+/*
+template<typename implT>
+htmlwriter<implT>::htmlwriter(string brokerurl,string queuename) {
 	// TODO Auto-generated constructor stub
 	this->brokerurl = brokerurl;
 	this->queuename = queuename;
 
 	activemq::library::ActiveMQCPP::initializeLibrary();
 }
-
-htmlwriter::~htmlwriter() {
+template<typename implT>
+htmlwriter<implT>::~htmlwriter() {
 	// TODO Auto-generated destructor stub
 	activemq::library::ActiveMQCPP::shutdownLibrary();
 
 
 }
-
-void htmlwriter::InitWriter()
+template<typename implT>
+void htmlwriter<implT>::InitWriter()
 {
 	try {
 			// Create a ConnectionFactory
@@ -46,9 +120,10 @@ void htmlwriter::InitWriter()
 	}catch ( CMSException& e ) {
 	            e.printStackTrace();
 	    }
+	impl = new implT();
 }
-
-void htmlwriter::Writehtml(string url,string title,string content)
+template<typename implT>
+void htmlwriter<implT>::Writehtml(string url,string title,string content)
 {
 	   message->clearBody();
 	   message->clearProperties();
@@ -59,5 +134,4 @@ void htmlwriter::Writehtml(string url,string title,string content)
         message->writeString(content);
         producer->send( message );
 }
-
-
+*/

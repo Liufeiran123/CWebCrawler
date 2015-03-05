@@ -51,7 +51,7 @@ string Document::GetCharEncoding()
 			return "gb2312";    //
 		}
 	}*/
-	cregex reg = cregex::compile("(<meta)(.{0,60})(charset.{0,10}=\\s*\"*\\s*)(.{0,30})(\\s*\"\\s*/*>)");
+	cregex reg = cregex::compile("(<meta)(.{0,60})(charset.{0,10}=\\s*\"*\\s*)(.{0,30}?)(\\s*\"\\s*/*>)");
 //	char *buffer = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />";
 	cmatch what;
 	if(regex_search((char*)buffer,what,reg) == true)
@@ -60,9 +60,15 @@ string Document::GetCharEncoding()
 		{
 			cout<<what[i]<<"\n";
 		}*/
+		cout<<what[4]<<"\n";
+//		cout<<buffer<<"\n";
 		return what[4];
 	}
-	return string("");
+	{
+		EncodingDetector *ed = new EncodingDetector();
+		ed->setData((char*)buffer,size);
+		return ed->getEncoding();
+	}
 }
 
 void Document::append(unsigned char* a,int b)

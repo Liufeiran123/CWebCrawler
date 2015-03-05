@@ -17,9 +17,9 @@ using namespace std;
 CrawlerEntity::CrawlerEntity() {
 	// TODO Auto-generated constructor stub
 	ct = new Crawler_Thread(1);
-//	ct1 = new Crawler_Thread(6);
-//	ct2 = new Crawler_Thread(7);
-//	ct3 = new Crawler_Thread(8);
+ct1 = new Crawler_Thread(6);
+	ct2 = new Crawler_Thread(7);
+	ct3 = new Crawler_Thread(8);
 	fe = new Fetcher;
 	dq = new DocQueue;
 	hp = new HtmlParser;
@@ -31,9 +31,9 @@ CrawlerEntity::CrawlerEntity() {
 	MessageBus::getInstance()->add(3,dynamic_cast<MessageComponent*>(dq));
 	MessageBus::getInstance()->add(4,dynamic_cast<MessageComponent*>(hp));
 	MessageBus::getInstance()->add(5,dynamic_cast<MessageComponent*>(ut));
-//	MessageBus::getInstance()->add(6,dynamic_cast<MessageComponent*>(ct1));
-//	MessageBus::getInstance()->add(7,dynamic_cast<MessageComponent*>(ct2));
-//	MessageBus::getInstance()->add(8,dynamic_cast<MessageComponent*>(ct3));
+	MessageBus::getInstance()->add(6,dynamic_cast<MessageComponent*>(ct1));
+	MessageBus::getInstance()->add(7,dynamic_cast<MessageComponent*>(ct2));
+	MessageBus::getInstance()->add(8,dynamic_cast<MessageComponent*>(ct3));
 
 }
 
@@ -45,9 +45,9 @@ CrawlerEntity::~CrawlerEntity() {
 void CrawlerEntity::StartEntity()
 {
 	ct->start();
-//	ct1->start();
-//	ct2->start();
-//	ct3->start();
+	ct1->start();
+	ct2->start();
+ct3->start();
 	hp->start();
 }
 

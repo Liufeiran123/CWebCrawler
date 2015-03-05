@@ -13,23 +13,23 @@ RM := rm -rf
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
-ifneq ($(strip $(CC_DEPS)),)
--include $(CC_DEPS)
-endif
 ifneq ($(strip $(C++_DEPS)),)
 -include $(C++_DEPS)
 endif
-ifneq ($(strip $(C_UPPER_DEPS)),)
--include $(C_UPPER_DEPS)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
 endif
-ifneq ($(strip $(CXX_DEPS)),)
--include $(CXX_DEPS)
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
 endif
 ifneq ($(strip $(CPP_DEPS)),)
 -include $(CPP_DEPS)
 endif
-ifneq ($(strip $(C_DEPS)),)
--include $(C_DEPS)
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
 endif
 endif
 
@@ -44,13 +44,13 @@ all: crawler
 crawler: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/home/lfr/ACE_wrappers/lib -L/usr/local/ActiveMQ-CPP/lib -L/home/lfr/berkeleydb/lib -L/home/lfr/oneurl/output/lib/ -L/home/lfr/oneurl/lib4/icu4c/lib -L/home/lfr/workspace3/crawler/htmlParser/lib -L/usr/lib/python2.7 -pg -o "crawler" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/home/lfr/ACE_wrappers/lib -L/home/lfr/qfs/build/debug/lib -L/home/lfr/uchardet/debug/root/lib -L/home/lfr/boost_1_57_0/build/lib -L/usr/local/ActiveMQ-CPP/lib -L/home/lfr/berkeleydb/lib -L/home/lfr/oneurl/output/lib/ -L/home/lfr/oneurl/lib4/icu4c/lib -L/home/lfr/workspace3/crawler/htmlParser/lib -L/usr/lib/python2.7 -pg -o "crawler" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(C_UPPER_DEPS)$(CXX_DEPS)$(OBJS)$(CPP_DEPS)$(C_DEPS) crawler
+	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) crawler
 	-@echo ' '
 
 .PHONY: all clean dependents

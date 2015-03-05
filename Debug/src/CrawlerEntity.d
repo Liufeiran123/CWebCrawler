@@ -356,7 +356,9 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/ParserSax.tcc \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/tree.h \
  /home/lfr/workspace3/crawler/htmlParser/include/htmlcxx/html/utils.h \
- ../src/Document.h ../src/MemPool.h /home/lfr/ACE_wrappers/ace/Malloc_T.h \
+ ../src/Document.h ../src/EncodingDetector.h \
+ /home/lfr/uchardet/debug/root/include/uchardet/uchardet.h \
+ ../src/MemPool.h /home/lfr/ACE_wrappers/ace/Malloc_T.h \
  /home/lfr/ACE_wrappers/ace/Malloc.h \
  /home/lfr/ACE_wrappers/ace/Malloc.inl \
  /home/lfr/ACE_wrappers/ace/Malloc_Allocator.h \
@@ -480,7 +482,11 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
  /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/activemq/exceptions/ExceptionDefines.h \
  /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/activemq/transport/FutureResponse.h \
  /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/decaf/io/InterruptedIOException.h \
- ../src/URLTest.h \
+ /home/lfr/qfs/build/debug/include/kfs/KfsClient.h \
+ /home/lfr/qfs/build/debug/include/kfs/KfsAttr.h \
+ /home/lfr/qfs/build/debug/include/kfs/common/kfstypes.h \
+ /home/lfr/qfs/build/debug/include/kfs/common/kfsdecls.h \
+ /home/lfr/qfs/build/debug/include/kfs/common/kfstypes.h ../src/URLTest.h \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset/dynamic_bitset.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset/config.hpp \
@@ -1365,6 +1371,10 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
 
 ../src/Document.h:
 
+../src/EncodingDetector.h:
+
+/home/lfr/uchardet/debug/root/include/uchardet/uchardet.h:
+
 ../src/MemPool.h:
 
 /home/lfr/ACE_wrappers/ace/Malloc_T.h:
@@ -1616,6 +1626,16 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
 /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/activemq/transport/FutureResponse.h:
 
 /usr/local/ActiveMQ-CPP/include/activemq-cpp-3.8.3/decaf/io/InterruptedIOException.h:
+
+/home/lfr/qfs/build/debug/include/kfs/KfsClient.h:
+
+/home/lfr/qfs/build/debug/include/kfs/KfsAttr.h:
+
+/home/lfr/qfs/build/debug/include/kfs/common/kfstypes.h:
+
+/home/lfr/qfs/build/debug/include/kfs/common/kfsdecls.h:
+
+/home/lfr/qfs/build/debug/include/kfs/common/kfstypes.h:
 
 ../src/URLTest.h:
 

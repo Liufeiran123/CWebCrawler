@@ -25,7 +25,9 @@
 #include <cms/MapMessage.h>
 #include <cms/ExceptionListener.h>
 #include <cms/MessageListener.h>
+#include "KfsClient.h"
 
+using namespace KFS;
 using namespace activemq::core;
 using namespace decaf::util::concurrent;
 using namespace decaf::util;
@@ -33,10 +35,41 @@ using namespace decaf::lang;
 using namespace cms;
 using namespace std;
 
+class htmlWriterImpl
+{
+public:
+	htmlWriterImpl();
+	virtual ~htmlWriterImpl();
+public:
+	virtual int init();
+	virtual void Writehtml(string title,string content) = 0;
+	virtual void fini();
+};
+
+class QfsWriter : public htmlWriterImpl
+{
+public:
+	QfsWriter();
+	~QfsWriter();
+private:
+	   KfsClient* mKfsClient;
+public:
+	   virtual int init();
+	   virtual void Writehtml(string title,string content);
+	   virtual void fini();
+private:
+	   char* mReadBuf;
+	   int mBufSize;
+};
+
+/*template<typename implT>
 class htmlwriter {
 public:
-	htmlwriter(string brokerurl,string queuename);
-	virtual ~htmlwriter();
+	htmlwriter(string brokerurl,string queuename)
+{
+
+}
+	 ~htmlwriter();
 public:
 	void InitWriter();
 	void Writehtml(string url,string title,string content);
@@ -50,6 +83,38 @@ private:
 
     string brokerurl;
     string queuename;
+
+    htmlWriterImpl *impl;
+};
+*/
+template<typename implT>
+class htmlwriter {
+public:
+	htmlwriter()
+{
+
+}
+	 ~htmlwriter()
+	 {
+
+	 }
+public:
+	void InitWriter()
+	{
+		impl = new implT();
+		impl->init();
+	}
+	void Writehtml(string title,string content)
+	{
+		impl->Writehtml(title,content);
+	}
+	void finiWriter()
+	{
+		impl->fini();
+		delete impl;
+	}
+private:
+    htmlWriterImpl *impl;
 };
 
 #endif /* HTMLWRITER_H_ */

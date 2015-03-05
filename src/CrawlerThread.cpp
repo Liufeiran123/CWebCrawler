@@ -74,6 +74,7 @@ int Crawler_Thread::svc(void)
 			}
 			else
 			{
+				ACE_DEBUG ((LM_INFO, ACE_TEXT ("entering httpRequest\n")));
 				string url = URL_Queue_Singleton::instance()->pop_queue();
 				HTTP_URL hu(url);
 				hu.URLParser(0);
