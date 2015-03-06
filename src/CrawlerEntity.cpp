@@ -11,6 +11,7 @@
 #include <string>
 #include <istream>
 #include "DBManager.h"
+#include "FileWriter.h"
 
 using namespace std;
 
@@ -25,8 +26,14 @@ CrawlerEntity::CrawlerEntity() {
 
 	fe = new Fetcher;
 	dq = new DocQueue;
+	forwrite = new DocQueue;
 	hp = new HtmlParser;
+	fw = new FileWriter;
 	ut = new URLTest(0.1,1000000000);
+
+	//1- 抓取线程0，6-抓取线程1，7-抓取线程2，8-抓取线程3,9-抓取线程4,10-抓取线程5
+	//2-抓取器，3-文档队列，4-链接提取器线程，5-布隆过滤器构件
+	//11-文档队列写入，12-文档写入线程
 
 
 	MessageBus::getInstance()->add(1,dynamic_cast<MessageComponent*>(ct0));
@@ -39,7 +46,8 @@ CrawlerEntity::CrawlerEntity() {
 	MessageBus::getInstance()->add(8,dynamic_cast<MessageComponent*>(ct3));
 	MessageBus::getInstance()->add(9,dynamic_cast<MessageComponent*>(ct4));
 	MessageBus::getInstance()->add(10,dynamic_cast<MessageComponent*>(ct5));
-
+	MessageBus::getInstance()->add(11,dynamic_cast<MessageComponent*>(forwrite));
+	MessageBus::getInstance()->add(12,dynamic_cast<MessageComponent*>(fw));
 }
 
 CrawlerEntity::~CrawlerEntity() {
@@ -56,6 +64,7 @@ void CrawlerEntity::StartEntity()
 	ct4->start();
 	ct5->start();
 	hp->start();
+	fw->start();
 }
 
 void CrawlerEntity::InitURL(string filename)

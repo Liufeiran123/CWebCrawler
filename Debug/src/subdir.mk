@@ -12,6 +12,7 @@ CPP_SRCS += \
 ../src/Document.cpp \
 ../src/EncodingDetector.cpp \
 ../src/Fetcher.cpp \
+../src/FileWriter.cpp \
 ../src/HTTPURL.cpp \
 ../src/HtmlParser.cpp \
 ../src/ImageURLFIlter.cpp \
@@ -37,6 +38,7 @@ OBJS += \
 ./src/Document.o \
 ./src/EncodingDetector.o \
 ./src/Fetcher.o \
+./src/FileWriter.o \
 ./src/HTTPURL.o \
 ./src/HtmlParser.o \
 ./src/ImageURLFIlter.o \
@@ -62,6 +64,7 @@ CPP_DEPS += \
 ./src/Document.d \
 ./src/EncodingDetector.d \
 ./src/Fetcher.d \
+./src/FileWriter.d \
 ./src/HTTPURL.d \
 ./src/HtmlParser.d \
 ./src/ImageURLFIlter.d \

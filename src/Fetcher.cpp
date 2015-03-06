@@ -95,6 +95,7 @@ void Net_Svc_Handler::handle_rawdata()
 			p = pcopy;
 		}
 		Document *pp = Mem_Pool::getInstance()->getObject();
+		Document *pp1 = Mem_Pool::getInstance()->getObject();
 		char tempdata1[10*1024];  //应答头
 		memset(tempdata1,0,10*1024);
 		if((p-data) >  10*1024)
@@ -113,6 +114,7 @@ void Net_Svc_Handler::handle_rawdata()
 			//写入MEM——POOL
 			printf("1 the p-data is %d\n",size-(p-data));
 			pp->append((unsigned char*)p,size - (p -data));
+			pp1->append((unsigned char*)p,size - (p -data));
 			printf("2 the p-data is %d\n",size-(p-data));
 		}
 		else if(p2 != NULL)
@@ -143,10 +145,13 @@ void Net_Svc_Handler::handle_rawdata()
 				s1 = strtol(te,NULL,16);
 				datap = p6+2;
 				pp->append((unsigned char*)datap,s1);
+				pp1->append((unsigned char*)p,size - (p -data));
 			}while(s1 != 0);
 		}
 		pp->SetURl(currenturl);
+		pp1->SetURl(currenturl);
 		MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL,NULL);
+		MessageBus::getInstance()->call(11,"insert_queue",(void*)pp1,NULL,NULL,NULL,NULL,NULL,NULL);
 	}
 	else if(strncmp(data,"HTTP/1.1 301",12) == 0 || strncmp(data,"HTTP/1.0 301",12) == 0)
 	{
@@ -166,8 +171,7 @@ void Net_Svc_Handler::handle_rawdata()
 			pp->SetLinkURl(tmpurl);
 			pp->SetURl(currenturl);
 			MessageBus::getInstance()->call(3,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL,NULL);
-
-			//URL_Queue_Singleton::instance()->insert_queue(tmpurl,2); //2优先级
+//			MessageBus::getInstance()->call(11,"insert_queue",(void*)pp,NULL,NULL,NULL,NULL,NULL,NULL);
 		}
 	}
 }

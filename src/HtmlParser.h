@@ -48,13 +48,13 @@ public:
 		virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,void *,void **/*函数返回值*/);
 		int svc(void);
 		string &modifyurl(string &a);
-		void writeFile(Document*);
-		void writeBase(Document *);
+		//void writeFile(Document*);
+		//void writeBase(Document *);
 		void ParseText();
 		void insertQueue(string bac);
 		void getBaseTag(Document* p);
 private:
-		int CharSetConv(string &charset,string &title,string &content,vector<string> &v);  //转换到UTF-8
+		//int CharSetConv(string &charset,string &title,string &content,vector<string> &v);  //转换到UTF-8
 		//const char *DetectEncoding();
 };
 

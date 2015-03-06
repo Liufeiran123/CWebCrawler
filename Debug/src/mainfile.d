@@ -630,8 +630,9 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
  /home/lfr/boost_1_57_0/build/include/boost/utility/addressof.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp \
- ../src/TP_Task.h ../src/DBManager.h \
- /home/lfr/berkeleydb/include/db_cxx.h /home/lfr/berkeleydb/include/db.h
+ ../src/FileWriter.h ../src/CharsetConverter.h ../src/TP_Task.h \
+ ../src/DBManager.h /home/lfr/berkeleydb/include/db_cxx.h \
+ /home/lfr/berkeleydb/include/db.h
 
 /home/lfr/ACE_wrappers/ace/Reactor.h:
 
@@ -1938,6 +1939,10 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
 /home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp:
+
+../src/FileWriter.h:
+
+../src/CharsetConverter.h:
 
 ../src/TP_Task.h:
 

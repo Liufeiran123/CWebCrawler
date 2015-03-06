@@ -64,6 +64,7 @@ string Document::GetCharEncoding()
 //		cout<<buffer<<"\n";
 		return what[4];
 	}
+	else
 	{
 		EncodingDetector *ed = new EncodingDetector();
 		ed->setData((char*)buffer,size);

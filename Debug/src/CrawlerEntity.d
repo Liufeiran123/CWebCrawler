@@ -618,8 +618,8 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
  /home/lfr/boost_1_57_0/build/include/boost/utility/addressof.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp \
- ../src/DBManager.h /home/lfr/berkeleydb/include/db_cxx.h \
- /home/lfr/berkeleydb/include/db.h
+ ../src/FileWriter.h ../src/CharsetConverter.h ../src/DBManager.h \
+ /home/lfr/berkeleydb/include/db_cxx.h /home/lfr/berkeleydb/include/db.h
 
 ../src/CrawlerEntity.h:
 
@@ -1900,6 +1900,10 @@ src/CrawlerEntity.d: ../src/CrawlerEntity.cpp ../src/CrawlerEntity.h \
 /home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp:
+
+../src/FileWriter.h:
+
+../src/CharsetConverter.h:
 
 ../src/DBManager.h:
 

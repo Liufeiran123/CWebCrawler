@@ -13,6 +13,7 @@
 #include "Fetcher.h"
 #include "HtmlParser.h"
 #include "URLTest.h"
+#include "FileWriter.h"
 
 class CrawlerEntity{
 public:
@@ -27,7 +28,9 @@ private:
 	Crawler_Thread *ct5;
 	Fetcher *fe;
 	DocQueue *dq;
+	DocQueue *forwrite;
 	HtmlParser* hp;
+	FileWriter *fw;
 	URLTest *ut;
 public:
 	void StartEntity();

@@ -85,7 +85,7 @@ string &HtmlParser::modifyurl(string &a)
 	return a;
 }
 //转换为UTF-8
-int HtmlParser::CharSetConv(string &charset,string &title,string &content,vector<string> &v)
+/*int HtmlParser::CharSetConv(string &charset,string &title,string &content,vector<string> &v)
 {
 	string encoding;
 	string targetencoding = "UTF-8";
@@ -129,8 +129,8 @@ int HtmlParser::CharSetConv(string &charset,string &title,string &content,vector
 		   v.push_back(content);
 	}
 	return 0;
-}
-void HtmlParser::writeFile(Document* p)
+}*/
+/*void HtmlParser::writeFile(Document* p)
 {
 	vector<string> v;
  	string title = p->GetTitle();
@@ -148,11 +148,11 @@ void HtmlParser::writeFile(Document* p)
 		dir+= v[0];
 		ofstream fs(dir.c_str());
 		fs<<v[1];
-		/*hw.Writehtml(v[0],v[1]);*/
+		hw.Writehtml(v[0],v[1]);
 	}
-}
+}*/
 
-void HtmlParser::writeBase(Document *p)
+/*void HtmlParser::writeBase(Document *p)
 {
 	vector<string> v;
 	string title = p->GetTitle();
@@ -162,7 +162,7 @@ void HtmlParser::writeBase(Document *p)
 	{
 //			hw.Writehtml(url,v[0],v[1]);
 	}
-}
+}*/
 void HtmlParser::getBaseTag(Document* p)
 {
 	try
@@ -271,15 +271,9 @@ int HtmlParser::svc(void)
 			memset(text,0,1024*1024);
 			MessageBus::getInstance()->call(3,"pop_queue",NULL,NULL,NULL,NULL,NULL,NULL,(void**)&pp);
 			int s = pp->getDoc((unsigned char*)text);
-			if(s != 0)
-			{
-				text[s]='\0';
-				data_buffer = text;
-				//写入文件
-				writeFile(pp);
-				//writeBase(pp);
-				MessageBus::getInstance()->call(5,"addToBloomSet",(void*)pp->GetURL().c_str(),NULL,NULL,NULL,NULL,NULL,NULL);
-			}
+			text[s] = 0;
+			data_buffer = text;
+			MessageBus::getInstance()->call(5,"addToBloomSet",(void*)pp->GetURL().c_str(),NULL,NULL,NULL,NULL,NULL,NULL);
 			getBaseTag(pp);
 			if(pp->GetLinkURL().empty() == true)
 			{
@@ -287,7 +281,7 @@ int HtmlParser::svc(void)
 			}
 			else
 			{
-				insertQueue(pp->GetLinkURL());
+				insertQueue(pp->GetLinkURL());  //link移到其他地方的目的link地址
 			}
 			pp->Reset();
 			Mem_Pool::getInstance()->freeObject(pp);
