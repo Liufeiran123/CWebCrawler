@@ -20,6 +20,7 @@
 #include "CharsetConverter.h"
 #include "EncodingDetector.h"
 #include "commondefine.h"
+#include "htmlwriter.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ public:
 	~FileWriter();
 private:
 	  string data_buffer;  //html文件内容
+	  htmlwriter<QfsWriter> hw;
 public:
 		int start();
 		int stop();

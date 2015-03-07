@@ -27,13 +27,13 @@ void htmlWriterImpl::fini()
 
 }
 
-QfsWriter::QfsWriter():mBufSize(8 << 20)
+QfsWriter::QfsWriter()
 {
-    mReadBuf = new char[mBufSize];
+
 }
 QfsWriter::~QfsWriter()
 {
-	delete mReadBuf;
+
 }
 
 int QfsWriter::init()
@@ -52,7 +52,7 @@ void QfsWriter::Writehtml(string title,string content)
 	  filename +=title;
 	  const int kfsfd =  mKfsClient->Open(
 			  filename.c_str(),  O_CREAT | O_WRONLY ,
-	            3,
+	            1,
 	            0,
 	            0,
 	            0,

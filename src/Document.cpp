@@ -11,7 +11,15 @@
 #include <string.h>
 #include "Url.h"
 
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
+
+#include <boost/lexical_cast.hpp>
+
+using namespace boost::uuids;
 using namespace boost::xpressive;
+using namespace boost;
 using namespace std;
 
 Document::Document():size(0){
@@ -92,7 +100,7 @@ int Document::getSize()
 }
 string Document::GetTitle()
 {
-	if(size != 0)
+	/*if(size != 0)
 	{
 		char *p = strstr((char*)buffer,"<title>");
 		if(p != NULL)
@@ -112,7 +120,11 @@ string Document::GetTitle()
 	else
 	{
 		return string("");
-	}
+	}*/
+	random_generator rgen;
+
+	uuid a_uuid = rgen();
+	return  lexical_cast<string>(a_uuid);  //uuid转换到字符串
 }
 
 

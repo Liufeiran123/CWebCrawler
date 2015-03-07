@@ -58,8 +58,6 @@ public:
 	   virtual void Writehtml(string title,string content);
 	   virtual void fini();
 private:
-	   char* mReadBuf;
-	   int mBufSize;
 };
 
 /*template<typename implT>

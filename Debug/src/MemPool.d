@@ -1,4 +1,4 @@
-src/MemPool.d: ../src/MemPool.cpp ../src/MemPool.h \
+src/MemPool.d: ../src/MemPool.cpp ../src/commondefine.h ../src/MemPool.h \
  /home/lfr/ACE_wrappers/ace/Malloc_T.h /home/lfr/ACE_wrappers/ace/pre.h \
  /home/lfr/ACE_wrappers/ace/Malloc.h \
  /home/lfr/ACE_wrappers/ace/ACE_export.h \
@@ -140,8 +140,10 @@ src/MemPool.d: ../src/MemPool.cpp ../src/MemPool.h \
  /home/lfr/ACE_wrappers/ace/OS_NS_sys_socket.inl \
  /home/lfr/ACE_wrappers/ace/OS_NS_sys_uio.h \
  /home/lfr/ACE_wrappers/ace/OS_NS_sys_uio.inl ../src/MessageComponent.h \
- ../src/Document.h ../src/commondefine.h ../src/EncodingDetector.h \
+ ../src/Document.h ../src/EncodingDetector.h \
  /home/lfr/uchardet/debug/root/include/uchardet/uchardet.h
+
+../src/commondefine.h:
 
 ../src/MemPool.h:
 
@@ -438,8 +440,6 @@ src/MemPool.d: ../src/MemPool.cpp ../src/MemPool.h \
 ../src/MessageComponent.h:
 
 ../src/Document.h:
-
-../src/commondefine.h:
 
 ../src/EncodingDetector.h:
 

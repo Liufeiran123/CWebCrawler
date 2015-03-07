@@ -25,8 +25,8 @@ CrawlerEntity::CrawlerEntity() {
 	ct5 = new Crawler_Thread(10);
 
 	fe = new Fetcher;
-	dq = new DocQueue;
-	forwrite = new DocQueue;
+	dq = new DocQueue("htmlparser");
+	forwrite = new DocQueue("File Writer");
 	hp = new HtmlParser;
 	fw = new FileWriter;
 	ut = new URLTest(0.1,1000000000);

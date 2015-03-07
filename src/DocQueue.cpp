@@ -7,7 +7,7 @@
 
 #include "DocQueue.h"
 
-DocQueue::DocQueue() {
+DocQueue::DocQueue(string n):name(n) {
 	// TODO Auto-generated constructor stub
 
 }
@@ -20,6 +20,7 @@ void DocQueue::insert_queue(Document *s)
 {
 	mutex_.acquire();
 	_dq.push(s);
+	cout<<"duilie: "<<name<<" size is "<<_dq.size()<<"\n";
 	mutex_.release();
 }
 Document* DocQueue::pop_queue()

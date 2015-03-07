@@ -17,12 +17,12 @@ using namespace std;
 
 HtmlParser::HtmlParser():uf(new ImageURLFIlter()){
 	// TODO Auto-generated constructor stub
-	hw.InitWriter();
+	//hw.InitWriter();
 }
 
 HtmlParser::~HtmlParser() {
 	// TODO Auto-generated destructor stub
-	hw.finiWriter();
+	//hw.finiWriter();
 }
 
 
@@ -283,7 +283,7 @@ int HtmlParser::svc(void)
 			{
 				insertQueue(pp->GetLinkURL());  //link移到其他地方的目的link地址
 			}
-			pp->Reset();
+		//	pp->Reset();
 			Mem_Pool::getInstance()->freeObject(pp);
 		}
 		else

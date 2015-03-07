@@ -16,13 +16,13 @@ class Mem_Pool: public ACE_Cached_Allocator<Document,ACE_Thread_Mutex> {
 protected:
 	Mem_Pool(int size);
 	virtual ~Mem_Pool();
-
 private:
 	static Mem_Pool *mp;
 public:
 	Document *getObject();
 	void freeObject(Document* a);
 	static Mem_Pool *getInstance();
+	size_t getAvailable();
 };
 
 #endif /* MEMPOOL_H_ */

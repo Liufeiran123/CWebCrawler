@@ -40,7 +40,7 @@ private:
 	  string protocol;
 	  URLFilter *uf;
 
-	  htmlwriter<QfsWriter> hw;
+//	  htmlwriter<QfsWriter> hw;
 
 public:
 		int start();

@@ -8,6 +8,8 @@
 #ifndef DOCQUEUE_H_
 #define DOCQUEUE_H_
 
+#include <string>
+#include <iostream>
 #include <queue>
 #include "MessageComponent.h"
 #include "ace/Synch.h"
@@ -17,7 +19,7 @@ using namespace std;
 class Document;
 class DocQueue : public MessageComponent{
 public:
-	DocQueue();
+	DocQueue(string n);
 	virtual ~DocQueue();
 private:
 	ACE_Recursive_Thread_Mutex mutex_;
@@ -26,6 +28,7 @@ private:
 	Document *pop_queue();
 	void insert_queue(Document *s);
 	bool isEmpty();
+	string name;
 
 public:
 	virtual void call(string/*插件方法名*/,void *,void*,void *,void*,void *,void *,void**/*函数返回值*/);

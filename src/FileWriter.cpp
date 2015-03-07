@@ -9,11 +9,13 @@
 
 FileWriter::FileWriter() {
 	// TODO Auto-generated constructor stub
+	hw.InitWriter();
 
 }
 
 FileWriter::~FileWriter() {
 	// TODO Auto-generated destructor stub
+	hw.finiWriter();
 }
 
 void FileWriter::call(string/*插件方法名*/,void *,void*,void *,void*,void *,void *,void **/*函数返回值*/)
@@ -60,7 +62,7 @@ int FileWriter::svc(void)
 				//写入文件
 				writeFile(pp);
 			}
-			pp->Reset();
+	//		pp->Reset();
 			Mem_Pool::getInstance()->freeObject(pp);
 		}
 		else
@@ -86,9 +88,10 @@ void FileWriter::writeFile(Document* p)
 	if(CharSetConv(charset,title,data_buffer,v) == 0)
 	{
 		v[0].append(".html");
-		dir+= v[0];
+		/*dir+= v[0];
 		ofstream fs(dir.c_str());
-		fs<<v[1];
+		fs<<v[1];*/
+		hw.Writehtml(v[0],v[1]);
 	}
 }
 

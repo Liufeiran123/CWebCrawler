@@ -5,6 +5,7 @@
  *      Author: lfr
  */
 
+#include "commondefine.h"
 #include "MemPool.h"
 
 Mem_Pool*Mem_Pool::mp = NULL;
@@ -23,7 +24,11 @@ Mem_Pool::~Mem_Pool() {
 
 Document *Mem_Pool::getObject()
 {
-	return (Document*)this->malloc(sizeof(Document));
+	while(getAvailable() < MEMPOOL * 0.2)
+	{
+		sleep(4);
+	}
+	return (Document*)this->calloc(sizeof(Document));
 }
 
 void Mem_Pool::freeObject(Document* a)
@@ -38,6 +43,11 @@ Mem_Pool* Mem_Pool::getInstance()
 	{
 		return mp;
 	}
-	mp = new Mem_Pool(2048);
+	mp = new Mem_Pool(MEMPOOL);
 	return mp;
+}
+
+size_t Mem_Pool::getAvailable()
+{
+	return this->pool_depth();
 }

@@ -10,6 +10,7 @@
 
 const int max_doc = 2*1024*1024;
 const int tmpdata = 1024;
+const int MEMPOOL= 1024;
 
 
 
