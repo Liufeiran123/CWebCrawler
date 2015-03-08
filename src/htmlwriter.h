@@ -9,6 +9,7 @@
 #define HTMLWRITER_H_
 
 #include <string>
+#include <fstream>
 #include <activemq/library/ActiveMQCPP.h>
 #include <decaf/lang/Thread.h>
 #include <decaf/lang/Runnable.h>
@@ -53,6 +54,18 @@ public:
 	~QfsWriter();
 private:
 	   KfsClient* mKfsClient;
+public:
+	   virtual int init();
+	   virtual void Writehtml(string title,string content);
+	   virtual void fini();
+private:
+};
+
+class LocalWriter : public htmlWriterImpl
+{
+public:
+	LocalWriter();
+	~LocalWriter();
 public:
 	   virtual int init();
 	   virtual void Writehtml(string title,string content);

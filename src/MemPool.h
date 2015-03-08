@@ -23,6 +23,7 @@ public:
 	void freeObject(Document* a);
 	static Mem_Pool *getInstance();
 	size_t getAvailable();
+	void freeMemPool();
 };
 
 #endif /* MEMPOOL_H_ */

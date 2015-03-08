@@ -7,7 +7,7 @@
 
 #include "FileWriter.h"
 
-FileWriter::FileWriter() {
+FileWriter::FileWriter():isstop(true) {
 	// TODO Auto-generated constructor stub
 	hw.InitWriter();
 
@@ -25,6 +25,7 @@ void FileWriter::call(string/*插件方法名*/,void *,void*,void *,void*,void *
 
 int FileWriter::start()
 {
+	isstop = false;
 	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
 	{
 // 		ACE_ERROR_RETURN ((LM_ERROR,
@@ -39,6 +40,8 @@ int FileWriter::start()
 
 int FileWriter::stop()
 {
+	isstop = true;
+	this->wait();
 	return 0;
 }
 
@@ -46,7 +49,7 @@ int FileWriter::svc(void)
 {
 	Document *pp;
 	char text[max_doc];
-	while(1)
+	while(!isstop)
 	{
 		bool retval;
 		MessageBus::getInstance()->call(11,"isEmpty",NULL,NULL,NULL,NULL,NULL,&retval,NULL);

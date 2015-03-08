@@ -51,3 +51,7 @@ size_t Mem_Pool::getAvailable()
 {
 	return this->pool_depth();
 }
+void Mem_Pool::freeMemPool()
+{
+	delete this;
+}

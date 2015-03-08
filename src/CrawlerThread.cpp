@@ -7,7 +7,7 @@
 
 #include "CrawlerThread.h"
 
-Crawler_Thread::Crawler_Thread(int id):value(1),identify(id) {
+Crawler_Thread::Crawler_Thread(int id):value(1),identify(id),isstop(true) {
 	// TODO Auto-generated constructor stub
 	 pthread_mutex_init(&count_lock, NULL);
 	 pthread_cond_init(&count_nonzero, NULL);
@@ -41,6 +41,7 @@ void Crawler_Thread::call(string a,void * b,void* c,void *d,void*e,void *f,void 
 int Crawler_Thread::start()
 {
 	//printf("ldksks\n");
+	isstop = false;
 	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
 	{
 // 		ACE_ERROR_RETURN ((LM_ERROR,
@@ -59,13 +60,14 @@ int Crawler_Thread::start()
 
 int Crawler_Thread::stop()
 {
-
+	isstop = true;
+	this->wait();
 	return 0;
 }
 
 int Crawler_Thread::svc(void)
 {
-		while(1)
+		while(!isstop)
 		{
 		//从URL队列中提取URL
 			if(URL_Queue_Singleton::instance()->isEmpty() !=0 )

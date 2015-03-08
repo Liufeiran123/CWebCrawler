@@ -56,6 +56,7 @@ public:
 private:
 		//int CharSetConv(string &charset,string &title,string &content,vector<string> &v);  //转换到UTF-8
 		//const char *DetectEncoding();
+		bool isstop;
 };
 
 #endif /* HTMLPARSER_H_ */

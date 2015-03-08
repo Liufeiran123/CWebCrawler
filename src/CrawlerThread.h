@@ -36,6 +36,8 @@ private:
 
 	pthread_mutex_t count_lock;
 	pthread_cond_t count_nonzero;
+
+	bool isstop;
 };
 
 #endif /* CRAWLERTHREAD_H_ */

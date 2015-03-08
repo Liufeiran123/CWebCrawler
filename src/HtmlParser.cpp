@@ -15,7 +15,7 @@
 
 using namespace std;
 
-HtmlParser::HtmlParser():uf(new ImageURLFIlter()){
+HtmlParser::HtmlParser():uf(new ImageURLFIlter()),isstop(true){
 	// TODO Auto-generated constructor stub
 	//hw.InitWriter();
 }
@@ -33,6 +33,7 @@ void HtmlParser::call(string/*插件方法名*/,void *,void*,void *,void*,void *
 
 int HtmlParser::start()
 {
+	isstop = false;
 	if(this->activate(THR_NEW_LWP | THR_JOINABLE, 1) == -1)
 	{
 // 		ACE_ERROR_RETURN ((LM_ERROR,
@@ -47,6 +48,8 @@ int HtmlParser::start()
 
 int HtmlParser::stop()
 {
+	isstop = true;
+	this->wait();
 	return 0;
 }
 
@@ -260,7 +263,7 @@ int HtmlParser::svc(void)
 	Document *pp;
 	char text[max_doc];
 
-	while(1)
+	while(!isstop)
 	{
 		bool retval;
 		MessageBus::getInstance()->call(3,"isEmpty",NULL,NULL,NULL,NULL,NULL,&retval,NULL);

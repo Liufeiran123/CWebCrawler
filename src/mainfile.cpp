@@ -6,6 +6,7 @@
  *      Author: lfr
  */
 #include <stdio.h>
+#include <boost/filesystem.hpp>
 #include "ace/Reactor.h"
 #include "ace/Dev_Poll_Reactor.h"
 #include "CrawlerEntity.h"
@@ -14,10 +15,14 @@
 #include "CrawlerThread.h"
 #include "DBManager.h"
 
+using namespace boost::filesystem;
 
 int main()
 {
 	//删除数据库文件
+	remove("/home/lfr/workspace3/crawler/crawlerurl.db");
+	remove("/home/lfr/workspace3/crawler/urlq.db");
+
 
 	ACE_Dev_Poll_Reactor * reactor_impl;
 	ACE_Reactor *reactor;
@@ -26,30 +31,29 @@ int main()
 	ACE_NEW_RETURN(reactor, ACE_Reactor(reactor_impl, 1), -1);
 	ACE_Reactor::instance(reactor);
 
-	TP_Task tp(1);
+	TP_Task tp;
 	tp.start();
 
-	//Crawler_Thread *ce1 = new Crawler_Thread();
-	//ce1->start();
+
 	CrawlerEntity ce;
 	ce.InitURL("/home/lfr/workspace3/crawler/Debug/initurl");
 	ce.StartEntity();
 
-/*	Crawler_Thread *ct = new Crawler_Thread;
-	Fetcher *fe = new Fetcher;
-	DocQueue *dq = new DocQueue;
-	HtmlParser* hp = new HtmlParser;
+	//sleep(3600);
 
+		int a;
+		scanf("%d",&a);
 
-	MessageBus::getInstance()->add(1,dynamic_cast<MessageComponent*>(ct));
-	MessageBus::getInstance()->add(2,dynamic_cast<MessageComponent*>(fe));
-	MessageBus::getInstance()->add(3,dynamic_cast<MessageComponent*>(dq));
-	MessageBus::getInstance()->add(4,dynamic_cast<MessageComponent*>(hp));
+	ce.StopEntity();
+	tp.stop();
+	Mem_Pool::getInstance()->freeMemPool();
+	DbManager_Singleton::close();
+	URL_Queue_Singleton::close();
 
-	ct->start();
-	hp->start();*/
-	int a;
-	scanf("%d",&a);
+	delete reactor;
+
+/*	int a;
+	scanf("%d",&a);*/
+
 	return 0;
-//	sleep(120);
 }

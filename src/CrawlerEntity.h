@@ -34,6 +34,7 @@ private:
 	URLTest *ut;
 public:
 	void StartEntity();
+	void StopEntity();
 	void InitURL(string filename);
 
 };

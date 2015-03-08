@@ -31,6 +31,7 @@ public:
 private:
 	  string data_buffer;  //html文件内容
 	  htmlwriter<QfsWriter> hw;
+//	  htmlwriter<LocalWriter> hw;
 public:
 		int start();
 		int stop();
@@ -39,6 +40,9 @@ public:
 public:
 		void writeFile(Document*);
 		int CharSetConv(string &charset,string &title,string &content,vector<string> &v);  //转换到UTF-8
+private:
+		bool isstop;
+
 };
 
 #endif /* FILEWRITER_H_ */

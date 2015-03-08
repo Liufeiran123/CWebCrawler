@@ -36,6 +36,7 @@ string CharsetConverter::Convert(iconv_t cd,const string &input)
 		int e = errno;
 		if((size_t)-1 == ret )
 		{
+			delete [] outbuf_start;
 			return string();
 		}
 		string out(outbuf_start, outbuf_len - outbytesleft);

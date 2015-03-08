@@ -1,5 +1,396 @@
-src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
- /home/lfr/ACE_wrappers/ace/pre.h \
+src/mainfile.d: ../src/mainfile.cpp \
+ /home/lfr/boost_1_57_0/build/include/boost/filesystem.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/filesystem/config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/user.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/select_compiler_config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/compiler/gcc.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/select_stdlib_config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/stdlib/libstdcpp3.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/select_platform_config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/platform/linux.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/posix_features.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/suffix.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/system/api_config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/detail/workaround.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/auto_link.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/filesystem/path.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/filesystem/path_traits.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/utility/enable_if.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/core/enable_if.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_array.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/bool_trait_def.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/template_arity_spec.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/int.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/int_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/adl_barrier.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/adl.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/msvc.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/intel.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/gcc.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/workaround.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/nttp_decl.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/nttp.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/integral_wrapper.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c_tag.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/static_constant.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/static_cast.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/cat.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/config/config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/template_arity_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/params.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/preprocessor.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/comma_if.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/punctuation/comma_if.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/if.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/iif.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/bool.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/empty.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/punctuation/comma.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/repeat.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/repetition/repeat.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/debug/error.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/detail/auto_rec.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/eat.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/inc.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/inc.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/lambda.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/ttp.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/ctps.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/overload_resolution.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/integral_constant.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/bool.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/bool_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/lambda_support.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/bool_trait_undef.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/decay.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_function.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_reference.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_lvalue_reference.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_rvalue_reference.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/ice.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/yes_no_type.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_or.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_and.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_not.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_eq.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/false_result.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/is_function_ptr_helper.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_bounds.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/type_trait_def.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/type_trait_undef.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/add_pointer.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_reference.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/eval_if.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/if.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/value_wknd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/integral.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/eti.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/na_spec.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/lambda_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/void_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/na.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/na_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/lambda_arity_param.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/arity.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/dtp.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/enum.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/limits/arity.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/and.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/bitand.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/identity.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/identity.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/empty.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/add.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/dec.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/while.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/fold_left.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/detail/fold_left.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/expr_iif.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/adt.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/detail/is_binary.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/detail/check.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/compl.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/fold_right.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/detail/fold_right.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/reverse.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/detail/while.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/elem.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/expand.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/overload.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/variadic/size.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/rem.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/detail/is_single_return.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/variadic/elem.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/sub.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/identity.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/system/error_code.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/system/config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/platform.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/platform/mingw.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/version_number.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/make.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/detail/test.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/platform/windows_desktop.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/windows.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/platform/windows_store.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/platform/windows_phone.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/platform/windows_runtime.h \
+ /home/lfr/boost_1_57_0/build/include/boost/cstdint.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/assert.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/noncopyable.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/core/noncopyable.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/cerrno.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/abi_prefix.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/abi_suffix.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/system/system_error.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator/iterator_facade.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator/interoperable.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/or.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/use_preprocessed.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/nested_type_wknd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/include_preprocessed.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/compiler.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/stringize.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/or.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_convertible.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/intrinsics.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_same.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_volatile.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/cv_traits_impl.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_arithmetic.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_integral.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_float.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_void.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_abstract.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/add_lvalue_reference.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/add_reference.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/add_rvalue_reference.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator/detail/config_def.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator/detail/config_undef.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator/iterator_traits.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/detail/iterator.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator/iterator_categories.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/placeholders.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/arg.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/arg_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/na_assert.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/assert.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/not.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/yes_no.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/arrays.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/gpu.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/pp_counter.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/arity_spec.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/arg_typedef.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/placeholders.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/static_assert.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator/detail/facade_iterator_category.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/and.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/and.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_const.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/detail/indirect_traits.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_pointer.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_member_pointer.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_member_function_pointer.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_cv.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_class.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_pointer.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/iterator/detail/enable_if.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/utility/addressof.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/add_const.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_const.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_pod.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_scalar.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_enum.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/always.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/default_params.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/apply.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/apply_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/apply_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/apply_wrap.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/has_apply.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/has_xxx.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/type_wrapper.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/has_xxx.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/msvc_typename.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/array/elem.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/array/data.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/array/size.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/repetition/enum_params.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/preprocessor/repetition/enum_trailing_params.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/has_apply.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/msvc_never_true.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/lambda.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/bind.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/bind_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/bind.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/next.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/next_prior.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/common_name_wknd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/protect.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/bind.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/full_lambda.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/quote.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/void.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/has_type.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/bcc.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/template_arity.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/template_arity.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/full_lambda.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/apply.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/shared_ptr.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/shared_ptr.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/config/no_tr1/memory.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/checked_delete.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/core/checked_delete.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/shared_count.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/bad_weak_ptr.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_counted_base.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_has_sync.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/detail/sp_typeinfo.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/core/typeinfo.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/core/demangle.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_counted_impl.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_convertible.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_nullptr_t.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/spinlock_pool.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/spinlock.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/spinlock_sync.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/yield_k.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/predef.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/language.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/language/stdc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/language/stdcpp.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/language/objc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/alpha.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/arm.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/blackfin.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/convex.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/ia64.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/m68k.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/mips.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/parisc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/ppc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/pyramid.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/rs6k.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/sparc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/superh.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/sys370.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/sys390.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/x86.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/x86/32.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/x86/64.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/architecture/z.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/borland.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/clang.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/comeau.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/compaq.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/diab.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/digitalmars.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/dignus.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/edg.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/ekopath.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/gcc_xml.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/gcc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/detail/comp_detected.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/greenhills.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/hp_acc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/iar.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/ibm.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/intel.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/kai.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/llvm.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/metaware.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/metrowerks.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/microtec.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/mpw.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/palm.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/pgi.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/sgi_mipspro.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/sunpro.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/tendra.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/visualc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/compiler/watcom.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/c.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/c/_prefix.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/detail/_cassert.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/c/gnu.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/c/uc.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/c/vms.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/c/zos.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/_prefix.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/detail/_exception.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/cxx.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/dinkumware.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/libcomo.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/modena.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/msl.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/roguewave.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/sgi.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/stdcpp3.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/stlport.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/library/std/vacpp.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/aix.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/amigaos.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/android.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/beos.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/macos.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/ios.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/bsdi.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/dragonfly.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/free.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/open.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/net.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/cygwin.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/hpux.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/irix.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/linux.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/detail/os_detected.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/os400.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/qnxnto.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/solaris.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/unix.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/os/vms.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/other.h \
+ /home/lfr/boost_1_57_0/build/include/boost/predef/other/endian.h \
+ /home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/operator_bool.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/io/detail/quoted_manip.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/io/ios_state.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/io_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/functional/hash_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/functional/hash/hash_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/filesystem/operations.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/detail/scoped_enum_emulation.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/core/scoped_enum.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/detail/bitmask.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/range/mutable_iterator.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/range/config.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/range/range_fwd.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/range/detail/extract_optional_type.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/range/detail/msvc_has_iterator_workaround.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/range/const_iterator.hpp \
+ /home/lfr/boost_1_57_0/build/include/boost/filesystem/convenience.hpp \
+ /home/lfr/ACE_wrappers/ace/Reactor.h /home/lfr/ACE_wrappers/ace/pre.h \
  /home/lfr/ACE_wrappers/ace/Timer_Queuefwd.h \
  /home/lfr/ACE_wrappers/ace/config-all.h \
  /home/lfr/ACE_wrappers/ace/config-lite.h \
@@ -502,20 +893,8 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset/dynamic_bitset.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset/config.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/user.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/select_compiler_config.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/compiler/gcc.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/select_stdlib_config.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/stdlib/libstdcpp3.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/select_platform_config.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/platform/linux.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/posix_features.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/config/suffix.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/detail/workaround.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset_fwd.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/detail/dynamic_bitset.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/detail/iterator.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/move/move.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/move/detail/config_begin.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/move/utility.hpp \
@@ -523,102 +902,19 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
  /home/lfr/boost_1_57_0/build/include/boost/move/core.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/move/detail/meta_utils.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/move/detail/config_end.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/static_assert.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/move/traits.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_trivial_destructor.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/config.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/intrinsics.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_same.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/bool_trait_def.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/template_arity_spec.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/int.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/int_fwd.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/adl_barrier.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/adl.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/msvc.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/intel.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/gcc.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/workaround.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/nttp_decl.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/nttp.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/integral_wrapper.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c_tag.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/static_constant.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/static_cast.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/cat.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/config/config.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/template_arity_fwd.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/params.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/preprocessor.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/comma_if.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/punctuation/comma_if.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/if.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/iif.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/bool.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/empty.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/punctuation/comma.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/repeat.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/repetition/repeat.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/debug/error.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/detail/auto_rec.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/eat.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/inc.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/inc.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/lambda.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/ttp.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/ctps.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/overload_resolution.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/integral_constant.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/bool.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/bool_fwd.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c_fwd.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/lambda_support.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/bool_trait_undef.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_reference.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_lvalue_reference.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_rvalue_reference.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/ice.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/yes_no_type.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_or.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_and.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_not.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_eq.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_volatile.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/cv_traits_impl.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_pod.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_void.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_scalar.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_arithmetic.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_integral.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_float.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_enum.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_pointer.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_member_pointer.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_member_function_pointer.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_cv.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/type_trait_def.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/type_trait_undef.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_nothrow_move_constructible.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_trivial_move_constructor.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_nothrow_copy.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_trivial_copy.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_array.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/utility/declval.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/add_rvalue_reference.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/utility/enable_if.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/core/enable_if.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_nothrow_move_assignable.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_trivial_move_assign.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_const.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_nothrow_assign.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_trivial_assign.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_copy_constructible.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_base_and_derived.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/type_traits/add_reference.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/noncopyable.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/core/noncopyable.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/move/iterator.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/move/algorithm.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/detail/no_exceptions_support.hpp \
@@ -627,12 +923,791 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
  /home/lfr/boost_1_57_0/build/include/boost/pending/lowest_bit.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/pending/integer_log2.hpp \
  /home/lfr/boost_1_57_0/build/include/boost/integer/integer_log2.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/utility/addressof.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp \
- /home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp \
  ../src/FileWriter.h ../src/CharsetConverter.h ../src/TP_Task.h \
  ../src/DBManager.h /home/lfr/berkeleydb/include/db_cxx.h \
  /home/lfr/berkeleydb/include/db.h
+
+/home/lfr/boost_1_57_0/build/include/boost/filesystem.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/filesystem/config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/user.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/select_compiler_config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/compiler/gcc.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/select_stdlib_config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/stdlib/libstdcpp3.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/select_platform_config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/platform/linux.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/posix_features.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/suffix.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/system/api_config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/detail/workaround.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/auto_link.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/filesystem/path.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/filesystem/path_traits.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/utility/enable_if.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/core/enable_if.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_array.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/bool_trait_def.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/template_arity_spec.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/int.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/int_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/adl_barrier.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/adl.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/msvc.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/intel.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/gcc.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/workaround.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/nttp_decl.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/nttp.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/integral_wrapper.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c_tag.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/static_constant.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/static_cast.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/cat.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/config/config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/template_arity_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/params.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/preprocessor.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/comma_if.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/punctuation/comma_if.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/if.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/iif.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/bool.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/empty.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/punctuation/comma.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/repeat.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/repetition/repeat.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/debug/error.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/detail/auto_rec.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/eat.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/inc.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/inc.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/lambda.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/ttp.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/ctps.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/overload_resolution.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/integral_constant.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/bool.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/bool_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/lambda_support.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/bool_trait_undef.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/decay.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_function.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_reference.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_lvalue_reference.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_rvalue_reference.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/ice.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/yes_no_type.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_or.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_and.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_not.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_eq.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/false_result.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/is_function_ptr_helper.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_bounds.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/type_trait_def.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/type_trait_undef.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/add_pointer.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_reference.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/eval_if.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/if.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/value_wknd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/integral.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/eti.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/na_spec.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/lambda_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/void_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/na.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/na_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/lambda_arity_param.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/arity.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/dtp.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/enum.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/def_params_tail.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/limits/arity.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/and.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/bitand.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/identity.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/identity.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/empty.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/add.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/dec.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/while.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/fold_left.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/detail/fold_left.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/expr_iif.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/adt.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/detail/is_binary.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/detail/check.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/compl.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/fold_right.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/detail/fold_right.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/list/reverse.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/detail/while.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/elem.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/expand.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/overload.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/variadic/size.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/rem.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/detail/is_single_return.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/variadic/elem.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/sub.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/identity.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/system/error_code.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/system/config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/platform.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/platform/mingw.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/version_number.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/make.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/detail/test.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/platform/windows_desktop.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/windows.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/platform/windows_store.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/platform/windows_phone.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/platform/windows_runtime.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/cstdint.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/assert.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/noncopyable.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/core/noncopyable.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/cerrno.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/abi_prefix.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/abi_suffix.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/system/system_error.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator/iterator_facade.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator/interoperable.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/or.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/use_preprocessed.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/nested_type_wknd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/include_preprocessed.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/compiler.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/stringize.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/or.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_convertible.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/intrinsics.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_same.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_volatile.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/cv_traits_impl.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_arithmetic.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_integral.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_float.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_void.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_abstract.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/add_lvalue_reference.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/add_reference.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/add_rvalue_reference.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator/detail/config_def.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator/detail/config_undef.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator/iterator_traits.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/detail/iterator.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator/iterator_categories.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/placeholders.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/arg.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/arg_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/na_assert.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/assert.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/not.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/yes_no.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/arrays.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/gpu.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/pp_counter.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/arity_spec.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/arg_typedef.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/placeholders.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/static_assert.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator/detail/facade_iterator_category.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/and.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/and.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_const.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/detail/indirect_traits.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_pointer.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_member_pointer.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_member_function_pointer.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_cv.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_class.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_pointer.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/iterator/detail/enable_if.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/utility/addressof.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/add_const.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_const.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_pod.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_scalar.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_enum.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/always.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/default_params.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/apply.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/apply_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/apply_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/apply_wrap.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/has_apply.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/has_xxx.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/type_wrapper.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/has_xxx.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/msvc_typename.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/array/elem.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/array/data.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/array/size.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/repetition/enum_params.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/preprocessor/repetition/enum_trailing_params.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/has_apply.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/msvc_never_true.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/lambda.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/bind.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/bind_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/bind.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/next.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/next_prior.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/common_name_wknd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/protect.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/bind.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/full_lambda.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/quote.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/void.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/has_type.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/bcc.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/template_arity.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/template_arity.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/full_lambda.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessed/gcc/apply.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/shared_ptr.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/shared_ptr.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/config/no_tr1/memory.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/checked_delete.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/core/checked_delete.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/shared_count.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/bad_weak_ptr.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_counted_base.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_has_sync.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/detail/sp_typeinfo.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/core/typeinfo.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/core/demangle.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_counted_impl.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_convertible.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/sp_nullptr_t.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/spinlock_pool.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/spinlock.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/spinlock_sync.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/yield_k.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/language.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/language/stdc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/language/stdcpp.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/language/objc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/alpha.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/arm.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/blackfin.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/convex.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/ia64.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/m68k.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/mips.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/parisc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/ppc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/pyramid.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/rs6k.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/sparc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/superh.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/sys370.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/sys390.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/x86.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/x86/32.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/x86/64.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/architecture/z.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/borland.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/clang.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/comeau.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/compaq.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/diab.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/digitalmars.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/dignus.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/edg.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/ekopath.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/gcc_xml.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/gcc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/detail/comp_detected.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/greenhills.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/hp_acc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/iar.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/ibm.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/intel.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/kai.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/llvm.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/metaware.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/metrowerks.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/microtec.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/mpw.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/palm.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/pgi.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/sgi_mipspro.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/sunpro.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/tendra.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/visualc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/compiler/watcom.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/c.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/c/_prefix.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/detail/_cassert.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/c/gnu.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/c/uc.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/c/vms.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/c/zos.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/_prefix.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/detail/_exception.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/cxx.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/dinkumware.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/libcomo.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/modena.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/msl.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/roguewave.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/sgi.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/stdcpp3.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/stlport.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/library/std/vacpp.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/aix.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/amigaos.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/android.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/beos.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/macos.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/ios.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/bsdi.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/dragonfly.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/free.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/open.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/bsd/net.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/cygwin.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/hpux.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/irix.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/linux.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/detail/os_detected.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/os400.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/qnxnto.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/solaris.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/unix.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/os/vms.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/other.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/predef/other/endian.h:
+
+/home/lfr/boost_1_57_0/build/include/boost/smart_ptr/detail/operator_bool.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/io/detail/quoted_manip.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/io/ios_state.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/io_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/functional/hash_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/functional/hash/hash_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/filesystem/operations.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/detail/scoped_enum_emulation.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/core/scoped_enum.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/detail/bitmask.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/range/mutable_iterator.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/range/config.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/range/range_fwd.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/range/detail/extract_optional_type.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/range/detail/msvc_has_iterator_workaround.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/range/const_iterator.hpp:
+
+/home/lfr/boost_1_57_0/build/include/boost/filesystem/convenience.hpp:
 
 /home/lfr/ACE_wrappers/ace/Reactor.h:
 
@@ -1684,33 +2759,9 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
 
 /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset/config.hpp:
 
-/home/lfr/boost_1_57_0/build/include/boost/config.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/user.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/select_compiler_config.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/compiler/gcc.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/select_stdlib_config.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/stdlib/libstdcpp3.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/select_platform_config.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/platform/linux.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/posix_features.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/config/suffix.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/detail/workaround.hpp:
-
 /home/lfr/boost_1_57_0/build/include/boost/dynamic_bitset_fwd.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/detail/dynamic_bitset.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/detail/iterator.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/move/move.hpp:
 
@@ -1726,159 +2777,9 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
 
 /home/lfr/boost_1_57_0/build/include/boost/move/detail/config_end.hpp:
 
-/home/lfr/boost_1_57_0/build/include/boost/static_assert.hpp:
-
 /home/lfr/boost_1_57_0/build/include/boost/move/traits.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_trivial_destructor.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/config.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/intrinsics.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_same.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/bool_trait_def.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/template_arity_spec.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/int.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/int_fwd.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/adl_barrier.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/adl.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/msvc.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/intel.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/gcc.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/workaround.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/nttp_decl.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/nttp.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/integral_wrapper.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c_tag.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/static_constant.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/static_cast.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/cat.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/config/config.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/template_arity_fwd.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/preprocessor/params.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/preprocessor.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/comma_if.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/punctuation/comma_if.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/if.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/control/iif.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/logical/bool.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/facilities/empty.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/punctuation/comma.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/repeat.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/repetition/repeat.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/debug/error.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/detail/auto_rec.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/tuple/eat.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/inc.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/preprocessor/arithmetic/inc.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/lambda.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/ttp.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/ctps.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/config/overload_resolution.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/integral_constant.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/bool.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/bool_fwd.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/integral_c_fwd.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/mpl/aux_/lambda_support.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/bool_trait_undef.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_reference.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_lvalue_reference.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_rvalue_reference.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/ice.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/yes_no_type.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_or.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_and.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_not.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/ice_eq.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_volatile.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/cv_traits_impl.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_pod.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_void.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_scalar.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_arithmetic.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_integral.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_float.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_enum.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_pointer.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_member_pointer.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_member_function_pointer.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/remove_cv.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/type_trait_def.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/detail/type_trait_undef.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_nothrow_move_constructible.hpp:
 
@@ -1888,21 +2789,11 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
 
 /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_trivial_copy.hpp:
 
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_array.hpp:
-
 /home/lfr/boost_1_57_0/build/include/boost/utility/declval.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/add_rvalue_reference.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/utility/enable_if.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/core/enable_if.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_nothrow_move_assignable.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_trivial_move_assign.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/is_const.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/type_traits/has_nothrow_assign.hpp:
 
@@ -1911,12 +2802,6 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
 /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_copy_constructible.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/type_traits/is_base_and_derived.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/type_traits/add_reference.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/noncopyable.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/core/noncopyable.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/move/iterator.hpp:
 
@@ -1933,12 +2818,6 @@ src/mainfile.d: ../src/mainfile.cpp /home/lfr/ACE_wrappers/ace/Reactor.h \
 /home/lfr/boost_1_57_0/build/include/boost/pending/integer_log2.hpp:
 
 /home/lfr/boost_1_57_0/build/include/boost/integer/integer_log2.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/utility/addressof.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/core/addressof.hpp:
-
-/home/lfr/boost_1_57_0/build/include/boost/throw_exception.hpp:
 
 ../src/FileWriter.h:
 

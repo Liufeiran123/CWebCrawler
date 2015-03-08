@@ -135,3 +135,28 @@ void htmlwriter<implT>::Writehtml(string url,string title,string content)
         producer->send( message );
 }
 */
+
+LocalWriter::LocalWriter()
+{
+
+}
+LocalWriter::~LocalWriter()
+{
+
+}
+
+int LocalWriter::init()
+{
+	return 0;
+}
+void LocalWriter::Writehtml(string title,string content)
+{
+	string filename = "/home/lfr/crawlerData/";
+	filename += title;
+	ofstream fs(filename.c_str());
+	fs<<content;
+}
+void LocalWriter::fini()
+{
+
+}

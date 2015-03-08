@@ -52,6 +52,20 @@ CrawlerEntity::CrawlerEntity() {
 
 CrawlerEntity::~CrawlerEntity() {
 	// TODO Auto-generated destructor stub
+
+	delete ct0;
+	delete ct1;
+	delete ct2;
+	delete ct3;
+	delete ct4;
+	delete ct5;
+
+	delete fe;
+	delete hp;
+	delete fw;
+	delete dq;
+	delete forwrite;
+	delete ut;
 }
 
 
@@ -62,13 +76,28 @@ void CrawlerEntity::StartEntity()
 	ct2->start();
 	ct3->start();
 	ct4->start();
-	ct5->start();
+//	ct5->start();
 	hp->start();
 	fw->start();
+}
+void CrawlerEntity::StopEntity()
+{
+	ct0->stop();
+    ct1->stop();
+	ct2->stop();
+    ct3->stop();
+    ct4->stop();
+	hp->stop();
+	fw->stop();
+
 }
 
 void CrawlerEntity::InitURL(string filename)
 {
+	//是否已经抓取
+//	ifstream dbifs;
+//	dbifs.open()
+
 	ifstream ifs(filename.c_str());
 	string s;
 	while(getline(ifs,s))
